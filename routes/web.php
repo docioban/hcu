@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('importView', 'ImportController@importExportView');
+Route::post('import', 'ImportController@import')->name('import');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
