@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
 
-                <div class="col-md-4" align='center'>
+                <div class="" align='center'>
                     <form action="/search" method="GET">
                         <div class="input-group">
                             <input type="search" name="search" class="form-control">
@@ -24,7 +24,6 @@
                         </div>
                     @endif
 
-                    You are logged in!
                 </div>
             </div>
         </div>

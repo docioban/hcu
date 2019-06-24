@@ -19,8 +19,6 @@ Route::get('importView', 'ImportController@importExportView');
 
 Route::post('import', 'ImportController@import')->name('import');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/search', 'HomeController@search');
