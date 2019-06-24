@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Mishanea',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('admin'),
+            'api_token' => Str::random(60),
         ]);
     }
 }

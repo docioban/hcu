@@ -5,7 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+
+                <div class="col-md-4" align='center'>
+                    <form action="/search" method="GET">
+                        <div class="input-group">
+                            <input type="search" name="search" class="form-control">
+                            <span class="input-group-prepend">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
