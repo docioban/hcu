@@ -36,7 +36,7 @@ class HomeController extends Controller
     public function search(Request $request)
     {
         $search = $request->get('search');
-        $instituties = DB::table('instituties')->where('nume', 'like', '%' . $search . '%')->paginate(5);
+        $instituties = DB::table('instituties')->where('name', 'like', '%' . $search . '%')->paginate(5);
         //return view('home', ['institutii' => $instituties]);
         return response()->json($instituties);
     }

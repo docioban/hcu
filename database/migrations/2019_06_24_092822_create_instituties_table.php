@@ -15,8 +15,8 @@ class CreateInstitutiesTable extends Migration
     {
         Schema::create('instituties', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nume');
-            $table->integer('sectie');
+            $table->string('name');
+            $table->integer('section');
             $table->timestamps();
         });
     }
