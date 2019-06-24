@@ -24,7 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $arr_ip = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
+
+        //dd($arr_ip);
+
+        //return $arr_ip;S
         return view('home');
+        
     }
 
     public function search(Request $request)

@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
 
-                <div class="" align='center'>
+                <div class="mx-5" align='center'>
                     <form action="/search" method="GET">
                         <div class="input-group">
                             <input type="search" name="search" class="form-control">
