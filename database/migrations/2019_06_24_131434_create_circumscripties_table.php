@@ -13,7 +13,7 @@ class CreateCircumscriptiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('circumscripties', function (Blueprint $table) {
+        Schema::create('circumscriptions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nume');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateCircumscriptiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('circumscripties');
+        Schema::dropIfExists('circumscriptions');
     }
 }

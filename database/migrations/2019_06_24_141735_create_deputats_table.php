@@ -15,13 +15,15 @@ class CreateDeputatsTable extends Migration
     {
         Schema::create('deputats', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('circumscription_id');
             $table->string('name');
             $table->string('date');
             $table->string('location');
             $table->string('civil_state');
             $table->string('function');
             $table->string('studies');
-            $table->string('name');
+            $table->string('partid');
+            $table->longText('description');          
             $table->timestamps();
         });
     }
