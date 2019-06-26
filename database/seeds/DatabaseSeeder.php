@@ -11,6 +11,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call([
+            LanguageSeeder::class,
+            PartySeeder::class,
+            ConstituenciesSeeder::class,
+            NamesConstituenciesSeeder::class,
+            CandidateSeeder::class,
+            PostsSeeder::class,
+            PostContentSeeder::class,
+            DistrictSeeder::class,
+            LocalitySeeder::class,
+            SectionSeeder::class,
+            DistrictConstituenciesSeeder::class,
+            LanguageDistrictSeeder::class,
+            LanguageLocalitySeeder::class
+        ]);
         // $this->call(UsersTableSeeder::class);
         DB::table('users')->insert([
             'name' => 'Mishanea',
@@ -19,7 +34,7 @@ class DatabaseSeeder extends Seeder
             'api_token' => Str::random(60),
         ]);
 
-        DB::table('circumscriptions')->insert([
+        DB::table('circumscripties')->insert([
             ['nume' => 'Chișinau'],
             ['nume' => 'Briceni, Ocnița'],
             ['nume' => 'Ocnița, Dondușeni'],
@@ -69,21 +84,9 @@ class DatabaseSeeder extends Seeder
             ['nume' => 'UTA Găgăuzia 2'],
             ['nume' => 'Transnistria'],
             ['nume' => 'Transnistria - Tiraspol'],
-            ['nume' => 'Zona de Est'],
+            ['nume' => 'Zona de West'],
             ['nume' => 'Zona de West'],
             ['nume' => 'Alte țari și zone al lumii'],
-        ]);
-
-        DB::table('deputats')->insert([
-            'circumscription_id' => 1,
-            'name' => 'Ghita',
-            'date' => '19-04-2019',
-            'location' => 'Everest',
-            'civil_state' => 'casatorit',
-            'function' => 'deputat',
-            'studies' => '9 clase',
-            'partid' => 'PDM',
-            'description' => 'o vindut mers s class cu 50 mii de lei'
         ]);
     }
 }

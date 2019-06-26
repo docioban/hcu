@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCircumscriptiesTable extends Migration
+class NamesLocality extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateCircumscriptiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('circumscriptions', function (Blueprint $table) {
+        Schema::create('names_locality', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nume');
-            $table->timestamps();
+            $table->string('name');
+            $table->unsignedBigInteger('language_id');
+
+            $table->foreign('language_id')->references('id')->on('language');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateCircumscriptiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('circumscriptions');
+        Schema::dropIfExists('names_locality');
     }
 }
