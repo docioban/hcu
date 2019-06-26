@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\circumscription;
 
 class HomeController extends Controller
 {
@@ -24,13 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $arr_ip = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
+        //$arr_ip = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
 
         //dd($arr_ip);
 
-        //return $arr_ip;S
+        //return $arr_ip;
+        
         return view('home');
         
+    }
+
+    public function welcome() {
+        return view('welcome');
     }
 
     public function search(Request $request)

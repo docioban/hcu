@@ -12,13 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(app()->getLocale());
 });
 
-Route::get('importView', 'ImportController@importExportView');
+Route::group([
+    'prefix' => '{locale}', 
+    'where' => ['locale' => '[a-zA-Z]{2}'], 
+    'middleware' => 'setlocale'], function() {
 
-Route::post('import', 'ImportController@import')->name('import');
+    Route::get('/', 'HomeController@welcome')->name('welcome');
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('importView', 'ImportController@importExportView');
 
-Route::get('/search', 'HomeController@search');
+    Route::post('import', 'ImportController@import')->name('import');
+
+    Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::get('/search', 'HomeController@search');
+
+    Auth::routes();
+});
