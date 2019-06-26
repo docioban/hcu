@@ -11,11 +11,16 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '9c67151ae59aff4788964ce8eb2a0f43' => __DIR__ . '/..' . '/clue/stream-filter/src/functions_include.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '8cff32064859f4559445b89279f3199c' => __DIR__ . '/..' . '/php-http/message/src/filters.php',
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        'a16312f9300fed4a097923eacb0ba814' => __DIR__ . '/..' . '/igorw/get-in/src/get_in.php',
         'abede361264e2ae69ec1eee813a101af' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/abs.php',
         '21a5860fbef5be28db5ddfbc3cca67c4' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/acos.php',
         '1546e3f9d127f2a9bb2d1b6c31c26ef1' => __DIR__ . '/..' . '/markbaker/complex/classes/src/functions/acosh.php',
@@ -117,6 +122,7 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\Process\\' => 26,
+            'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\Mime\\' => 23,
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
@@ -135,6 +141,8 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
+            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
             'Psr\\Container\\' => 14,
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
@@ -168,6 +176,27 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         array (
             'Illuminate\\' => 11,
         ),
+        'H' => 
+        array (
+            'Http\\Promise\\' => 13,
+            'Http\\Message\\' => 13,
+            'Http\\Factory\\Guzzle\\' => 20,
+            'Http\\Discovery\\' => 15,
+            'Http\\Client\\Curl\\' => 17,
+            'Http\\Client\\' => 12,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GoogleMaps\\' => 11,
+            'GeometryLibrary\\' => 16,
+            'Geocoder\\Provider\\GoogleMaps\\' => 29,
+            'Geocoder\\Provider\\GeoPlugin\\' => 28,
+            'Geocoder\\Provider\\Chain\\' => 24,
+            'Geocoder\\Laravel\\' => 17,
+            'Geocoder\\Http\\' => 14,
+            'Geocoder\\' => 9,
+        ),
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
@@ -192,6 +221,7 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         array (
             'Cron\\' => 5,
             'Complex\\' => 8,
+            'Clue\\StreamFilter\\' => 18,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -287,6 +317,10 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
+        'Symfony\\Component\\OptionsResolver\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/options-resolver',
+        ),
         'Symfony\\Component\\Mime\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
@@ -334,6 +368,15 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
         'Psr\\Container\\' => 
         array (
@@ -391,6 +434,67 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Http\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/promise/src',
+        ),
+        'Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/message/src',
+            1 => __DIR__ . '/..' . '/php-http/message-factory/src',
+        ),
+        'Http\\Factory\\Guzzle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/http-interop/http-factory-guzzle/src',
+        ),
+        'Http\\Discovery\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/discovery/src',
+        ),
+        'Http\\Client\\Curl\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/curl-client/src',
+        ),
+        'Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-http/httplug/src',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GoogleMaps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alexpechkarev/google-maps/src',
+        ),
+        'GeometryLibrary\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/alexpechkarev/geometry-library',
+        ),
+        'Geocoder\\Provider\\GoogleMaps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/geocoder-php/google-maps-provider',
+        ),
+        'Geocoder\\Provider\\GeoPlugin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/geocoder-php/geo-plugin-provider',
+        ),
+        'Geocoder\\Provider\\Chain\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/geocoder-php/chain-provider',
+        ),
+        'Geocoder\\Laravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/toin0u/geocoder-laravel/src',
+        ),
+        'Geocoder\\Http\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/geocoder-php/common-http',
+        ),
+        'Geocoder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/willdurand/geocoder',
+        ),
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
@@ -443,6 +547,10 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         array (
             0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
         ),
+        'Clue\\StreamFilter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clue/stream-filter/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -458,6 +566,13 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
     );
 
     public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'URLify' => 
+            array (
+                0 => __DIR__ . '/..' . '/jbroadway/urlify',
+            ),
+        ),
         'P' => 
         array (
             'PhpOption\\' => 
@@ -474,6 +589,13 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
             'Mockery' => 
             array (
                 0 => __DIR__ . '/..' . '/mockery/mockery/library',
+            ),
+        ),
+        'F' => 
+        array (
+            'Flynsarmy\\CsvSeeder\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/flynsarmy/csv-seeder/src',
             ),
         ),
     );
@@ -495,6 +617,7 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
+        'App\\Http\\Middleware\\SetLocale' => __DIR__ . '/../..' . '/app/Http/Middleware/SetLocale.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
@@ -506,7 +629,7 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'App\\circumscriptie' => __DIR__ . '/../..' . '/app/circumscriptie.php',
+        'App\\circumscription' => __DIR__ . '/../..' . '/app/circumscription.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -540,6 +663,8 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'Carbon\\Traits\\Units' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Units.php',
         'Carbon\\Traits\\Week' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Traits/Week.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Circumscriptii' => __DIR__ . '/../..' . '/database/seeds/Circumscriptii.php',
+        'Clue\\StreamFilter\\CallbackFilter' => __DIR__ . '/..' . '/clue/stream-filter/src/CallbackFilter.php',
         'Complex\\Complex' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Complex.php',
         'Complex\\Exception' => __DIR__ . '/..' . '/markbaker/complex/classes/src/Exception.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
@@ -1399,6 +1524,92 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
+        'Flynsarmy\\CsvSeeder\\CsvSeeder' => __DIR__ . '/..' . '/flynsarmy/csv-seeder/src/Flynsarmy/CsvSeeder/CsvSeeder.php',
+        'Flynsarmy\\CsvSeeder\\CsvSeederServiceProvider' => __DIR__ . '/..' . '/flynsarmy/csv-seeder/src/Flynsarmy/CsvSeeder/CsvSeederServiceProvider.php',
+        'Geocoder\\Assert' => __DIR__ . '/..' . '/willdurand/geocoder/Assert.php',
+        'Geocoder\\Collection' => __DIR__ . '/..' . '/willdurand/geocoder/Collection.php',
+        'Geocoder\\Dumper\\AbstractArrayDumper' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/AbstractArrayDumper.php',
+        'Geocoder\\Dumper\\AbstractDumper' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/AbstractDumper.php',
+        'Geocoder\\Dumper\\Dumper' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/Dumper.php',
+        'Geocoder\\Dumper\\GeoArray' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/GeoArray.php',
+        'Geocoder\\Dumper\\GeoJson' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/GeoJson.php',
+        'Geocoder\\Dumper\\Gpx' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/Gpx.php',
+        'Geocoder\\Dumper\\Kml' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/Kml.php',
+        'Geocoder\\Dumper\\Wkb' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/Wkb.php',
+        'Geocoder\\Dumper\\Wkt' => __DIR__ . '/..' . '/willdurand/geocoder/Dumper/Wkt.php',
+        'Geocoder\\Exception\\CollectionIsEmpty' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/CollectionIsEmpty.php',
+        'Geocoder\\Exception\\Exception' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/Exception.php',
+        'Geocoder\\Exception\\ExtensionNotLoaded' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/ExtensionNotLoaded.php',
+        'Geocoder\\Exception\\FunctionNotFound' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/FunctionNotFound.php',
+        'Geocoder\\Exception\\InvalidArgument' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/InvalidArgument.php',
+        'Geocoder\\Exception\\InvalidCredentials' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/InvalidCredentials.php',
+        'Geocoder\\Exception\\InvalidServerResponse' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/InvalidServerResponse.php',
+        'Geocoder\\Exception\\LogicException' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/LogicException.php',
+        'Geocoder\\Exception\\OutOfBounds' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/OutOfBounds.php',
+        'Geocoder\\Exception\\ProviderNotRegistered' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/ProviderNotRegistered.php',
+        'Geocoder\\Exception\\QuotaExceeded' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/QuotaExceeded.php',
+        'Geocoder\\Exception\\UnsupportedOperation' => __DIR__ . '/..' . '/willdurand/geocoder/Exception/UnsupportedOperation.php',
+        'Geocoder\\Formatter\\StringFormatter' => __DIR__ . '/..' . '/willdurand/geocoder/Formatter/StringFormatter.php',
+        'Geocoder\\Geocoder' => __DIR__ . '/..' . '/willdurand/geocoder/Geocoder.php',
+        'Geocoder\\GeocoderTrait' => __DIR__ . '/..' . '/willdurand/geocoder/GeocoderTrait.php',
+        'Geocoder\\Http\\Provider\\AbstractHttpProvider' => __DIR__ . '/..' . '/geocoder-php/common-http/Provider/AbstractHttpProvider.php',
+        'Geocoder\\Laravel\\Exceptions\\InvalidDumperException' => __DIR__ . '/..' . '/toin0u/geocoder-laravel/src/Exceptions/InvalidDumperException.php',
+        'Geocoder\\Laravel\\Facades\\Geocoder' => __DIR__ . '/..' . '/toin0u/geocoder-laravel/src/Facades/Geocoder.php',
+        'Geocoder\\Laravel\\ProviderAndDumperAggregator' => __DIR__ . '/..' . '/toin0u/geocoder-laravel/src/ProviderAndDumperAggregator.php',
+        'Geocoder\\Laravel\\Providers\\GeocoderService' => __DIR__ . '/..' . '/toin0u/geocoder-laravel/src/Providers/GeocoderService.php',
+        'Geocoder\\Location' => __DIR__ . '/..' . '/willdurand/geocoder/Location.php',
+        'Geocoder\\Model\\Address' => __DIR__ . '/..' . '/willdurand/geocoder/Model/Address.php',
+        'Geocoder\\Model\\AddressBuilder' => __DIR__ . '/..' . '/willdurand/geocoder/Model/AddressBuilder.php',
+        'Geocoder\\Model\\AddressCollection' => __DIR__ . '/..' . '/willdurand/geocoder/Model/AddressCollection.php',
+        'Geocoder\\Model\\AdminLevel' => __DIR__ . '/..' . '/willdurand/geocoder/Model/AdminLevel.php',
+        'Geocoder\\Model\\AdminLevelCollection' => __DIR__ . '/..' . '/willdurand/geocoder/Model/AdminLevelCollection.php',
+        'Geocoder\\Model\\Bounds' => __DIR__ . '/..' . '/willdurand/geocoder/Model/Bounds.php',
+        'Geocoder\\Model\\Coordinates' => __DIR__ . '/..' . '/willdurand/geocoder/Model/Coordinates.php',
+        'Geocoder\\Model\\Country' => __DIR__ . '/..' . '/willdurand/geocoder/Model/Country.php',
+        'Geocoder\\ProviderAggregator' => __DIR__ . '/..' . '/willdurand/geocoder/ProviderAggregator.php',
+        'Geocoder\\Provider\\AbstractProvider' => __DIR__ . '/..' . '/willdurand/geocoder/Provider/AbstractProvider.php',
+        'Geocoder\\Provider\\Chain\\Chain' => __DIR__ . '/..' . '/geocoder-php/chain-provider/Chain.php',
+        'Geocoder\\Provider\\GeoPlugin\\GeoPlugin' => __DIR__ . '/..' . '/geocoder-php/geo-plugin-provider/GeoPlugin.php',
+        'Geocoder\\Provider\\GoogleMaps\\GoogleMaps' => __DIR__ . '/..' . '/geocoder-php/google-maps-provider/GoogleMaps.php',
+        'Geocoder\\Provider\\GoogleMaps\\Model\\GoogleAddress' => __DIR__ . '/..' . '/geocoder-php/google-maps-provider/Model/GoogleAddress.php',
+        'Geocoder\\Provider\\Provider' => __DIR__ . '/..' . '/willdurand/geocoder/Provider/Provider.php',
+        'Geocoder\\Query\\GeocodeQuery' => __DIR__ . '/..' . '/willdurand/geocoder/Query/GeocodeQuery.php',
+        'Geocoder\\Query\\Query' => __DIR__ . '/..' . '/willdurand/geocoder/Query/Query.php',
+        'Geocoder\\Query\\ReverseQuery' => __DIR__ . '/..' . '/willdurand/geocoder/Query/ReverseQuery.php',
+        'Geocoder\\StatefulGeocoder' => __DIR__ . '/..' . '/willdurand/geocoder/StatefulGeocoder.php',
+        'Geocoder\\TimedGeocoder' => __DIR__ . '/..' . '/willdurand/geocoder/TimedGeocoder.php',
+        'GeometryLibrary\\MathUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/MathUtil.php',
+        'GeometryLibrary\\PolyUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/PolyUtil.php',
+        'GeometryLibrary\\SphericalUtil' => __DIR__ . '/..' . '/alexpechkarev/geometry-library/SphericalUtil.php',
+        'GoogleMaps\\Directions' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/Directions.php',
+        'GoogleMaps\\Facade\\GoogleMapsFacade' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/Facade/GoogleMapsFacade.php',
+        'GoogleMaps\\GoogleMaps' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/GoogleMaps.php',
+        'GoogleMaps\\Parameters' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/Parameters.php',
+        'GoogleMaps\\ServiceProvider\\GoogleMapsServiceProvider' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/ServiceProvider/GoogleMapsServiceProvider.php',
+        'GoogleMaps\\WebService' => __DIR__ . '/..' . '/alexpechkarev/google-maps/src/WebService.php',
+        'GuzzleHttp\\Psr7\\AppendStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/AppendStream.php',
+        'GuzzleHttp\\Psr7\\BufferStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/BufferStream.php',
+        'GuzzleHttp\\Psr7\\CachingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/CachingStream.php',
+        'GuzzleHttp\\Psr7\\DroppingStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/DroppingStream.php',
+        'GuzzleHttp\\Psr7\\FnStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/FnStream.php',
+        'GuzzleHttp\\Psr7\\InflateStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/InflateStream.php',
+        'GuzzleHttp\\Psr7\\LazyOpenStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/LazyOpenStream.php',
+        'GuzzleHttp\\Psr7\\LimitStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/LimitStream.php',
+        'GuzzleHttp\\Psr7\\MessageTrait' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/MessageTrait.php',
+        'GuzzleHttp\\Psr7\\MultipartStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/MultipartStream.php',
+        'GuzzleHttp\\Psr7\\NoSeekStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/NoSeekStream.php',
+        'GuzzleHttp\\Psr7\\PumpStream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/PumpStream.php',
+        'GuzzleHttp\\Psr7\\Request' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Request.php',
+        'GuzzleHttp\\Psr7\\Response' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Response.php',
+        'GuzzleHttp\\Psr7\\Rfc7230' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Rfc7230.php',
+        'GuzzleHttp\\Psr7\\ServerRequest' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/ServerRequest.php',
+        'GuzzleHttp\\Psr7\\Stream' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Stream.php',
+        'GuzzleHttp\\Psr7\\StreamDecoratorTrait' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamDecoratorTrait.php',
+        'GuzzleHttp\\Psr7\\StreamWrapper' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/StreamWrapper.php',
+        'GuzzleHttp\\Psr7\\UploadedFile' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UploadedFile.php',
+        'GuzzleHttp\\Psr7\\Uri' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/Uri.php',
+        'GuzzleHttp\\Psr7\\UriNormalizer' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriNormalizer.php',
+        'GuzzleHttp\\Psr7\\UriResolver' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/UriResolver.php',
         'Hamcrest\\Arrays\\IsArray' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArray.php',
         'Hamcrest\\Arrays\\IsArrayContaining' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContaining.php',
         'Hamcrest\\Arrays\\IsArrayContainingInAnyOrder' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Arrays/IsArrayContainingInAnyOrder.php',
@@ -1467,6 +1678,102 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Http\\Client\\Curl\\Client' => __DIR__ . '/..' . '/php-http/curl-client/src/Client.php',
+        'Http\\Client\\Curl\\CurlPromise' => __DIR__ . '/..' . '/php-http/curl-client/src/CurlPromise.php',
+        'Http\\Client\\Curl\\MultiRunner' => __DIR__ . '/..' . '/php-http/curl-client/src/MultiRunner.php',
+        'Http\\Client\\Curl\\PromiseCore' => __DIR__ . '/..' . '/php-http/curl-client/src/PromiseCore.php',
+        'Http\\Client\\Curl\\ResponseBuilder' => __DIR__ . '/..' . '/php-http/curl-client/src/ResponseBuilder.php',
+        'Http\\Client\\Exception' => __DIR__ . '/..' . '/php-http/httplug/src/Exception.php',
+        'Http\\Client\\Exception\\HttpException' => __DIR__ . '/..' . '/php-http/httplug/src/Exception/HttpException.php',
+        'Http\\Client\\Exception\\NetworkException' => __DIR__ . '/..' . '/php-http/httplug/src/Exception/NetworkException.php',
+        'Http\\Client\\Exception\\RequestException' => __DIR__ . '/..' . '/php-http/httplug/src/Exception/RequestException.php',
+        'Http\\Client\\Exception\\TransferException' => __DIR__ . '/..' . '/php-http/httplug/src/Exception/TransferException.php',
+        'Http\\Client\\HttpAsyncClient' => __DIR__ . '/..' . '/php-http/httplug/src/HttpAsyncClient.php',
+        'Http\\Client\\HttpClient' => __DIR__ . '/..' . '/php-http/httplug/src/HttpClient.php',
+        'Http\\Client\\Promise\\HttpFulfilledPromise' => __DIR__ . '/..' . '/php-http/httplug/src/Promise/HttpFulfilledPromise.php',
+        'Http\\Client\\Promise\\HttpRejectedPromise' => __DIR__ . '/..' . '/php-http/httplug/src/Promise/HttpRejectedPromise.php',
+        'Http\\Discovery\\ClassDiscovery' => __DIR__ . '/..' . '/php-http/discovery/src/ClassDiscovery.php',
+        'Http\\Discovery\\Exception' => __DIR__ . '/..' . '/php-http/discovery/src/Exception.php',
+        'Http\\Discovery\\Exception\\ClassInstantiationFailedException' => __DIR__ . '/..' . '/php-http/discovery/src/Exception/ClassInstantiationFailedException.php',
+        'Http\\Discovery\\Exception\\DiscoveryFailedException' => __DIR__ . '/..' . '/php-http/discovery/src/Exception/DiscoveryFailedException.php',
+        'Http\\Discovery\\Exception\\NoCandidateFoundException' => __DIR__ . '/..' . '/php-http/discovery/src/Exception/NoCandidateFoundException.php',
+        'Http\\Discovery\\Exception\\NotFoundException' => __DIR__ . '/..' . '/php-http/discovery/src/Exception/NotFoundException.php',
+        'Http\\Discovery\\Exception\\PuliUnavailableException' => __DIR__ . '/..' . '/php-http/discovery/src/Exception/PuliUnavailableException.php',
+        'Http\\Discovery\\Exception\\StrategyUnavailableException' => __DIR__ . '/..' . '/php-http/discovery/src/Exception/StrategyUnavailableException.php',
+        'Http\\Discovery\\HttpAsyncClientDiscovery' => __DIR__ . '/..' . '/php-http/discovery/src/HttpAsyncClientDiscovery.php',
+        'Http\\Discovery\\HttpClientDiscovery' => __DIR__ . '/..' . '/php-http/discovery/src/HttpClientDiscovery.php',
+        'Http\\Discovery\\MessageFactoryDiscovery' => __DIR__ . '/..' . '/php-http/discovery/src/MessageFactoryDiscovery.php',
+        'Http\\Discovery\\NotFoundException' => __DIR__ . '/..' . '/php-http/discovery/src/NotFoundException.php',
+        'Http\\Discovery\\Psr17FactoryDiscovery' => __DIR__ . '/..' . '/php-http/discovery/src/Psr17FactoryDiscovery.php',
+        'Http\\Discovery\\Psr18ClientDiscovery' => __DIR__ . '/..' . '/php-http/discovery/src/Psr18ClientDiscovery.php',
+        'Http\\Discovery\\Strategy\\CommonClassesStrategy' => __DIR__ . '/..' . '/php-http/discovery/src/Strategy/CommonClassesStrategy.php',
+        'Http\\Discovery\\Strategy\\CommonPsr17ClassesStrategy' => __DIR__ . '/..' . '/php-http/discovery/src/Strategy/CommonPsr17ClassesStrategy.php',
+        'Http\\Discovery\\Strategy\\DiscoveryStrategy' => __DIR__ . '/..' . '/php-http/discovery/src/Strategy/DiscoveryStrategy.php',
+        'Http\\Discovery\\Strategy\\MockClientStrategy' => __DIR__ . '/..' . '/php-http/discovery/src/Strategy/MockClientStrategy.php',
+        'Http\\Discovery\\Strategy\\PuliBetaStrategy' => __DIR__ . '/..' . '/php-http/discovery/src/Strategy/PuliBetaStrategy.php',
+        'Http\\Discovery\\StreamFactoryDiscovery' => __DIR__ . '/..' . '/php-http/discovery/src/StreamFactoryDiscovery.php',
+        'Http\\Discovery\\UriFactoryDiscovery' => __DIR__ . '/..' . '/php-http/discovery/src/UriFactoryDiscovery.php',
+        'Http\\Factory\\Guzzle\\RequestFactory' => __DIR__ . '/..' . '/http-interop/http-factory-guzzle/src/RequestFactory.php',
+        'Http\\Factory\\Guzzle\\ResponseFactory' => __DIR__ . '/..' . '/http-interop/http-factory-guzzle/src/ResponseFactory.php',
+        'Http\\Factory\\Guzzle\\ServerRequestFactory' => __DIR__ . '/..' . '/http-interop/http-factory-guzzle/src/ServerRequestFactory.php',
+        'Http\\Factory\\Guzzle\\StreamFactory' => __DIR__ . '/..' . '/http-interop/http-factory-guzzle/src/StreamFactory.php',
+        'Http\\Factory\\Guzzle\\UploadedFileFactory' => __DIR__ . '/..' . '/http-interop/http-factory-guzzle/src/UploadedFileFactory.php',
+        'Http\\Factory\\Guzzle\\UriFactory' => __DIR__ . '/..' . '/http-interop/http-factory-guzzle/src/UriFactory.php',
+        'Http\\Message\\Authentication' => __DIR__ . '/..' . '/php-http/message/src/Authentication.php',
+        'Http\\Message\\Authentication\\AutoBasicAuth' => __DIR__ . '/..' . '/php-http/message/src/Authentication/AutoBasicAuth.php',
+        'Http\\Message\\Authentication\\BasicAuth' => __DIR__ . '/..' . '/php-http/message/src/Authentication/BasicAuth.php',
+        'Http\\Message\\Authentication\\Bearer' => __DIR__ . '/..' . '/php-http/message/src/Authentication/Bearer.php',
+        'Http\\Message\\Authentication\\Chain' => __DIR__ . '/..' . '/php-http/message/src/Authentication/Chain.php',
+        'Http\\Message\\Authentication\\Matching' => __DIR__ . '/..' . '/php-http/message/src/Authentication/Matching.php',
+        'Http\\Message\\Authentication\\QueryParam' => __DIR__ . '/..' . '/php-http/message/src/Authentication/QueryParam.php',
+        'Http\\Message\\Authentication\\RequestConditional' => __DIR__ . '/..' . '/php-http/message/src/Authentication/RequestConditional.php',
+        'Http\\Message\\Authentication\\Wsse' => __DIR__ . '/..' . '/php-http/message/src/Authentication/Wsse.php',
+        'Http\\Message\\Builder\\ResponseBuilder' => __DIR__ . '/..' . '/php-http/message/src/Builder/ResponseBuilder.php',
+        'Http\\Message\\Cookie' => __DIR__ . '/..' . '/php-http/message/src/Cookie.php',
+        'Http\\Message\\CookieJar' => __DIR__ . '/..' . '/php-http/message/src/CookieJar.php',
+        'Http\\Message\\CookieUtil' => __DIR__ . '/..' . '/php-http/message/src/CookieUtil.php',
+        'Http\\Message\\Decorator\\MessageDecorator' => __DIR__ . '/..' . '/php-http/message/src/Decorator/MessageDecorator.php',
+        'Http\\Message\\Decorator\\RequestDecorator' => __DIR__ . '/..' . '/php-http/message/src/Decorator/RequestDecorator.php',
+        'Http\\Message\\Decorator\\ResponseDecorator' => __DIR__ . '/..' . '/php-http/message/src/Decorator/ResponseDecorator.php',
+        'Http\\Message\\Decorator\\StreamDecorator' => __DIR__ . '/..' . '/php-http/message/src/Decorator/StreamDecorator.php',
+        'Http\\Message\\Encoding\\ChunkStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/ChunkStream.php',
+        'Http\\Message\\Encoding\\CompressStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/CompressStream.php',
+        'Http\\Message\\Encoding\\DechunkStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/DechunkStream.php',
+        'Http\\Message\\Encoding\\DecompressStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/DecompressStream.php',
+        'Http\\Message\\Encoding\\DeflateStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/DeflateStream.php',
+        'Http\\Message\\Encoding\\Filter\\Chunk' => __DIR__ . '/..' . '/php-http/message/src/Encoding/Filter/Chunk.php',
+        'Http\\Message\\Encoding\\FilteredStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/FilteredStream.php',
+        'Http\\Message\\Encoding\\GzipDecodeStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/GzipDecodeStream.php',
+        'Http\\Message\\Encoding\\GzipEncodeStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/GzipEncodeStream.php',
+        'Http\\Message\\Encoding\\InflateStream' => __DIR__ . '/..' . '/php-http/message/src/Encoding/InflateStream.php',
+        'Http\\Message\\Exception' => __DIR__ . '/..' . '/php-http/message/src/Exception.php',
+        'Http\\Message\\Exception\\UnexpectedValueException' => __DIR__ . '/..' . '/php-http/message/src/Exception/UnexpectedValueException.php',
+        'Http\\Message\\Formatter' => __DIR__ . '/..' . '/php-http/message/src/Formatter.php',
+        'Http\\Message\\Formatter\\CurlCommandFormatter' => __DIR__ . '/..' . '/php-http/message/src/Formatter/CurlCommandFormatter.php',
+        'Http\\Message\\Formatter\\FullHttpMessageFormatter' => __DIR__ . '/..' . '/php-http/message/src/Formatter/FullHttpMessageFormatter.php',
+        'Http\\Message\\Formatter\\SimpleFormatter' => __DIR__ . '/..' . '/php-http/message/src/Formatter/SimpleFormatter.php',
+        'Http\\Message\\MessageFactory' => __DIR__ . '/..' . '/php-http/message-factory/src/MessageFactory.php',
+        'Http\\Message\\MessageFactory\\DiactorosMessageFactory' => __DIR__ . '/..' . '/php-http/message/src/MessageFactory/DiactorosMessageFactory.php',
+        'Http\\Message\\MessageFactory\\GuzzleMessageFactory' => __DIR__ . '/..' . '/php-http/message/src/MessageFactory/GuzzleMessageFactory.php',
+        'Http\\Message\\MessageFactory\\SlimMessageFactory' => __DIR__ . '/..' . '/php-http/message/src/MessageFactory/SlimMessageFactory.php',
+        'Http\\Message\\RequestFactory' => __DIR__ . '/..' . '/php-http/message-factory/src/RequestFactory.php',
+        'Http\\Message\\RequestMatcher' => __DIR__ . '/..' . '/php-http/message/src/RequestMatcher.php',
+        'Http\\Message\\RequestMatcher\\CallbackRequestMatcher' => __DIR__ . '/..' . '/php-http/message/src/RequestMatcher/CallbackRequestMatcher.php',
+        'Http\\Message\\RequestMatcher\\RegexRequestMatcher' => __DIR__ . '/..' . '/php-http/message/src/RequestMatcher/RegexRequestMatcher.php',
+        'Http\\Message\\RequestMatcher\\RequestMatcher' => __DIR__ . '/..' . '/php-http/message/src/RequestMatcher/RequestMatcher.php',
+        'Http\\Message\\ResponseFactory' => __DIR__ . '/..' . '/php-http/message-factory/src/ResponseFactory.php',
+        'Http\\Message\\StreamFactory' => __DIR__ . '/..' . '/php-http/message-factory/src/StreamFactory.php',
+        'Http\\Message\\StreamFactory\\DiactorosStreamFactory' => __DIR__ . '/..' . '/php-http/message/src/StreamFactory/DiactorosStreamFactory.php',
+        'Http\\Message\\StreamFactory\\GuzzleStreamFactory' => __DIR__ . '/..' . '/php-http/message/src/StreamFactory/GuzzleStreamFactory.php',
+        'Http\\Message\\StreamFactory\\SlimStreamFactory' => __DIR__ . '/..' . '/php-http/message/src/StreamFactory/SlimStreamFactory.php',
+        'Http\\Message\\Stream\\BufferedStream' => __DIR__ . '/..' . '/php-http/message/src/Stream/BufferedStream.php',
+        'Http\\Message\\UriFactory' => __DIR__ . '/..' . '/php-http/message-factory/src/UriFactory.php',
+        'Http\\Message\\UriFactory\\DiactorosUriFactory' => __DIR__ . '/..' . '/php-http/message/src/UriFactory/DiactorosUriFactory.php',
+        'Http\\Message\\UriFactory\\GuzzleUriFactory' => __DIR__ . '/..' . '/php-http/message/src/UriFactory/GuzzleUriFactory.php',
+        'Http\\Message\\UriFactory\\SlimUriFactory' => __DIR__ . '/..' . '/php-http/message/src/UriFactory/SlimUriFactory.php',
+        'Http\\Promise\\FulfilledPromise' => __DIR__ . '/..' . '/php-http/promise/src/FulfilledPromise.php',
+        'Http\\Promise\\Promise' => __DIR__ . '/..' . '/php-http/promise/src/Promise.php',
+        'Http\\Promise\\RejectedPromise' => __DIR__ . '/..' . '/php-http/promise/src/RejectedPromise.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',
         'Illuminate\\Auth\\Access\\HandlesAuthorization' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/HandlesAuthorization.php',
@@ -3640,6 +3947,23 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
+        'Psr\\Http\\Client\\ClientExceptionInterface' => __DIR__ . '/..' . '/psr/http-client/src/ClientExceptionInterface.php',
+        'Psr\\Http\\Client\\ClientInterface' => __DIR__ . '/..' . '/psr/http-client/src/ClientInterface.php',
+        'Psr\\Http\\Client\\NetworkExceptionInterface' => __DIR__ . '/..' . '/psr/http-client/src/NetworkExceptionInterface.php',
+        'Psr\\Http\\Client\\RequestExceptionInterface' => __DIR__ . '/..' . '/psr/http-client/src/RequestExceptionInterface.php',
+        'Psr\\Http\\Message\\MessageInterface' => __DIR__ . '/..' . '/psr/http-message/src/MessageInterface.php',
+        'Psr\\Http\\Message\\RequestFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/RequestFactoryInterface.php',
+        'Psr\\Http\\Message\\RequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/RequestInterface.php',
+        'Psr\\Http\\Message\\ResponseFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/ResponseFactoryInterface.php',
+        'Psr\\Http\\Message\\ResponseInterface' => __DIR__ . '/..' . '/psr/http-message/src/ResponseInterface.php',
+        'Psr\\Http\\Message\\ServerRequestFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/ServerRequestFactoryInterface.php',
+        'Psr\\Http\\Message\\ServerRequestInterface' => __DIR__ . '/..' . '/psr/http-message/src/ServerRequestInterface.php',
+        'Psr\\Http\\Message\\StreamFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/StreamFactoryInterface.php',
+        'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
+        'Psr\\Http\\Message\\UploadedFileFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/UploadedFileFactoryInterface.php',
+        'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
+        'Psr\\Http\\Message\\UriFactoryInterface' => __DIR__ . '/..' . '/psr/http-factory/src/UriFactoryInterface.php',
+        'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
         'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
         'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
         'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
@@ -4401,6 +4725,18 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'Symfony\\Component\\Mime\\Part\\Multipart\\RelatedPart' => __DIR__ . '/..' . '/symfony/mime/Part/Multipart/RelatedPart.php',
         'Symfony\\Component\\Mime\\Part\\TextPart' => __DIR__ . '/..' . '/symfony/mime/Part/TextPart.php',
         'Symfony\\Component\\Mime\\RawMessage' => __DIR__ . '/..' . '/symfony/mime/RawMessage.php',
+        'Symfony\\Component\\OptionsResolver\\Debug\\OptionsResolverIntrospector' => __DIR__ . '/..' . '/symfony/options-resolver/Debug/OptionsResolverIntrospector.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\AccessException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/AccessException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/ExceptionInterface.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/InvalidArgumentException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\InvalidOptionsException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/InvalidOptionsException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\MissingOptionsException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/MissingOptionsException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\NoConfigurationException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/NoConfigurationException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\NoSuchOptionException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/NoSuchOptionException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\OptionDefinitionException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/OptionDefinitionException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\UndefinedOptionsException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/UndefinedOptionsException.php',
+        'Symfony\\Component\\OptionsResolver\\Options' => __DIR__ . '/..' . '/symfony/options-resolver/Options.php',
+        'Symfony\\Component\\OptionsResolver\\OptionsResolver' => __DIR__ . '/..' . '/symfony/options-resolver/OptionsResolver.php',
         'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/process/Exception/ExceptionInterface.php',
         'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/process/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\Process\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/process/Exception/LogicException.php',
@@ -4654,6 +4990,8 @@ class ComposerStaticInit8fed9ee09be0b709326cc5505cd7cf49
         'Torann\\GeoIP\\Services\\MaxMindDatabase' => __DIR__ . '/..' . '/torann/geoip/src/Services/MaxMindDatabase.php',
         'Torann\\GeoIP\\Services\\MaxMindWebService' => __DIR__ . '/..' . '/torann/geoip/src/Services/MaxMindWebService.php',
         'Torann\\GeoIP\\Support\\HttpClient' => __DIR__ . '/..' . '/torann/geoip/src/Support/HttpClient.php',
+        'URLify' => __DIR__ . '/..' . '/jbroadway/urlify/URLify.php',
+        'URLifyTest' => __DIR__ . '/..' . '/jbroadway/urlify/tests/URLifyTest.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',

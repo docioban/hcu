@@ -25,11 +25,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$arr_ip = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
+//        $response = \GoogleMaps::load('geocoding')
+//            ->setParamByKey('latlng', '47.026288, 28.832056')
+//            ->get('results.formatted_address');
+//
+//        return $response;
+
+        return app('geocoder')->reverse(43.882587,-103.454067)->get();
+
+        $arr_ip = geoip()->getLocation('217.12.124.50');
+
+        $arr_ip = $arr_ip->toArray();
 
         //dd($arr_ip);
 
-        //return $arr_ip;
+        return $arr_ip['lat'].','.$arr_ip['lon'];
+
+        return $json;
         
         return view('home');
         

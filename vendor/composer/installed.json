@@ -1,5 +1,116 @@
 [
     {
+        "name": "alexpechkarev/geometry-library",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/alexpechkarev/geometry-library.git",
+            "reference": "ebbf02c3e907e0bd19c9474fd5eb77b9ca1ce414"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/alexpechkarev/geometry-library/zipball/ebbf02c3e907e0bd19c9474fd5eb77b9ca1ce414",
+            "reference": "ebbf02c3e907e0bd19c9474fd5eb77b9ca1ce414",
+            "shasum": ""
+        },
+        "time": "2015-09-11T15:40:41+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GeometryLibrary\\": "/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexander Pechkarev",
+                "email": "alexpechkarev@gmail.com"
+            }
+        ],
+        "description": "PHP Geometry library provides utility functions for the computation of geometric data on the surface of the Earth.",
+        "homepage": "https://alexpechkarev.github.io/geometry-library/",
+        "keywords": [
+            "computations polygons and polylines",
+            "encoding and decoding polyline paths utilities",
+            "google maps geometry library",
+            "php geometry library",
+            "spherical geometry utilities"
+        ]
+    },
+    {
+        "name": "alexpechkarev/google-maps",
+        "version": "1.0.9",
+        "version_normalized": "1.0.9.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/alexpechkarev/google-maps.git",
+            "reference": "fa6b843e2c89263f233c1ebaaa6603cbb7aed966"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/alexpechkarev/google-maps/zipball/fa6b843e2c89263f233c1ebaaa6603cbb7aed966",
+            "reference": "fa6b843e2c89263f233c1ebaaa6603cbb7aed966",
+            "shasum": ""
+        },
+        "require": {
+            "alexpechkarev/geometry-library": "1.0.0",
+            "illuminate/support": "5.*",
+            "jbroadway/urlify": "^1.1"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.7.*"
+        },
+        "time": "2018-01-09T18:23:57+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GoogleMaps\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Alexander Pechkarev",
+                "email": "alexpechkarev@gmail.com"
+            }
+        ],
+        "description": "Collection of Google Maps API Web Services for Laravel",
+        "homepage": "https://alexpechkarev.github.io/google-maps/",
+        "keywords": [
+            "Google Maps API",
+            "directions api",
+            "distance matrix api",
+            "elevation api",
+            "geocoding api",
+            "geolocation api",
+            "google maps api for laravel",
+            "google maps web service for laravel",
+            "laravel google maps api",
+            "places api web service",
+            "roads api",
+            "time zone api"
+        ]
+    },
+    {
         "name": "beyondcode/laravel-dump-server",
         "version": "1.2.2",
         "version_normalized": "1.2.2.0",
@@ -60,6 +171,60 @@
         "keywords": [
             "beyondcode",
             "laravel-dump-server"
+        ]
+    },
+    {
+        "name": "clue/stream-filter",
+        "version": "v1.4.1",
+        "version_normalized": "1.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/clue/php-stream-filter.git",
+            "reference": "5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/clue/php-stream-filter/zipball/5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
+            "reference": "5a58cc30a8bd6a4eb8f856adf61dd3e013f53f71",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.0 || ^4.8"
+        },
+        "time": "2019-04-09T12:31:48+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Clue\\StreamFilter\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christian Lück",
+                "email": "christian@lueck.tv"
+            }
+        ],
+        "description": "A simple and modern approach to stream filtering in PHP",
+        "homepage": "https://github.com/clue/php-stream-filter",
+        "keywords": [
+            "bucket brigade",
+            "callback",
+            "filter",
+            "php_user_filter",
+            "stream",
+            "stream_filter_append",
+            "stream_filter_register"
         ]
     },
     {
@@ -806,6 +971,52 @@
         ]
     },
     {
+        "name": "flynsarmy/csv-seeder",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Flynsarmy/laravel-csv-seeder.git",
+            "reference": "9b6b261082bf7ff245eeb355261e1038cbd89262"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Flynsarmy/laravel-csv-seeder/zipball/9b6b261082bf7ff245eeb355261e1038cbd89262",
+            "reference": "9b6b261082bf7ff245eeb355261e1038cbd89262",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": ">=4.1.0",
+            "php": ">=5.3.0"
+        },
+        "time": "2015-09-04T04:13:30+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Flynsarmy\\CsvSeeder\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Flyn San",
+                "email": "flynsarmy@gmail.com"
+            }
+        ],
+        "description": "Allows seeding of the database with CSV files",
+        "keywords": [
+            "csv",
+            "laravel",
+            "seed",
+            "seeding",
+            "seeds"
+        ]
+    },
+    {
         "name": "fzaninotto/faker",
         "version": "v1.8.0",
         "version_normalized": "1.8.0.0",
@@ -858,6 +1069,315 @@
         ]
     },
     {
+        "name": "geocoder-php/chain-provider",
+        "version": "4.0.1",
+        "version_normalized": "4.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/geocoder-php/chain-provider.git",
+            "reference": "be9d39b4097d3f926eb8465d051addaf46ead3ae"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/geocoder-php/chain-provider/zipball/be9d39b4097d3f926eb8465d051addaf46ead3ae",
+            "reference": "be9d39b4097d3f926eb8465d051addaf46ead3ae",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0",
+            "psr/log": "^1.0",
+            "willdurand/geocoder": "^4.0"
+        },
+        "provide": {
+            "geocoder-php/provider-implementation": "1.0"
+        },
+        "require-dev": {
+            "nyholm/nsa": "^1.1",
+            "php-http/curl-client": "^1.7",
+            "php-http/message": "^1.0",
+            "phpunit/phpunit": "6.3.*"
+        },
+        "time": "2019-01-08T12:13:42+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Geocoder\\Provider\\Chain\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "William Durand",
+                "email": "william.durand1@gmail.com"
+            }
+        ],
+        "description": "Geocoder chain adapter",
+        "homepage": "http://geocoder-php.org/Geocoder/"
+    },
+    {
+        "name": "geocoder-php/common-http",
+        "version": "4.2.0",
+        "version_normalized": "4.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/geocoder-php/php-common-http.git",
+            "reference": "8e666f89d0b87121595ec2f5134a9f54bf4b0cd2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/geocoder-php/php-common-http/zipball/8e666f89d0b87121595ec2f5134a9f54bf4b0cd2",
+            "reference": "8e666f89d0b87121595ec2f5134a9f54bf4b0cd2",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0",
+            "php-http/client-implementation": "^1.0",
+            "php-http/discovery": "^1.4",
+            "php-http/httplug": "^1.0 || ^2.0",
+            "php-http/message-factory": "^1.0.2",
+            "psr/http-message": "^1.0",
+            "psr/http-message-implementation": "^1.0",
+            "willdurand/geocoder": "^4.0"
+        },
+        "require-dev": {
+            "nyholm/psr7": "^0.2.2",
+            "php-http/message": "^1.0",
+            "php-http/mock-client": "^1.0",
+            "phpunit/phpunit": "6.3.*",
+            "symfony/stopwatch": "~2.5"
+        },
+        "time": "2018-11-15T22:27:27+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Geocoder\\Http\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Tobias Nyholm",
+                "email": "tobias.nyholm@gmail.com"
+            }
+        ],
+        "description": "Common files for HTTP based Geocoders",
+        "homepage": "http://geocoder-php.org",
+        "keywords": [
+            "http geocoder"
+        ]
+    },
+    {
+        "name": "geocoder-php/geo-plugin-provider",
+        "version": "4.0.1",
+        "version_normalized": "4.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/geocoder-php/geo-plugin-provider.git",
+            "reference": "db93987e5d88c170127f4b1f43b40b70a6b90123"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/geocoder-php/geo-plugin-provider/zipball/db93987e5d88c170127f4b1f43b40b70a6b90123",
+            "reference": "db93987e5d88c170127f4b1f43b40b70a6b90123",
+            "shasum": ""
+        },
+        "require": {
+            "geocoder-php/common-http": "^4.0",
+            "igorw/get-in": "^1.0",
+            "php": "^7.0",
+            "willdurand/geocoder": "^4.0"
+        },
+        "provide": {
+            "geocoder-php/provider-implementation": "1.0"
+        },
+        "require-dev": {
+            "geocoder-php/provider-integration-tests": "^1.0",
+            "nyholm/psr7": "^0.2.2",
+            "php-http/curl-client": "^1.7",
+            "php-http/message": "^1.0",
+            "phpunit/phpunit": "6.3.*"
+        },
+        "time": "2018-03-02T15:46:47+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Geocoder\\Provider\\GeoPlugin\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "William Durand",
+                "email": "william.durand1@gmail.com"
+            }
+        ],
+        "description": "Geocoder GeoPlugin adapter",
+        "homepage": "http://geocoder-php.org/Geocoder/"
+    },
+    {
+        "name": "geocoder-php/google-maps-provider",
+        "version": "4.4.0",
+        "version_normalized": "4.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/geocoder-php/google-maps-provider.git",
+            "reference": "307ca3590b67d23d0658808bb3615f2be3154eee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/geocoder-php/google-maps-provider/zipball/307ca3590b67d23d0658808bb3615f2be3154eee",
+            "reference": "307ca3590b67d23d0658808bb3615f2be3154eee",
+            "shasum": ""
+        },
+        "require": {
+            "geocoder-php/common-http": "^4.0",
+            "php": "^7.0",
+            "willdurand/geocoder": "^4.0"
+        },
+        "provide": {
+            "geocoder-php/provider-implementation": "1.0"
+        },
+        "require-dev": {
+            "geocoder-php/provider-integration-tests": "^1.0",
+            "php-http/curl-client": "^1.7",
+            "php-http/message": "^1.0",
+            "phpunit/phpunit": "^6.5 || ^7.5"
+        },
+        "time": "2019-04-26T20:17:17+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Geocoder\\Provider\\GoogleMaps\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "William Durand",
+                "email": "william.durand1@gmail.com"
+            }
+        ],
+        "description": "Geocoder GoogleMaps adapter",
+        "homepage": "http://geocoder-php.org/Geocoder/"
+    },
+    {
+        "name": "guzzlehttp/psr7",
+        "version": "1.5.2",
+        "version_normalized": "1.5.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/psr7.git",
+            "reference": "9f83dded91781a01c63574e387eaa769be769115"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+            "reference": "9f83dded91781a01c63574e387eaa769be769115",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "psr/http-message": "~1.0",
+            "ralouphie/getallheaders": "^2.0.5"
+        },
+        "provide": {
+            "psr/http-message-implementation": "1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+        },
+        "time": "2018-12-04T20:46:45+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Psr7\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Tobias Schultze",
+                "homepage": "https://github.com/Tobion"
+            }
+        ],
+        "description": "PSR-7 message implementation that also provides common utility methods",
+        "keywords": [
+            "http",
+            "message",
+            "psr-7",
+            "request",
+            "response",
+            "stream",
+            "uri",
+            "url"
+        ]
+    },
+    {
         "name": "hamcrest/hamcrest-php",
         "version": "v2.0.0",
         "version_normalized": "2.0.0.0",
@@ -905,6 +1425,105 @@
         "description": "This is the PHP port of Hamcrest Matchers",
         "keywords": [
             "test"
+        ]
+    },
+    {
+        "name": "http-interop/http-factory-guzzle",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/http-interop/http-factory-guzzle.git",
+            "reference": "34861658efb9899a6618cef03de46e2a52c80fc0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/http-interop/http-factory-guzzle/zipball/34861658efb9899a6618cef03de46e2a52c80fc0",
+            "reference": "34861658efb9899a6618cef03de46e2a52c80fc0",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/psr7": "^1.4.2",
+            "psr/http-factory": "^1.0"
+        },
+        "provide": {
+            "psr/http-factory-implementation": "^1.0"
+        },
+        "require-dev": {
+            "http-interop/http-factory-tests": "^0.5",
+            "phpunit/phpunit": "^6.5"
+        },
+        "time": "2018-07-31T19:32:56+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Factory\\Guzzle\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "An HTTP Factory using Guzzle PSR7",
+        "keywords": [
+            "factory",
+            "http",
+            "psr-17",
+            "psr-7"
+        ]
+    },
+    {
+        "name": "igorw/get-in",
+        "version": "v1.0.3",
+        "version_normalized": "1.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/igorw/get-in.git",
+            "reference": "170ded831f49abc6a6061f655aba9bdbcf7b8111"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/igorw/get-in/zipball/170ded831f49abc6a6061f655aba9bdbcf7b8111",
+            "reference": "170ded831f49abc6a6061f655aba9bdbcf7b8111",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4"
+        },
+        "time": "2014-12-15T23:03:51+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/get_in.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Igor Wiedler",
+                "email": "igor@wiedler.ch"
+            }
+        ],
+        "description": "Functions for for hash map (assoc array) traversal.",
+        "keywords": [
+            "assoc-array",
+            "hash-map"
         ]
     },
     {
@@ -998,6 +1617,65 @@
             }
         ],
         "description": "Highlight PHP code in terminal"
+    },
+    {
+        "name": "jbroadway/urlify",
+        "version": "1.1.2-stable",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jbroadway/urlify.git",
+            "reference": "78118277ba31189fef18323bb78e9c1b89254dcc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jbroadway/urlify/zipball/78118277ba31189fef18323bb78e9c1b89254dcc",
+            "reference": "78118277ba31189fef18323bb78e9c1b89254dcc",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5"
+        },
+        "time": "2018-12-08T15:51:20+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "URLify": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause-Clear"
+        ],
+        "authors": [
+            {
+                "name": "Johnny Broadway",
+                "email": "johnny@johnnybroadway.com",
+                "homepage": "http://www.johnnybroadway.com/"
+            }
+        ],
+        "description": "PHP port of URLify.js from the Django project. Transliterates non-ascii characters for use in URLs.",
+        "homepage": "https://github.com/jbroadway/urlify",
+        "keywords": [
+            "encode",
+            "iconv",
+            "link",
+            "slug",
+            "translit",
+            "transliterate",
+            "transliteration",
+            "url",
+            "urlify"
+        ]
     },
     {
         "name": "laravel/framework",
@@ -2133,6 +2811,375 @@
         "description": "Library for handling version information and constraints"
     },
     {
+        "name": "php-http/curl-client",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/curl-client.git",
+            "reference": "e7a2a5ebcce1ff7d75eaf02b7c85634a6fac00da"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/curl-client/zipball/e7a2a5ebcce1ff7d75eaf02b7c85634a6fac00da",
+            "reference": "e7a2a5ebcce1ff7d75eaf02b7c85634a6fac00da",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": "^7.1",
+            "php-http/discovery": "^1.6",
+            "php-http/httplug": "^2.0",
+            "php-http/message": "^1.2",
+            "psr/http-client": "^1.0",
+            "psr/http-factory": "^1.0",
+            "symfony/options-resolver": "^3.4 || ^4.0"
+        },
+        "provide": {
+            "php-http/async-client-implementation": "1.0",
+            "php-http/client-implementation": "1.0"
+        },
+        "require-dev": {
+            "guzzlehttp/psr7": "^1.0",
+            "php-http/client-integration-tests": "^2.0",
+            "phpunit/phpunit": "^7.5",
+            "zendframework/zend-diactoros": "^2.0"
+        },
+        "time": "2019-03-05T19:59:23+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\Curl\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Михаил Красильников",
+                "email": "m.krasilnikov@yandex.ru"
+            }
+        ],
+        "description": "PSR-18 and HTTPlug Async client with cURL",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "curl",
+            "http",
+            "psr-18"
+        ]
+    },
+    {
+        "name": "php-http/discovery",
+        "version": "1.6.1",
+        "version_normalized": "1.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/discovery.git",
+            "reference": "684855f2c2e9d0a61868b8f8d6bd0295c8a4b651"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/discovery/zipball/684855f2c2e9d0a61868b8f8d6bd0295c8a4b651",
+            "reference": "684855f2c2e9d0a61868b8f8d6bd0295c8a4b651",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5 || ^7.0"
+        },
+        "conflict": {
+            "nyholm/psr7": "<1.0"
+        },
+        "require-dev": {
+            "php-http/httplug": "^1.0 || ^2.0",
+            "php-http/message-factory": "^1.0",
+            "phpspec/phpspec": "^2.4",
+            "puli/composer-plugin": "1.0.0-beta10"
+        },
+        "suggest": {
+            "php-http/message": "Allow to use Guzzle, Diactoros or Slim Framework factories",
+            "puli/composer-plugin": "Sets up Puli which is recommended for Discovery to work. Check http://docs.php-http.org/en/latest/discovery.html for more details."
+        },
+        "time": "2019-02-23T07:42:53+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Discovery\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Finds installed HTTPlug implementations and PSR-7 message factories",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "adapter",
+            "client",
+            "discovery",
+            "factory",
+            "http",
+            "message",
+            "psr7"
+        ]
+    },
+    {
+        "name": "php-http/httplug",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/httplug.git",
+            "reference": "b3842537338c949f2469557ef4ad4bdc47b58603"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/httplug/zipball/b3842537338c949f2469557ef4ad4bdc47b58603",
+            "reference": "b3842537338c949f2469557ef4ad4bdc47b58603",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0",
+            "php-http/promise": "^1.0",
+            "psr/http-client": "^1.0",
+            "psr/http-message": "^1.0"
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4"
+        },
+        "time": "2018-10-31T09:14:44+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Client\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Eric GELOEN",
+                "email": "geloen.eric@gmail.com"
+            },
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "HTTPlug, the HTTP client abstraction for PHP",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "client",
+            "http"
+        ]
+    },
+    {
+        "name": "php-http/message",
+        "version": "1.7.2",
+        "version_normalized": "1.7.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/message.git",
+            "reference": "b159ffe570dffd335e22ef0b91a946eacb182fa1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/message/zipball/b159ffe570dffd335e22ef0b91a946eacb182fa1",
+            "reference": "b159ffe570dffd335e22ef0b91a946eacb182fa1",
+            "shasum": ""
+        },
+        "require": {
+            "clue/stream-filter": "^1.4",
+            "php": "^5.4 || ^7.0",
+            "php-http/message-factory": "^1.0.2",
+            "psr/http-message": "^1.0"
+        },
+        "provide": {
+            "php-http/message-factory-implementation": "1.0"
+        },
+        "require-dev": {
+            "akeneo/phpspec-skip-example-extension": "^1.0",
+            "coduo/phpspec-data-provider-extension": "^1.0",
+            "ext-zlib": "*",
+            "guzzlehttp/psr7": "^1.0",
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4",
+            "slim/slim": "^3.0",
+            "zendframework/zend-diactoros": "^1.0"
+        },
+        "suggest": {
+            "ext-zlib": "Used with compressor/decompressor streams",
+            "guzzlehttp/psr7": "Used with Guzzle PSR-7 Factories",
+            "slim/slim": "Used with Slim Framework PSR-7 implementation",
+            "zendframework/zend-diactoros": "Used with Diactoros Factories"
+        },
+        "time": "2018-11-01T09:32:41+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Message\\": "src/"
+            },
+            "files": [
+                "src/filters.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "HTTP Message related tools",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "http",
+            "message",
+            "psr-7"
+        ]
+    },
+    {
+        "name": "php-http/message-factory",
+        "version": "v1.0.2",
+        "version_normalized": "1.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/message-factory.git",
+            "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/message-factory/zipball/a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+            "reference": "a478cb11f66a6ac48d8954216cfed9aa06a501a1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4",
+            "psr/http-message": "^1.0"
+        },
+        "time": "2015-12-19T14:08:53+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            }
+        ],
+        "description": "Factory interfaces for PSR-7 HTTP Message",
+        "homepage": "http://php-http.org",
+        "keywords": [
+            "factory",
+            "http",
+            "message",
+            "stream",
+            "uri"
+        ]
+    },
+    {
+        "name": "php-http/promise",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-http/promise.git",
+            "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-http/promise/zipball/dc494cdc9d7160b9a09bd5573272195242ce7980",
+            "reference": "dc494cdc9d7160b9a09bd5573272195242ce7980",
+            "shasum": ""
+        },
+        "require-dev": {
+            "henrikbjorn/phpspec-code-coverage": "^1.0",
+            "phpspec/phpspec": "^2.4"
+        },
+        "time": "2016-01-26T13:27:02+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Http\\Promise\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Márk Sági-Kazár",
+                "email": "mark.sagikazar@gmail.com"
+            },
+            {
+                "name": "Joel Wurtz",
+                "email": "joel.wurtz@gmail.com"
+            }
+        ],
+        "description": "Promise used for asynchronous HTTP requests",
+        "homepage": "http://httplug.io",
+        "keywords": [
+            "promise"
+        ]
+    },
+    {
         "name": "phpdocumentor/reflection-common",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -2903,6 +3950,163 @@
         ]
     },
     {
+        "name": "psr/http-client",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-client.git",
+            "reference": "496a823ef742b632934724bf769560c2a5c7c44e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-client/zipball/496a823ef742b632934724bf769560c2a5c7c44e",
+            "reference": "496a823ef742b632934724bf769560c2a5c7c44e",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0",
+            "psr/http-message": "^1.0"
+        },
+        "time": "2018-10-30T23:29:13+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Client\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP clients",
+        "homepage": "https://github.com/php-fig/http-client",
+        "keywords": [
+            "http",
+            "http-client",
+            "psr",
+            "psr-18"
+        ]
+    },
+    {
+        "name": "psr/http-factory",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-factory.git",
+            "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+            "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0.0",
+            "psr/http-message": "^1.0"
+        },
+        "time": "2019-04-30T12:38:16+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interfaces for PSR-7 HTTP message factories",
+        "keywords": [
+            "factory",
+            "http",
+            "message",
+            "psr",
+            "psr-17",
+            "psr-7",
+            "request",
+            "response"
+        ]
+    },
+    {
+        "name": "psr/http-message",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-message.git",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06T14:39:51+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP messages",
+        "homepage": "https://github.com/php-fig/http-message",
+        "keywords": [
+            "http",
+            "http-message",
+            "psr",
+            "psr-7",
+            "request",
+            "response"
+        ]
+    },
+    {
         "name": "psr/log",
         "version": "1.1.0",
         "version_normalized": "1.1.0.0",
@@ -3076,6 +4280,48 @@
             "interactive",
             "shell"
         ]
+    },
+    {
+        "name": "ralouphie/getallheaders",
+        "version": "2.0.5",
+        "version_normalized": "2.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ralouphie/getallheaders.git",
+            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~3.7.0",
+            "satooshi/php-coveralls": ">=1.0"
+        },
+        "time": "2016-02-11T07:05:27+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/getallheaders.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ralph Khattar",
+                "email": "ralph.khattar@gmail.com"
+            }
+        ],
+        "description": "A polyfill for getallheaders."
     },
     {
         "name": "ramsey/uuid",
@@ -4399,6 +5645,62 @@
         ]
     },
     {
+        "name": "symfony/options-resolver",
+        "version": "v4.3.1",
+        "version_normalized": "4.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/options-resolver.git",
+            "reference": "914e0edcb7cd0c9f494bc023b1d47534f4542332"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/options-resolver/zipball/914e0edcb7cd0c9f494bc023b1d47534f4542332",
+            "reference": "914e0edcb7cd0c9f494bc023b1d47534f4542332",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1.3"
+        },
+        "time": "2019-05-10T05:38:46+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\OptionsResolver\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony OptionsResolver Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "config",
+            "configuration",
+            "options"
+        ]
+    },
+    {
         "name": "symfony/polyfill-ctype",
         "version": "v1.11.0",
         "version_normalized": "1.11.0.0",
@@ -5257,6 +6559,89 @@
         "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles"
     },
     {
+        "name": "toin0u/geocoder-laravel",
+        "version": "4.1.2",
+        "version_normalized": "4.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/geocoder-php/GeocoderLaravel.git",
+            "reference": "0fa71ba3cd3b21af38f16fc8214e39663cc58c28"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/geocoder-php/GeocoderLaravel/zipball/0fa71ba3cd3b21af38f16fc8214e39663cc58c28",
+            "reference": "0fa71ba3cd3b21af38f16fc8214e39663cc58c28",
+            "shasum": ""
+        },
+        "require": {
+            "geocoder-php/chain-provider": "^4.0",
+            "geocoder-php/geo-plugin-provider": "^4.0",
+            "geocoder-php/google-maps-provider": "^4.0",
+            "guzzlehttp/psr7": "*",
+            "http-interop/http-factory-guzzle": "^1.0",
+            "illuminate/cache": "5.0 - 5.8",
+            "illuminate/support": "5.0 - 5.8",
+            "php": ">=7.1.3",
+            "php-http/curl-client": "*",
+            "willdurand/geocoder": "^4.0"
+        },
+        "require-dev": {
+            "doctrine/dbal": "*",
+            "fzaninotto/faker": "*",
+            "geocoder-php/bing-maps-provider": "^4.0",
+            "geocoder-php/geoip2-provider": "^4.0",
+            "geocoder-php/maxmind-binary-provider": "^4.0",
+            "mockery/mockery": "*",
+            "orchestra/database": "3.8.x-dev@dev",
+            "orchestra/testbench": "3.8.*",
+            "orchestra/testbench-browser-kit": "3.8.*",
+            "orchestra/testbench-dusk": "3.8.x-dev@dev",
+            "php-coveralls/php-coveralls": "*",
+            "phpunit/phpunit": "^7.5",
+            "sebastian/phpcpd": "*"
+        },
+        "time": "2019-05-23T18:33:57+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Geocoder\\Laravel\\Providers\\GeocoderService"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Geocoder\\Laravel\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mike Bronner",
+                "email": "hello@genealabs.com",
+                "homepage": "https://genealabs.com",
+                "role": "Developer, Maintainer"
+            },
+            {
+                "name": "Antoine Corcy",
+                "email": "contact@sbin.dk",
+                "homepage": "http://sbin.dk",
+                "role": "Original Creator"
+            }
+        ],
+        "description": "Geocoder Service Provider for Laravel",
+        "homepage": "http://geocoder-php.org/",
+        "keywords": [
+            "geocoder",
+            "geocoding",
+            "laravel"
+        ]
+    },
+    {
         "name": "torann/geoip",
         "version": "1.0.9",
         "version_normalized": "1.0.9.0",
@@ -5436,6 +6821,67 @@
             "assert",
             "check",
             "validate"
+        ]
+    },
+    {
+        "name": "willdurand/geocoder",
+        "version": "4.2.1",
+        "version_normalized": "4.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/geocoder-php/php-common.git",
+            "reference": "aaa17bddb8dc9e4553110db8beb38534b095b61a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/geocoder-php/php-common/zipball/aaa17bddb8dc9e4553110db8beb38534b095b61a",
+            "reference": "aaa17bddb8dc9e4553110db8beb38534b095b61a",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0"
+        },
+        "require-dev": {
+            "nyholm/nsa": "^1.1",
+            "phpunit/phpunit": "6.3.*",
+            "symfony/stopwatch": "~2.5"
+        },
+        "suggest": {
+            "symfony/stopwatch": "If you want to use the TimedGeocoder"
+        },
+        "time": "2018-12-26T12:01:09+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Geocoder\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "William Durand",
+                "email": "william.durand1@gmail.com"
+            }
+        ],
+        "description": "Common files for PHP Geocoder",
+        "homepage": "http://geocoder-php.org",
+        "keywords": [
+            "abstraction",
+            "geocoder",
+            "geocoding",
+            "geoip"
         ]
     }
 ]

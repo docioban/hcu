@@ -6,7 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'URLify' => array($vendorDir . '/jbroadway/urlify'),
     'PhpOption\\' => array($vendorDir . '/phpoption/phpoption/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Flynsarmy\\CsvSeeder\\' => array($vendorDir . '/flynsarmy/csv-seeder/src'),
 );

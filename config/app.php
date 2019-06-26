@@ -169,7 +169,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
-
+        GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -235,6 +235,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+        'GoogleMaps' => GoogleMaps\Facade\GoogleMapsFacade::class,
     ],
 
 ];
