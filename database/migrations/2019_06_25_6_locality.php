@@ -16,9 +16,9 @@ class Locality extends Migration
         Schema::create('locality', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedBigInteger('district_id');
+            $table->unsignedBigInteger('district_id')->references('id')->on('district');
 
-            $table->foreign('district_id')->references('id')->on('district');
+            // $table->foreign('district_id')->references('id')->on('district');
         });
     }
 
