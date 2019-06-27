@@ -84,6 +84,11 @@ return [
             'table' => env('DYNAMODB_CACHE_TABLE', 'cache'),
         ],
 
+        "geocode" => [
+            'driver' => 'redis',
+            'connection' => 'geocode-cache',
+        ],
+
     ],
 
     /*
