@@ -1,8 +1,10 @@
 <?php
 
+use App\District;
 use Illuminate\Database\Seeder;
 
 use App\Constituencies;
+use App\LanguageConstituencies;
 
 class ConstituenciesSeeder extends Seeder
 {
@@ -13,74 +15,36 @@ class ConstituenciesSeeder extends Seeder
      */
     public function run()
     {
-//        $file_n = storage_path('database/districts.csv');
-//        $file = fopen($file_n, "r");
-//        $data = fgetcsv($file, 500, ",");
-//        $rows = array_map('str_getcsv', file(storage_path('database/districts.csv')));
-//        $results = array();
-//        print_r($rows);
-//        foreach ($rows as $row) {
-//
-//        }
 
-        DB::table('constituencies')->insert([
-            ['name' => 'chisinau', 'number_of_voters' => '0']
-        ]);
+        $file_n = storage_path('database/districts.csv');
+        $file = fopen($file_n, "r");
+        $data = fgetcsv($file, 500, ",");
+        while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
+            if (isset($data[0]) and isset($data[1]) and isset($data[2])) {
+                if (!Constituencies::where('id', '=', $data[0])->exists()) {
+                    $new_constituencie = new Constituencies;
+                    $new_constituencie->id = $data[0];
+                    $new_constituencie->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
+                    $new_constituencie->name = $data[2];
+                    $new_constituencie->save();
 
-//        fclose($file);
-//        DB::table('constituencies')->insert([
-//            ['number_of_voters' => '63695'],
-//            ['number_of_voters' => '64768'],
-//            ['number_of_voters' => '64857'],
-//            ['number_of_voters' => '64337'],
-//            ['number_of_voters' => '63826'],
-//            ['number_of_voters' => '65739'],
-//            ['number_of_voters' => '65197'],
-//            ['number_of_voters' => '62780'],
-//            ['number_of_voters' => '63919'],
-//            ['number_of_voters' => '64376'],
-//            ['number_of_voters' => '65631'],
-//            ['number_of_voters' => '62053'],
-//            ['number_of_voters' => '65073'],
-//            ['number_of_voters' => '65555'],
-//            ['number_of_voters' => '65522'],
-//            ['number_of_voters' => '65951'],
-//            ['number_of_voters' => '61813'],
-//            ['number_of_voters' => '64388'],
-//            ['number_of_voters' => '62606'],
-//            ['number_of_voters' => '60995'],
-//            ['number_of_voters' => '64220'],
-//            ['number_of_voters' => '62740'],
-//            ['number_of_voters' => '55469'],
-//            ['number_of_voters' => '56797'],
-//            ['number_of_voters' => '55161'],
-//            ['number_of_voters' => '55431'],
-//            ['number_of_voters' => '56371'],
-//            ['number_of_voters' => '55648'],
-//            ['number_of_voters' => '55167'],
-//            ['number_of_voters' => '58242'],
-//            ['number_of_voters' => '59396'],
-//            ['number_of_voters' => '56456'],
-//            ['number_of_voters' => '60335'],
-//            ['number_of_voters' => '65152'],
-//            ['number_of_voters' => '61882'],
-//            ['number_of_voters' => '62188'],
-//            ['number_of_voters' => '60767'],
-//            ['number_of_voters' => '61677'],
-//            ['number_of_voters' => '59884'],
-//            ['number_of_voters' => '60476'],
-//            ['number_of_voters' => '60019'],
-//            ['number_of_voters' => '59680'],
-//            ['number_of_voters' => '60726'],
-//            ['number_of_voters' => '35082'],
-//            ['number_of_voters' => '62892'],
-//            ['number_of_voters' => '67278'],
-//            ['number_of_voters' => '0'],
-//            ['number_of_voters' => '0'],
-//            ['number_of_voters' => '0'],
-//            ['number_of_voters' => '0'],
-//            ['number_of_voters' => '0'],
-//            ['number_of_voters' => '0']
-//        ]);
+                    $new_language_constituencie = new LanguageConstituencies;
+                    $new_language_constituencie->name = $data[3];
+                    $new_language_constituencie->language_id = 2;
+                    $new_language_constituencie->constituencies_id = $data[0];
+                    $new_language_constituencie->save();
+                } else {
+                    $constituencie = Constituencies::where('id', '=', $data[0])->first();
+                    $language_constituencie = LanguageConstituencies::where('constituencies_id', '=', $data[0])->first();
+                    if (strpos($constituencie->name, $data[2]) === false) {
+                        $constituencie->name .= ", ".$data[2];
+                        $constituencie->save();
+                        $language_constituencie->name .= ", ".$data[3];
+                        $language_constituencie->save();
+                    }
+                }
+            }
+        }
+        fclose($file);
     }
 }
