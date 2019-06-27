@@ -30,7 +30,9 @@ Route::group([
 
     Route::post('/home', 'HomeController@welcome');
 
-    Route::get('/search', 'HomeController@search');
+//    Route::get('/', 'LiveSearchController@index');
+//
+//    Route::get('/search', 'LiveSearchController@search');
 
     Route::get('/constituence', 'HomeController@search');
 

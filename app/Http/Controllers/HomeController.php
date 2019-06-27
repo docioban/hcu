@@ -16,7 +16,11 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {      
+    {
+        $districts = Constituencies::select('id', 'name')->get();
+    {
+        return view('welcome');
+
         $districts = Constituencies::select('id', 'name')->get();
 
         return response()->json($districts);
@@ -27,29 +31,47 @@ class HomeController extends Controller
     {
         $constituence = '';
 
-        if ($request->input('locality') == 'Chisinau' && $request->input('route') == '')   
+        if ($request->input('locality') == 'Chisinau' && $request->input('route') == '')
             $constituence = Constituencies::whereHas('locality', function ($q) use ($request) {
                 $q->where('name', 'like', '%'. $request->input('locality') .'%');
             })->first();
         elseif ($request->input('locality') == 'Chisinau' && $request->input('route') != '')
             $constituence = Constituencies::whereHas('locality', function ($q) use ($request) {
                 $q->where('name', 'like', '%'. $request->input('route') .'%');
-            })->first(); 
+            })->first();
         else
             $constituence = Constituencies::whereHas('locality', function ($q) use ($request) {
                 $q->where('name', 'like', '%'. $request->input('locality') .'%');
             })->first();
 
         return response()->json($constituence);
+        return response()->json($districts);
+
+    }
+
+    public function welcome()
+    {
+        return view('welcome');
+
+        $districts = Constituencies::select('id', 'name')->get();
+
+        return response()->json($districts);
 
         return redirect('/constituence')->with($constituence);
     }
 
-    public function search(Request $request)
+    public function get_district(Adress $request)
     {
-        $search = $request->get('search');
-        $instituties = DB::table('instituties')->where('name', 'like', '%' . $search . '%')->paginate(5);
-        //return view('home', ['institutii' => $instituties]);
-        return response()->json($instituties);
+        if (Constituencies::whereHas('locality', function ($q){
+            $q->where('user_id', 1);
+        })->whereHas('permissions', function ($q){
+            $q->where('name', 'group_make');
+        })->exists())
+
+            $if = Constituencies::where('locality.name', 'like', '%' . $request->input('locality') . '%')->get();
+
+        return $if;
+
+        //return redirect('/');
     }
 }
