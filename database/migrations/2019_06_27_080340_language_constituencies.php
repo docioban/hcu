@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Locality extends Migration
+class LanguageConstituencies extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class Locality extends Migration
      */
     public function up()
     {
-        Schema::create('locality', function (Blueprint $table) {
+        Schema::create('language_constituencies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->unsignedBigInteger('district_id');
+            $table->unsignedBigInteger('language_id');
+            $table->unsignedBigInteger('constituencies_id');
             $table->timestamps();
 
-            $table->foreign('district_id')->references('id')->on('district');
+            $table->foreign('language_id')->references('id')->on('language');
+            $table->foreign('constituencies_id')->references('id')->on('constituencies');
         });
     }
 
@@ -30,6 +32,6 @@ class Locality extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('locality');
+        Schema::dropIfExists('language_constituencies');
     }
 }

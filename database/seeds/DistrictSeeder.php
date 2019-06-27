@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 
 use App\District;
+use App\Locality;
+
 
 class DistrictSeeder extends Seeder
 {
@@ -17,11 +19,18 @@ class DistrictSeeder extends Seeder
         $file = fopen($file_n, "r");
         $data = fgetcsv($file, 500, ",");
         while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
-            if (isset($data[2]))
-                if (!District::where('name', '=', $data[2])->exists())
-                    DB::table('district')->insert([
-                        ['name' => $data[2]]
-                    ]);
+            if (isset($data[2]) and isset($data[4])) {
+                $district = District::where('name', '=', $data[2])->first();
+                if (!$district) {
+                    $district = new District;
+                    $district->name = $data[2];
+                    $district->save();
+                }
+                $locality = new Locality;
+                $locality->name = $data[4];
+                $locality->district_id = $district->id;
+                $locality->save();
+            }
         }
         fclose($file);
     }

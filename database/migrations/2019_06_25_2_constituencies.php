@@ -16,7 +16,8 @@ class Constituencies extends Migration
         Schema::create('constituencies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->bigInteger('number_of_voters');
+            $table->bigInteger('number_of_voters')->nullable();
+            $table->timestamps();
         });
     }
 
