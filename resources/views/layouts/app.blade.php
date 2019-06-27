@@ -18,6 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <div id="app">
@@ -40,9 +45,9 @@
                     <ul class="navbar-nav ml-auto">
                             @foreach (config('app.available_locales') as $locale)
                             <li class="nav-item">
-                                <a class="nav-link"
-                                   href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"
-                                    @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}</a>
+{{--                                <a class="nav-link"--}}
+{{--                                   href="{{ route(\Illuminate\Support\Facades\Route::currentRouteName(), $locale) }}"--}}
+{{--                                    @if (app()->getLocale() == $locale) style="font-weight: bold; text-decoration: underline" @endif>{{ strtoupper($locale) }}</a>--}}
                             </li>
                         @endforeach
                         <!-- Authentication Links -->   

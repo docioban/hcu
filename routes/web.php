@@ -11,24 +11,32 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect(app()->getLocale());
-});
+//Route::get('/', function () {
+//    return redirect(app()->getLocale());
+//});
+
+Route::get('/live_search', 'LiveSearchController@index');
+
+Route::get('/live_search/action', 'LiveSearchController@action')->name('live_search.action');
 
 Route::group([
-    'prefix' => '{locale}', 
-    'where' => ['locale' => '[a-zA-Z]{2}'], 
+    'prefix' => '{locale}',
+    'where' => ['locale' => '[a-zA-Z]{2}'],
     'middleware' => 'setlocale'], function() {
 
-    Route::get('/', 'HomeController@welcome')->name('welcome');
+    Route::post('/district', 'HomeController@get_district');
+
+//    Route::get('/', 'HomeController@index')->name('/');
 
     Route::get('importView', 'ImportController@importExportView');
 
     Route::post('import', 'ImportController@import')->name('import');
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@welcome');
 
-    Route::get('/search', 'HomeController@search');
+//    Route::get('/', 'LiveSearchController@index');
+//
+//    Route::get('/search', 'LiveSearchController@search');
 
     Auth::routes();
 });
