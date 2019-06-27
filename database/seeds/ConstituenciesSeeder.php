@@ -23,6 +23,10 @@ class ConstituenciesSeeder extends Seeder
 //
 //        }
 
+        DB::table('constituencies')->insert([
+            ['name' => 'chisinau', 'number_of_voters' => '0']
+        ]);
+
 //        fclose($file);
 //        DB::table('constituencies')->insert([
 //            ['number_of_voters' => '63695'],

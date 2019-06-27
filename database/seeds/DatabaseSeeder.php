@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             PartySeeder::class,
             ConstituenciesSeeder::class,
-            NamesConstituenciesSeeder::class,
             CandidateSeeder::class,
             PostsSeeder::class,
             PostContentSeeder::class,
