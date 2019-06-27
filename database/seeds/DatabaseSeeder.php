@@ -61,6 +61,9 @@ class DatabaseSeeder extends Seeder
                 $locality->district_id = $district->id;
                 $locality->save();
             }
+//            if (isset($data[6]) and isset($data[7])) {
+//
+//            }
         }
         fclose($file);
 
