@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use App\District;
+
 class DistrictSeeder extends Seeder
 {
     /**
@@ -13,17 +15,14 @@ class DistrictSeeder extends Seeder
     {
         $file_n = storage_path('database/districts.csv');
         $file = fopen($file_n, "r");
-        $all_data = array();
-        while ( ($data = fgetcsv($file, 200, ",") ) !== FALSE) {
-
-            print_r($data);
+        $data = fgetcsv($file, 500, ",");
+        while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
+            if (isset($data[2]))
+                if (!District::where('name', '=', $data[2])->exists())
+                    DB::table('district')->insert([
+                        ['name' => $data[2]]
+                    ]);
         }
         fclose($file);
-
-        print_r($all_data);
-
-        DB::table('district')->insert([
-            ['name' => 'Anenii Noi'],
-        ]);
     }
 }
