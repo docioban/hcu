@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             PartySeeder::class,
             ConstituenciesSeeder::class,
-            NamesConstituenciesSeeder::class,
             CandidateSeeder::class,
             PostsSeeder::class,
             PostContentSeeder::class,
@@ -25,12 +24,6 @@ class DatabaseSeeder extends Seeder
             DistrictConstituenciesSeeder::class,
             LanguageDistrictSeeder::class,
             LanguageLocalitySeeder::class
-        ]);
-        // $this->call(UsersTableSeeder::class);
-        DB::table('users')->insert([
-            'name' => 'Mishanea',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('admin'),
         ]);
     }
 }
