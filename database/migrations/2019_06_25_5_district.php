@@ -16,6 +16,7 @@ class District extends Migration
         Schema::create('district', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->timestamps();
         });
     }
 

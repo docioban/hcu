@@ -17,6 +17,7 @@ class Locality extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->unsignedBigInteger('district_id');
+            $table->timestamps();
 
             $table->foreign('district_id')->references('id')->on('district');
         });

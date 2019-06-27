@@ -4,9 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class District extends Model
+class LanguageConstituencies extends Model
 {
-    protected $table = 'district';
+    protected $table = 'language_constituencies';
     public $primaryKey = 'id';
-
 }
