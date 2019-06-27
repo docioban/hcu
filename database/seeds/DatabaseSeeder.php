@@ -6,6 +6,9 @@ use App\District;
 use App\Locality;
 use App\Constituencies;
 use App\LanguageConstituencies;
+use App\Section;
+use App\LanguageLocality;
+use App\LanguageDistrict;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,24 +30,23 @@ class DatabaseSeeder extends Seeder
         while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
             if (isset($data[0]) and isset($data[1]) and isset($data[2])) {
                 if (!Constituencies::where('id', '=', $data[0])->exists()) {
-                    $new_constituencie = new Constituencies;
-                    $new_constituencie->id = $data[0];
-                    $new_constituencie->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
-                    $new_constituencie->name = $data[2];
-                    $new_constituencie->save();
-
-                    $new_language_constituencie = new LanguageConstituencies;
-                    $new_language_constituencie->name = $data[3];
-                    $new_language_constituencie->language_id = 2;
-                    $new_language_constituencie->constituencies_id = $data[0];
-                    $new_language_constituencie->save();
+                    $constituencie = new Constituencies;
+                    $constituencie->id = $data[0];
+                    $constituencie->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
+                    $constituencie->name = $data[2];
+                    $constituencie->save();
+                    $language_constituencie = new LanguageConstituencies;
+                    $language_constituencie->name = $data[3];
+                    $language_constituencie->language_id = 2;
+                    $language_constituencie->constituencies_id = $data[0];
+                    $language_constituencie->save();
                 } else {
                     $constituencie = Constituencies::where('id', '=', $data[0])->first();
                     $language_constituencie = LanguageConstituencies::where('constituencies_id', '=', $data[0])->first();
                     if (strpos($constituencie->name, $data[2]) === false) {
-                        $constituencie->name .= ", ".$data[2];
+                        $constituencie->name .= ", " . $data[2];
                         $constituencie->save();
-                        $language_constituencie->name .= ", ".$data[3];
+                        $language_constituencie->name .= ", " . $data[3];
                         $language_constituencie->save();
                     }
                 }
@@ -55,15 +57,30 @@ class DatabaseSeeder extends Seeder
                     $district = new District;
                     $district->name = $data[2];
                     $district->save();
+                    $language_district = new LanguageDistrict;
+                    $language_district->name = $data[3];
+                    $language_district->language_id = 2;
+                    $language_district->district_id = $district->id;
+                    $language_district->save();
                 }
                 $locality = new Locality;
                 $locality->name = $data[4];
                 $locality->district_id = $district->id;
+                $locality->constituencies_id = $constituencie->id;
                 $locality->save();
+                $language_locality = new LanguageLocality;
+                $language_locality->name = $data[5];
+                $language_locality->language_id = 2;
+                $language_locality->locality_id = $locality->id;
+                $language_locality->save();
+                if (isset($data[6]) and isset($data[7]) and $data[6] and $data[7]) {
+                    $section = new Section;
+                    $section->number = $data[6];
+                    $section->address = $data[7];
+                    $section->locality_id = $locality->id;
+                    $section->save();
+                }
             }
-//            if (isset($data[6]) and isset($data[7])) {
-//
-//            }
         }
         fclose($file);
 
@@ -71,12 +88,8 @@ class DatabaseSeeder extends Seeder
             CandidateSeeder::class,
             PostsSeeder::class,
             PostContentSeeder::class,
-            DistrictSeeder::class,
-            LocalitySeeder::class,
-            SectionSeeder::class,
             DistrictConstituenciesSeeder::class,
-            LanguageDistrictSeeder::class,
-            LanguageLocalitySeeder::class
         ]);
+
     }
 }

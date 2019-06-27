@@ -22,7 +22,7 @@ Route::group([
 
     Route::post('/district', 'HomeController@get_district');
     
-    Route::get('/', 'HomeController@index')->name('/'); 
+    Route::get('/', 'HomeController@index')->name('/');
 
     Route::get('importView', 'ImportController@importExportView');
 
@@ -31,6 +31,8 @@ Route::group([
     Route::post('/home', 'HomeController@welcome');
 
     Route::get('/search', 'HomeController@search');
+
+    Route::get('/constituence', 'HomeController@search');
 
     Auth::routes();
 });

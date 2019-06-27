@@ -18,6 +18,7 @@ class LanguageDistrict extends Migration
             $table->string('name');
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('district_id');
+            $table->timestamps();
 
             $table->foreign('language_id')->references('id')->on('language');
             $table->foreign('district_id')->references('id')->on('district');

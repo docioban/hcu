@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Adress;
 use App\Locality;
-use App\District;
+use App\Constituencies;
 
 class HomeController extends Controller
 {
@@ -17,7 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {      
-        $districts = District::all();
+        $districts = Constituencies::select('id', 'name')->get();
 
         return response()->json($districts);
 
@@ -25,11 +25,24 @@ class HomeController extends Controller
 
     public function get_district(Adress $request)
     {
-        $if = Locality::where('name', 'like', $request->input('locality'))->first();
+        $constituence = '';
 
-        return $if;
+        if ($request->input('locality') == 'Chisinau' && $request->input('route') == '')   
+            $constituence = Constituencies::whereHas('locality', function ($q) use ($request) {
+                $q->where('name', 'like', '%'. $request->input('locality') .'%');
+            })->first();
+        elseif ($request->input('locality') == 'Chisinau' && $request->input('route') != '')
+            $constituence = Constituencies::whereHas('locality', function ($q) use ($request) {
+                $q->where('name', 'like', '%'. $request->input('route') .'%');
+            })->first(); 
+        else
+            $constituence = Constituencies::whereHas('locality', function ($q) use ($request) {
+                $q->where('name', 'like', '%'. $request->input('locality') .'%');
+            })->first();
 
-        //return redirect('/');
+        return response()->json($constituence);
+
+        return redirect('/constituence')->with($constituence);
     }
 
     public function search(Request $request)
