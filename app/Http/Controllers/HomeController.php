@@ -31,7 +31,7 @@ class HomeController extends Controller
 //
 //        return $response;
 
-        return app('geocoder')->reverse(43.882587,-103.454067)->get();
+        return app('geocoder')->reverse(43.882587, -103.454067)->get();
 
         $arr_ip = geoip()->getLocation('217.12.124.50');
 
@@ -39,15 +39,16 @@ class HomeController extends Controller
 
         //dd($arr_ip);
 
-        return $arr_ip['lat'].','.$arr_ip['lon'];
+        return $arr_ip['lat'] . ',' . $arr_ip['lon'];
 
         return $json;
-        
+
         return view('home');
-        
+
     }
 
-    public function welcome() {
+    public function welcome()
+    {
         return view('welcome');
     }
 
