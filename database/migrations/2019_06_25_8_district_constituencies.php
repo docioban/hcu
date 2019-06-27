@@ -14,11 +14,11 @@ class DistrictConstituencies extends Migration
     public function up()
     {
         Schema::create('district_constituencies', function (Blueprint $table) {
-            $table->unsignedBigInteger('district_id')->references('id')->on('district');
-            $table->unsignedBigInteger('constituencies_id')->references('id')->on('constituencies');
+            $table->unsignedBigInteger('district_id');
+            $table->unsignedBigInteger('constituencies_id');
 
-            // $table->foreign('district_id')->references('id')->on('district');
-            // $table->foreign('constituencies_id')->references('id')->on('constituencies');
+            $table->foreign('district_id')->references('id')->on('district');
+            $table->foreign('constituencies_id')->references('id')->on('constituencies');
         });
     }
 

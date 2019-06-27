@@ -12,7 +12,7 @@ class LocalitySeeder extends Seeder
     public function run()
     {
         DB::table('locality')->insert([
-            ['name' => 'Sireti', 'district_id' => '1']
+            ['name' => 'Chisinau', 'district_id' => '1']
         ]);
     }
 }

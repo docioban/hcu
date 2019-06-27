@@ -4,52 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\circumscription;
+use App\Http\Requests\Adress;
+use App\Locality;
+use App\District;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-//        $response = \GoogleMaps::load('geocoding')
-//            ->setParamByKey('latlng', '47.026288, 28.832056')
-//            ->get('results.formatted_address');
-//
-//        return $response;
+    {      
+        $districts = District::all();
 
-        return app('geocoder')->reverse(43.882587, -103.454067)->get();
-
-        $arr_ip = geoip()->getLocation('217.12.124.50');
-
-        $arr_ip = $arr_ip->toArray();
-
-        //dd($arr_ip);
-
-        return $arr_ip['lat'] . ',' . $arr_ip['lon'];
-
-        return $json;
-
-        return view('home');
+        return response()->json($districts);
 
     }
 
-    public function welcome()
+    public function get_district(Adress $request)
     {
-        return view('welcome');
+        $if = Locality::where('name', 'like', $request->input('locality'))->first();
+
+        return $if;
+
+        //return redirect('/');
     }
 
     public function search(Request $request)

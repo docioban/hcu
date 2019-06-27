@@ -20,13 +20,15 @@ Route::group([
     'where' => ['locale' => '[a-zA-Z]{2}'], 
     'middleware' => 'setlocale'], function() {
 
-    Route::get('/', 'HomeController@welcome')->name('welcome');
+    Route::post('/district', 'HomeController@get_district');
+    
+    Route::get('/', 'HomeController@index')->name('/'); 
 
     Route::get('importView', 'ImportController@importExportView');
 
     Route::post('import', 'ImportController@import')->name('import');
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::post('/home', 'HomeController@welcome');
 
     Route::get('/search', 'HomeController@search');
 

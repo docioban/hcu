@@ -80,6 +80,9 @@
         </nav>
 
         <main class="py-4">
+                <div align='center'>
+                        @include('layouts.messages')
+                    </div>
             @yield('content')
         </main>
     </div>
