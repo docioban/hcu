@@ -4,20 +4,21 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class NamesConstituencies extends Migration
+class LanguageConstituencies extends Migration
 {
     /**
      * Run the migrations.
-     *'o
+     *
      * @return void
      */
     public function up()
     {
-        Schema::create('names_constituencies', function (Blueprint $table) {
+        Schema::create('language_constituencies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('constituencies_id');
+            $table->timestamps();
 
             $table->foreign('language_id')->references('id')->on('language');
             $table->foreign('constituencies_id')->references('id')->on('constituencies');
@@ -31,6 +32,6 @@ class NamesConstituencies extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('names_constituencies');
+        Schema::dropIfExists('language_constituencies');
     }
 }

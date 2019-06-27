@@ -14,10 +14,10 @@ class Constituencies extends Migration
     public function up()
     {
         Schema::create('constituencies', function (Blueprint $table) {
-        Schema::create('circumscriptions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('number_of_voters');
-
+            $table->string('name');
+            $table->bigInteger('number_of_voters')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -29,6 +29,5 @@ class Constituencies extends Migration
     public function down()
     {
         Schema::dropIfExists('constituencies');
-        Schema::dropIfExists('circumscriptions');
     }
 }

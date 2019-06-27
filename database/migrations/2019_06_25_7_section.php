@@ -15,9 +15,10 @@ class Section extends Migration
     {
         Schema::create('section', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('number');
+            $table->string('number');
             $table->string('address');
             $table->unsignedBigInteger('locality_id');
+            $table->timestamps();
 
             $table->foreign('locality_id')->references('id')->on('locality');
         });

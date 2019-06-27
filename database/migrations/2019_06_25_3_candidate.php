@@ -15,7 +15,6 @@ class Candidate extends Migration
     {
         Schema::create('candidate', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('circumscription_id');
             $table->string('name');
             $table->date('date');
             $table->string('location');
@@ -24,8 +23,6 @@ class Candidate extends Migration
             $table->string('studies');
             $table->unsignedBigInteger('party_id')->nullable();
             $table->unsignedBigInteger('constituencies_id');
-            $table->string('partid');
-            $table->longText('description');
             $table->timestamps();
 
             $table->foreign('party_id')->references('id')->on('party');
