@@ -1,23 +1,16 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\circumscription;
+use App\Http\Requests\Adress;
+use App\Locality;
+use App\Constituencies;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
-
     /**
      * Show the application dashboard.
      *
@@ -25,38 +18,36 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        $response = \GoogleMaps::load('geocoding')
-//            ->setParamByKey('latlng', '47.026288, 28.832056')
-//            ->get('results.formatted_address');
-//
-//        return $response;
+        return view('welcome');
 
-        return app('geocoder')->reverse(43.882587, -103.454067)->get();
+        $districts = Constituencies::select('id', 'name')->get();
 
-        $arr_ip = geoip()->getLocation('217.12.124.50');
-
-        $arr_ip = $arr_ip->toArray();
-
-        //dd($arr_ip);
-
-        return $arr_ip['lat'] . ',' . $arr_ip['lon'];
-
-        return $json;
-
-        return view('home');
+        return response()->json($districts);
 
     }
 
     public function welcome()
     {
         return view('welcome');
+
+        $districts = Constituencies::select('id', 'name')->get();
+
+        return response()->json($districts);
+
     }
 
-    public function search(Request $request)
+    public function get_district(Adress $request)
     {
-        $search = $request->get('search');
-        $instituties = DB::table('instituties')->where('name', 'like', '%' . $search . '%')->paginate(5);
-        //return view('home', ['institutii' => $instituties]);
-        return response()->json($instituties);
+        if (Constituencies::whereHas('locality', function ($q){
+            $q->where('user_id', 1);
+        })->whereHas('permissions', function ($q){
+            $q->where('name', 'group_make');
+        })->exists())
+
+            $if = Constituencies::where('locality.name', 'like', '%' . $request->input('locality') . '%')->get();
+
+        return $if;
+
+        //return redirect('/');
     }
 }
