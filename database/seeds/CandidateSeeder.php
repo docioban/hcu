@@ -20,7 +20,7 @@ class CandidateSeeder extends Seeder
                 'function' => '17 iulie 2015 - prezent Presedintele raionului Hincesti',
                 'studies' => 'Academia de Administrare Publica Universitatea de Stat de Medicina si Farmacie „Nicolae Testemițeanu”',
                 'party_id' => '1',
-                'constituencies_id' => '1'
+                'constituence_id' => '1'
             ]
         ]);
     }

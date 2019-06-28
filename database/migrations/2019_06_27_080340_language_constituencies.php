@@ -17,11 +17,11 @@ class LanguageConstituencies extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->unsignedBigInteger('language_id');
-            $table->unsignedBigInteger('constituencies_id');
+            $table->unsignedBigInteger('constituence_id');
             $table->timestamps();
 
             $table->foreign('language_id')->references('id')->on('language');
-            $table->foreign('constituencies_id')->references('id')->on('constituencies');
+            $table->foreign('constituence_id')->references('id')->on('constituencies');
         });
     }
 

@@ -22,11 +22,11 @@ class Candidate extends Migration
             $table->string('function');
             $table->string('studies');
             $table->unsignedBigInteger('party_id')->nullable();
-            $table->unsignedBigInteger('constituencies_id');
+            $table->unsignedBigInteger('constituence_id');
             $table->timestamps();
 
             $table->foreign('party_id')->references('id')->on('party');
-            $table->foreign('constituencies_id')->references('id')->on('constituencies');
+            $table->foreign('constituence_id')->references('id')->on('constituencies');
         });
     }
 

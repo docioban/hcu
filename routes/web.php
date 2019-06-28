@@ -11,13 +11,17 @@
 |
 */
 
-//Route::get('/', function () {
-//    return redirect(app()->getLocale());
-//});
+Route::get('/', function () {
+    return redirect(app()->getLocale());
+});
 
 
 Route::get('/live_search', 'LiveSearchController@index');
 Route::post('/live_search/action', 'LiveSearchController@action')->name('live_search.action');
+
+Route::post('/', function () {
+    return redirect(app()->getLocale());
+});
 
 Route::group([
     'prefix' => '{locale}', 
@@ -25,20 +29,20 @@ Route::group([
     'middleware' => 'setlocale'], function() {
 
     Route::post('/district', 'HomeController@get_district');
-    
-//    Route::get('/', 'HomeController@index')->name('/');
+
+    Route::get('/', 'HomeController@welcome')->name('main');
+
+    Route::post('/', 'HomeController@index')->name('get_location');
 
     Route::get('importView', 'ImportController@importExportView');
 
     Route::post('import', 'ImportController@import')->name('import');
 
-    Route::get('/home', 'HomeController@welcome');
+    Route::post('/home', 'HomeController@welcome');
 
-//    Route::get('/', 'LiveSearchController@index');
-//
-//    Route::get('/search', 'LiveSearchController@search');
+    Route::get('/search', 'HomeController@search');
 
-    Route::get('/constituencies', 'HomeController@search');
+    Route::get('constituencies/{constituence}', 'ConstituenceController@show')->name('cons');
 
     Auth::routes();
 });

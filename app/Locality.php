@@ -10,7 +10,7 @@ class Locality extends Model
     public $primaryKey = 'id';
 
     public function constituencies() {
-        return $this->belongsTo('App/Constituencies');
+        return $this->belongsTo('App/Constituence');
     }
 
     static public function search()
