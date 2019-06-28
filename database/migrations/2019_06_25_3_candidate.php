@@ -15,14 +15,14 @@ class Candidate extends Migration
     {
         Schema::create('candidate', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('party_id')->nullable();
+            $table->unsignedBigInteger('constituencies_id');
             $table->string('name');
-            $table->date('date');
             $table->string('location');
             $table->string('civil_status');
             $table->string('function');
             $table->string('studies');
-            $table->unsignedBigInteger('party_id')->nullable();
-            $table->unsignedBigInteger('constituencies_id');
+            $table->date('date');
             $table->timestamps();
 
             $table->foreign('party_id')->references('id')->on('party');
