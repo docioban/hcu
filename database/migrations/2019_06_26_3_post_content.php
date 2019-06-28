@@ -15,11 +15,11 @@ class PostContent extends Migration
     {
         Schema::create('post_content', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('language_id');
+            $table->unsignedBigInteger('post_id');
             $table->string('title');
             $table->string('subtitle');
             $table->string('body');
-            $table->unsignedBigInteger('language_id');
-            $table->unsignedBigInteger('post_id');
 
             $table->foreign('language_id')->references('id')->on('language');
             $table->foreign('post_id')->references('id')->on('posts');

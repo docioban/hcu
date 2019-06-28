@@ -15,7 +15,6 @@ class LanguageConstituencies extends Migration
     {
         Schema::create('language_constituencies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('constituence_id');
             $table->timestamps();
