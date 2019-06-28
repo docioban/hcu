@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\District;
 use App\Locality;
-use App\Constituencies;
+use App\Constituence;
 use App\LanguageConstituencies;
 use App\Section;
 use App\LanguageLocality;
@@ -29,9 +29,9 @@ class DatabaseSeeder extends Seeder
         $data = fgetcsv($file, 500, ",");
         while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
             if (isset($data[0]) and isset($data[1]) and isset($data[2])) {
-                if (!($constituencie= Constituencies::where('constituency_id', $data[0])->first())) {
-                    $constituencie = new Constituencies;
-                    $constituencie->constituency_id= $data[0];
+                if (!($constituencie= Constituence::where('constituence_id', $data[0])->first())) {
+                    $constituencie = new Constituence;
+                    $constituencie->constituence_id= $data[0];
                     $constituencie->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
                     $constituencie->save();
                     $language_constituencie = new LanguageConstituencies;
@@ -43,6 +43,7 @@ class DatabaseSeeder extends Seeder
                     $language_constituencie->name = $data[3];
                     $language_constituencie->language_id = 2;
                     $language_constituencie->constituencies_id = $constituencie->id;
+                    $language_constituencie->constituence_id = $data[0];
                     $language_constituencie->save();
                 } else {
                     $language_constituencie = LanguageConstituencies::where('constituencies_id', '=', $data[0])->where('language_id', '1')->first();
@@ -50,6 +51,10 @@ class DatabaseSeeder extends Seeder
                         $language_constituencie->name .= ", " . $data[2];
                         $language_constituencie->save();
                         $language_constituencie = LanguageConstituencies::where('constituencies_id', '=', $data[0])->where('language_id', '2')->first();
+                    $language_constituencie = LanguageConstituencies::where('constituence_id', '=', $data[0])->first();
+                    if (strpos($constituencie->name, $data[2]) === false) {
+                        $constituencie->name .= ", " . $data[2];
+                        $constituencie->save();
                         $language_constituencie->name .= ", " . $data[3];
                         $language_constituencie->save();
                     }
@@ -74,6 +79,9 @@ class DatabaseSeeder extends Seeder
                 $locality = new Locality;
                 $locality->district_id = $language_district->district_id;
                 $locality->constituencies_id = $constituencie->id;
+                $locality->name = $data[4];
+                $locality->district_id = $district->id;
+                $locality->constituence_id = $constituencie->id;
                 $locality->save();
                 $language_locality = new LanguageLocality;
                 $language_locality->name = $data[4];

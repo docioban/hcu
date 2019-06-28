@@ -15,12 +15,13 @@ class Locality extends Migration
     {
         Schema::create('locality', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('constituencies_id');
+            $table->unsignedBigInteger('constituence_id');
+            $table->string('name');
             $table->unsignedBigInteger('district_id');
             $table->timestamps();
 
             $table->foreign('district_id')->references('id')->on('district');
-            $table->foreign('constituencies_id')->references('id')->on('constituencies');
+            $table->foreign('constituence_id')->references('id')->on('constituencies');
         });
     }
 
