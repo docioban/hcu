@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Candidate;
+use App\Constituencies;
+use App\Locality;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -15,24 +18,14 @@ class LiveSearchController extends Controller
 
     function action(Request $request)
     {
-        if ($request->ajax()) {
-            $output = '';
             $query = $request->get('query');
-            if ($query != '') {
-                $data = DB::table('locality')->where('name', 'like', '%' . $query . '%')->get();
+            if ($query) {
+                $constituencies = Constituencies::where('name', 'like', '%'.$query.'%')->get();
+                $candidate = Candidate::where('name', 'like', '%'.$query.'%')->get();
             } else {
-                $data = DB::table('locality')->orderBy('id', 'desc')->get();
+                $constituencies = Constituencies::all();
+                $candidate = Candidate::all();
             }
-            $total_row = $data->count();
-            if ($total_row > 0) {
-                foreach ($data as $row) {
-                    $output .= $row->name.'<br>';
-                }
-            } else {
-                $output = 'No Data Found';
-            }
-            $data = array('table_data' => $output, 'total_data' => $total_row);
-            echo json_encode($data);
-        }
+            return response()->json(['constituencies' => $constituencies, 'candidate' => $candidate, 'query' => $query]);
     }
 }

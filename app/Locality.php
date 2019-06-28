@@ -12,4 +12,10 @@ class Locality extends Model
     public function constituencies() {
         return $this->belongsTo('App/Constituencies');
     }
+
+    static public function search()
+    {
+        $model = self::where([]);
+        return $model;
+    }
 }
