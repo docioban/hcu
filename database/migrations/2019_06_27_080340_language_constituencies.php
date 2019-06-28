@@ -16,11 +16,12 @@ class LanguageConstituencies extends Migration
         Schema::create('language_constituencies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('language_id');
-            $table->unsignedBigInteger('constituence_id');
+            $table->unsignedBigInteger('constituency_id');
+            $table->string('name');
             $table->timestamps();
 
             $table->foreign('language_id')->references('id')->on('language');
-            $table->foreign('constituence_id')->references('id')->on('constituencies');
+            $table->foreign('constituency_id')->references('id')->on('constituencies');
         });
     }
 

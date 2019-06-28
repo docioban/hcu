@@ -12,7 +12,7 @@ class DistrictConstituenciesSeeder extends Seeder
     public function run()
     {
         DB::table('district_constituencies')->insert([
-            ['district_id' => '1', 'constituence_id' => '1']
+            ['district_id' => '1', 'constituency_id' => '1']
         ]);
     }
 }

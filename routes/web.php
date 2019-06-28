@@ -44,5 +44,7 @@ Route::group([
 
     Route::get('constituencies/{constituence}', 'ConstituenceController@show')->name('cons');
 
+    Route::resource('/candidate', 'DeputatController');
+
     Auth::routes();
 });

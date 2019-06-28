@@ -16,19 +16,17 @@ class Candidate extends Migration
         Schema::create('candidate', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('party_id')->nullable();
-            $table->unsignedBigInteger('constituencies_id');
+            $table->unsignedBigInteger('constituency_id');
             $table->string('name');
             $table->string('location');
             $table->string('civil_status');
             $table->string('function');
             $table->string('studies');
-            $table->unsignedBigInteger('party_id')->nullable();
-            $table->unsignedBigInteger('constituence_id');
             $table->date('date');
             $table->timestamps();
 
             $table->foreign('party_id')->references('id')->on('party');
-            $table->foreign('constituence_id')->references('id')->on('constituencies');
+            $table->foreign('constituency_id')->references('id')->on('constituencies');
         });
     }
 
