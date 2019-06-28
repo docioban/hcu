@@ -15,10 +15,10 @@ class DistrictConstituencies extends Migration
     {
         Schema::create('district_constituencies', function (Blueprint $table) {
             $table->unsignedBigInteger('district_id');
-            $table->unsignedBigInteger('constituencies_id');
+            $table->unsignedBigInteger('constituence_id');
 
             $table->foreign('district_id')->references('id')->on('district');
-            $table->foreign('constituencies_id')->references('id')->on('constituencies');
+            $table->foreign('constituence_id')->references('id')->on('constituencies');
         });
     }
 
