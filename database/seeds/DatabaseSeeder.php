@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\District;
 use App\Locality;
-use App\Constituence;
+use App\Constituency;
 use App\LanguageConstituencies;
 use App\Section;
 use App\LanguageLocality;
@@ -29,19 +29,20 @@ class DatabaseSeeder extends Seeder
         $data = fgetcsv($file, 500, ",");
         while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
             if (isset($data[0]) and isset($data[1]) and isset($data[2])) {
-                if (!($constituencie= Constituence::where('constituence_id', $data[0])->first())) {
-                    $constituencie = new Constituence;
-                    $constituencie->constituence_id= $data[0];
+                if (!($constituencie= Constituency::where('constituency_id', $data[0])->first())) {
+                    $constituencie = new Constituency;
+                    $constituencie->Constituency_id= $data[0];
                     $constituencie->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
                     $constituencie->name = $data[2];
+                    $constituencie->slug = 'circumscriptie-' . $data[0];
                     $constituencie->save();
                     $language_constituencie = new LanguageConstituencies;
                     $language_constituencie->name = $data[3];
                     $language_constituencie->language_id = 2;
-                    $language_constituencie->constituence_id = $data[0];
+                    $language_constituencie->Constituency_id = $data[0];
                     $language_constituencie->save();
                 } else {
-                    $language_constituencie = LanguageConstituencies::where('constituence_id', '=', $data[0])->first();
+                    $language_constituencie = LanguageConstituencies::where('Constituency_id', '=', $data[0])->first();
                     if (strpos($constituencie->name, $data[2]) === false) {
                         $constituencie->name .= ", " . $data[2];
                         $constituencie->save();
@@ -65,7 +66,7 @@ class DatabaseSeeder extends Seeder
                 $locality = new Locality;
                 $locality->name = $data[4];
                 $locality->district_id = $district->id;
-                $locality->constituence_id = $constituencie->id;
+                $locality->Constituency_id = $constituencie->id;
                 $locality->save();
                 $language_locality = new LanguageLocality;
                 $language_locality->name = $data[5];

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\Adress;
 use App\Locality;
-use App\Constituence;
+use App\Constituency;
 
 class HomeController extends Controller
 {
@@ -22,15 +22,15 @@ class HomeController extends Controller
         $constituence = null;
 
         if (Input::get('locality') == 'Chisinau' && Input::get('route') == '')
-            $constituence = Constituence::whereHas('locality', function ($q) {
+            $constituence = Constituency::whereHas('locality', function ($q) {
                 $q->where('name', 'like', '%'. Input::get('locality') .'%');
             })->first();
         elseif (Input::get('locality') == 'Chisinau' && Input::get('route') != '')
-            $constituence = Constituence::whereHas('locality', function ($q) {
+            $constituence = Constituency::whereHas('locality', function ($q) {
                 $q->where('name', 'like', '%'. Input::get('route') .'%');
             })->first();
         elseif (Input::get('locality') != '' && Input::get('route') != '')
-            $constituence = Constituence::whereHas('locality', function ($q) {
+            $constituence = Constituency::whereHas('locality', function ($q) {
                 $q->where('name', 'like', '%'. Input::get('locality') .'%');
             })->first();
 
@@ -43,20 +43,20 @@ class HomeController extends Controller
 
     }
 
-    public function welcome()
+    public function welcome($locale)
     {
-        return view('welcome');
+        return view('dashboard');
     }
 
     public function search(Adress $request)
     {
-        if (Constituencies::whereHas('locality', function ($q){
+        if (Constituency::whereHas('locality', function ($q){
             $q->where('user_id', 1);
         })->whereHas('permissions', function ($q){
             $q->where('name', 'group_make');
         })->exists())
 
-            $if = Constituencies::where('locality.name', 'like', '%' . $request->input('locality') . '%')->get();
+            $if = Constituency::where('locality.name', 'like', '%' . $request->input('locality') . '%')->get();
 
         return $if;
 

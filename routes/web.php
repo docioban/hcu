@@ -23,6 +23,8 @@ Route::post('/', function () {
     return redirect(app()->getLocale());
 });
 
+//Route::get('/constituency/{slug}', 'ConstituencyController@show')->name('constituency.show');
+
 Route::group([
     'prefix' => '{locale}', 
     'where' => ['locale' => '[a-zA-Z]{2}'], 
@@ -42,7 +44,21 @@ Route::group([
 
     Route::get('/search', 'HomeController@search');
 
-    Route::get('constituencies/{constituence}', 'ConstituenceController@show')->name('cons');
-
     Auth::routes();
+
+    Route::get('/constituency', 'ConstituencyController@index');
+
+    //Route::get('/constituency/{slug}', 'ConstituencyController@show')->name('constituency.show');
+    
+    Route::get('constituency/{constituency}', 'ConstituencyController@show');
+
+    Route::middleware('auth:api')->group( function(){
+
+    Route::post('constituency', 'ConstituencyController@store');
+
+    Route::put('constituency/{user}', 'ConstituencyControllerr@update');
+
+    Route::delete('constituency/{user}', 'ConstituencyController@destroy');
+
+    });
 });
