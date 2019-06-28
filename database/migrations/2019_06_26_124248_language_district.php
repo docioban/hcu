@@ -15,9 +15,9 @@ class LanguageDistrict extends Migration
     {
         Schema::create('language_district', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('district_id');
+            $table->string('name');
             $table->timestamps();
 
             $table->foreign('language_id')->references('id')->on('language');
