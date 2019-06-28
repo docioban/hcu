@@ -29,9 +29,9 @@ class DatabaseSeeder extends Seeder
         $data = fgetcsv($file, 500, ",");
         while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
             if (isset($data[0]) and isset($data[1]) and isset($data[2])) {
-                if (!Constituencies::where('id', '=', $data[0])->exists()) {
+                if (!($constituencie= Constituencies::where('constituency_id', $data[0])->first())) {
                     $constituencie = new Constituencies;
-                    $constituencie->id = $data[0];
+                    $constituencie->constituency_id= $data[0];
                     $constituencie->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
                     $constituencie->name = $data[2];
                     $constituencie->save();
@@ -41,7 +41,6 @@ class DatabaseSeeder extends Seeder
                     $language_constituencie->constituencies_id = $data[0];
                     $language_constituencie->save();
                 } else {
-                    $constituencie = Constituencies::where('id', '=', $data[0])->first();
                     $language_constituencie = LanguageConstituencies::where('constituencies_id', '=', $data[0])->first();
                     if (strpos($constituencie->name, $data[2]) === false) {
                         $constituencie->name .= ", " . $data[2];

@@ -18,7 +18,6 @@ class HomeController extends Controller
     public function index()
     {
         $districts = Constituencies::select('id', 'name')->get();
-    {
         return view('welcome');
 
         $districts = Constituencies::select('id', 'name')->get();
@@ -60,7 +59,7 @@ class HomeController extends Controller
         return redirect('/constituence')->with($constituence);
     }
 
-    public function get_district(Adress $request)
+    public function strhhadfhjadfa(Adress $request)
     {
         if (Constituencies::whereHas('locality', function ($q){
             $q->where('user_id', 1);

@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return redirect(app()->getLocale());
-});
+//Route::get('/', function () {
+//    return redirect(app()->getLocale());
+//});
+
+
+Route::get('/live_search', 'LiveSearchController@index');
+Route::post('/live_search/action', 'LiveSearchController@action')->name('live_search.action');
 
 Route::group([
     'prefix' => '{locale}', 
@@ -22,19 +26,19 @@ Route::group([
 
     Route::post('/district', 'HomeController@get_district');
     
-    Route::get('/', 'HomeController@index')->name('/');
+//    Route::get('/', 'HomeController@index')->name('/');
 
     Route::get('importView', 'ImportController@importExportView');
 
     Route::post('import', 'ImportController@import')->name('import');
 
-    Route::post('/home', 'HomeController@welcome');
+    Route::get('/home', 'HomeController@welcome');
 
 //    Route::get('/', 'LiveSearchController@index');
 //
 //    Route::get('/search', 'LiveSearchController@search');
 
-    Route::get('/constituence', 'HomeController@search');
+    Route::get('/constituencies', 'HomeController@search');
 
     Auth::routes();
 });
