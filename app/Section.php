@@ -10,6 +10,6 @@ class Section extends Model
     public $primaryKey = 'id';
 
     public function locality() {
-        return $this->belongsTo('App/Locality');
+        return $this->belongsTo('App/Locality', 'id', 'locality_id');
     }
 }

@@ -23,10 +23,8 @@ Route::post('/', function () {
     return redirect(app()->getLocale());
 });
 
-//Route::get('/constituency/{slug}', 'ConstituencyController@show')->name('constituency.show');
-
 Route::group([
-    'prefix' => '{locale}', 
+    'prefix' => '{locale}',
     'where' => ['locale' => '[a-zA-Z]{2}'], 
     'middleware' => 'setlocale'], function() {
 
@@ -36,9 +34,26 @@ Route::group([
 
     Route::post('/', 'HomeController@index')->name('get_location');
 
+    Route::get('importView', 'ImportController@importExportView');
+
+    Route::post('import', 'ImportController@import')->name('import');
+
     Route::post('/home', 'HomeController@welcome');
 
     Route::get('/search', 'HomeController@search');
+
+    Route::resource('/candidate', 'CandidateController');
+
+    Route::resource('/locality', 'LocalityController');
+
+    Route::get('/dashboard', function () {
+        return view('crud/dashboard');
+    });
+
+
+//    Route::get('constituencies/{constituence}', 'ConstituenceController@show')->name('cons');
+
+
 
     Auth::routes();
 
@@ -47,7 +62,7 @@ Route::group([
     // Route::get('/constituency', 'ConstituencyController@index')->name('constituency_list');
 
     // //Route::get('/constituency/{slug}', 'ConstituencyController@show')->name('constituency.show');
-    
+
     // Route::get('constituency/{constituency}', 'ConstituencyController@show')->name('constituency_show');
 
     // Route::get('constituency/view', 'ConstituencyController@index');
