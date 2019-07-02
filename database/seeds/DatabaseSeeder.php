@@ -100,7 +100,6 @@ class DatabaseSeeder extends Seeder
         }
         fclose($file);
 
-
         $this->call([
             CandidateSeeder::class,
             PostsSeeder::class,
