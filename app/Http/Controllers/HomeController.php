@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\Adress;
 use App\Locality;
@@ -50,16 +49,6 @@ class HomeController extends Controller
 
     public function search(Adress $request)
     {
-        if (Constituency::whereHas('locality', function ($q){
-            $q->where('user_id', 1);
-        })->whereHas('permissions', function ($q){
-            $q->where('name', 'group_make');
-        })->exists())
-
-            $if = Constituency::where('locality.name', 'like', '%' . $request->input('locality') . '%')->get();
-
-        return $if;
-
-        //return redirect('/');
+        
     }
 }

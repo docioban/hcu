@@ -36,29 +36,28 @@ Route::group([
 
     Route::post('/', 'HomeController@index')->name('get_location');
 
-    Route::get('importView', 'ImportController@importExportView');
-
-    Route::post('import', 'ImportController@import')->name('import');
-
     Route::post('/home', 'HomeController@welcome');
 
     Route::get('/search', 'HomeController@search');
 
     Auth::routes();
 
-    Route::get('/constituency', 'ConstituencyController@index');
+    Route::get('/admin', 'DashboardController@index')->name('dashboard');
 
-    //Route::get('/constituency/{slug}', 'ConstituencyController@show')->name('constituency.show');
+    // Route::get('/constituency', 'ConstituencyController@index')->name('constituency_list');
+
+    // //Route::get('/constituency/{slug}', 'ConstituencyController@show')->name('constituency.show');
     
-    Route::get('constituency/{constituency}', 'ConstituencyController@show');
+    // Route::get('constituency/{constituency}', 'ConstituencyController@show')->name('constituency_show');
 
-    Route::middleware('auth:api')->group( function(){
+    // Route::get('constituency/view', 'ConstituencyController@index');
 
-    Route::post('constituency', 'ConstituencyController@store');
+    // Route::post('constituency', 'ConstituencyController@store');
 
-    Route::put('constituency/{user}', 'ConstituencyControllerr@update');
+    // Route::put('constituency/{user}', 'ConstituencyController@update');
 
-    Route::delete('constituency/{user}', 'ConstituencyController@destroy');
+    // Route::delete('constituency/{user}', 'ConstituencyController@destroy');
 
-    });
+    Route::resource('constituency', 'ConstituencyController');
+
 });
