@@ -10,6 +10,6 @@ class Party extends Model
     public $primaryKey = 'id';
 
     public function candidate() {
-        return $this->hasMany('App\Candidate');
+        return $this->hasMany('App\Candidate', 'party_id', 'id');
     }
 }

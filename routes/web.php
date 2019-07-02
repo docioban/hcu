@@ -24,7 +24,7 @@ Route::post('/', function () {
 });
 
 Route::group([
-    'prefix' => '{locale}', 
+    'prefix' => '{locale}',
     'where' => ['locale' => '[a-zA-Z]{2}'], 
     'middleware' => 'setlocale'], function() {
 
@@ -42,9 +42,18 @@ Route::group([
 
     Route::get('/search', 'HomeController@search');
 
-    Route::get('constituencies/{constituence}', 'ConstituenceController@show')->name('cons');
+    Route::resource('/candidate', 'CandidateController');
 
-    Route::resource('/candidate', 'DeputatController');
+    Route::resource('/locality', 'LocalityController');
+
+    Route::get('/dashboard', function () {
+        return view('crud/dashboard');
+    });
+
+
+//    Route::get('constituencies/{constituence}', 'ConstituenceController@show')->name('cons');
+
+
 
     Auth::routes();
 });

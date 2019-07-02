@@ -47,19 +47,4 @@ class HomeController extends Controller
     {
         return view('welcome');
     }
-
-    public function search(Adress $request)
-    {
-        if (Constituencies::whereHas('locality', function ($q){
-            $q->where('user_id', 1);
-        })->whereHas('permissions', function ($q){
-            $q->where('name', 'group_make');
-        })->exists())
-
-            $if = Constituencies::where('locality.name', 'like', '%' . $request->input('locality') . '%')->get();
-
-        return $if;
-
-        //return redirect('/');
-    }
 }

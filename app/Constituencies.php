@@ -10,10 +10,14 @@ class Constituencies extends Model
     public $primaryKey = 'id';
 
     public function candidate() {
-        return $this->hasMany('App\Candidate');
+        return $this->hasMany('App\Candidate', 'constituency_id', 'id');
     }
 
     public function locality() {
-        return $this->hasMany('App\Locality');
+        return $this->hasMany('App\Locality', 'constituency_id', 'id');
+    }
+
+    public function language_constituencies() {
+        return $this->hasMany('App\LanguageConstituencies', 'constituency_id', 'id');
     }
 }

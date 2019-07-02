@@ -29,9 +29,9 @@ class DatabaseSeeder extends Seeder
         $data = fgetcsv($file, 500, ",");
         while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
             if (isset($data[0]) and isset($data[1]) and isset($data[2])) {
-                if (!($constituency = Constituencies::where('constituency_id', $data[0])->first())) {
+                if (!($constituency = Constituencies::where('constituency_name', $data[0])->first())) {
                     $constituency = new Constituencies;
-                    $constituency->constituency_id = $data[0];
+                    $constituency->constituency_name = $data[0];
                     $constituency->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
                     $constituency->save();
                     $language_constituency = new LanguageConstituencies;
@@ -45,11 +45,11 @@ class DatabaseSeeder extends Seeder
                     $language_constituency->constituency_id = $constituency->id;
                     $language_constituency->save();
                 } else {
-                    $language_constituency = LanguageConstituencies::where('constituency_id', '=', $data[0])->where('language_id', '1')->first();
+                    $language_constituency = LanguageConstituencies::where('constituency_id', $constituency->id)->where('language_id', '1')->first();
                     if (strpos($language_constituency->name, $data[2]) === false) {
                         $language_constituency->name .= ", " . $data[2];
                         $language_constituency->save();
-                        $language_constituency = LanguageConstituencies::where('constituency_id', '=', $data[0])->where('language_id', '2')->first();
+                        $language_constituency = LanguageConstituencies::where('constituency_id', $constituency->id)->where('language_id', '2')->first();
                         $language_constituency->name .= ", " . $data[3];
                         $language_constituency->save();
                     }
@@ -104,7 +104,6 @@ class DatabaseSeeder extends Seeder
             CandidateSeeder::class,
             PostsSeeder::class,
             PostContentSeeder::class,
-            DistrictConstituenciesSeeder::class,
         ]);
     }
 }
