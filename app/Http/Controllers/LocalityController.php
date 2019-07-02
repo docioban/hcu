@@ -15,19 +15,20 @@ class LocalityController extends Controller
      */
     public function index()
     {
-        $locality = Locality::all();
-        return response()->json($locality);
+        $localities = Locality::paginate(50);
+        return view('crud.locality.locality_list')->with('localities', $localities);
+//        return response()->json($locality);
     }
 
-//    /**
-//     * Show the form for creating a new resource.
-//     *
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function create()
-//    {
-//        //
-//    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -56,16 +57,16 @@ class LocalityController extends Controller
         return response()->json($locality);
     }
 
-//    /**
-//     * Show the form for editing the specified resource.
-//     *
-//     * @param  \App\Locality  $locality
-//     * @return \Illuminate\Http\Response
-//     */
-//    public function edit(Locality $locality)
-//    {
-//        //
-//    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Locality  $locality
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Locality $locality)
+    {
+        //
+    }
 
     /**
      * Update the specified resource in storage.

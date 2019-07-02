@@ -2,19 +2,16 @@
 
 @section('content')
 <div class="d-flex justify-content-around mb-4">
-    <div><a href="{{ route('constituency_list', app()->getLocale()) }}" class="btn btn-success">Creeaza</a></div>
-        <div><a href="" class="btn btn-warning">Editeaza</a></div>
-        <div><a href="" class="btn btn-danger">Sterge</a></div>
-    </div>
+    <div><a href="/{{app()->getLocale()}}/locality/create" class="btn btn-warning">Adauga</a></div>
 </div>
 <div class="ml-5">
-    @if (count($constituencies) > 0)
-        @foreach ($constituencies as $constituency)
+    @if (count($localities) > 0)
+        @foreach ($localities as $locality)
         <div>
-        <div class="mt-1"><a href="/{{app()->getlocale()}}/constituency/{{$constituency->id}}">{{$constituency->name}}</a></div>
+        <div class="mt-1"><a href="/{{app()->getlocale()}}/locality/{{$locality->id}}">{{$locality->name}}</a></div>
         </div>
         @endforeach
-        
     @endif
+    {{$localities->links()}}
 </div>
 @endsection

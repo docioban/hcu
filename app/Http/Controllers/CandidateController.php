@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Candidate;
 use App\Constituencies;
+use App\Language;
 use App\LanguageConstituencies;
 use App\Party;
 use App\Posts;
@@ -30,8 +31,9 @@ class CandidateController extends Controller
      */
     public function create()
     {
+        $language = Language::where('name', app()->getLocale())->first();
         $parties = Party::all();
-        $constituencies = LanguageConstituencies::where('language_id', '1')->get();
+        $constituencies = LanguageConstituencies::where('language_id', $language->id)->get();
         return view("crud.candidate.candidate_create")->with(['parties' => $parties, 'constituencies' => $constituencies]);
     }
 
@@ -43,7 +45,6 @@ class CandidateController extends Controller
      */
     public function store($locale, Request $request)
     {
-        print('asfdasd');exit;
         $candidate = new Candidate;
         $candidate->constituency_id = $request->input('constituency_id');
         $candidate->party_id = $request->input('party_id');
@@ -54,7 +55,8 @@ class CandidateController extends Controller
         $candidate->date = $request->input('date');
         $candidate->studies = $request->input('studies');
         $candidate->save();
-        return response()->json($candidate);
+        return redirect(app()->getLocale()."/candidate")->with('success', 'Candidate was add from success');
+//        return response()->json($candidate);
     }
 
     /**
@@ -65,10 +67,23 @@ class CandidateController extends Controller
      */
     public function show($locale, $id)
     {
-//        dd($id);
         $candidate = Candidate::find($id);
         return view('crud.candidate.candidate_show')->with('candidate', $candidate);
-//        return response()->json($candidate);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($locale, $id)
+    {
+        $language = Language::where('name', $locale)->first();
+        $candidate = Candidate::find($id);
+        $parties = Party::all();
+        $constituencies = LanguageConstituencies::where('language_id', $language->id)->get();
+        return view('crud.candidate.candidate_edit')->with(['candidate' => $candidate, 'parties' => $parties, 'constituencies' => $constituencies]);
     }
 
     /**
@@ -88,7 +103,9 @@ class CandidateController extends Controller
         $candidate->constituency_id = $request->input('constituency_id');
         $candidate->studies = $request->input('studies');
         $candidate->save();
-        return response()->json($candidate);
+        return view('crud.candidate.candidate_show')->with(['candidate' => $candidate, 'success' => 'Was updated with success']);
+//        return redirect("en/candidate/".$candidate->id);
+//        return response()->json($candidate);
     }
 
     /**
@@ -107,6 +124,7 @@ class CandidateController extends Controller
             $post->delete();
         }
         $candidate->delete();
-        return response()->json(['message' => 'deleted']);
+        return redirect(app()->getLocale().'/candidate')->with('success', 'Candidate was deleted with success');
+//        return response()->json(['message' => 'deleted']);
     }
 }
