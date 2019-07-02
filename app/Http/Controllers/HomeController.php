@@ -49,6 +49,6 @@ class HomeController extends Controller
 
     public function search(Adress $request)
     {
-        
+
     }
 }

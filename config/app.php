@@ -182,6 +182,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        'Collective\Html\HtmlServiceProvider',
+        TCG\Voyager\VoyagerServiceProvider::class,
+
         Collective\Html\HtmlServiceProvider::class,
     ],
 

@@ -23,14 +23,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
-    <script src="js/bootstrap-datetimepicker.min.js"></script>
-    <!-- jQuery library -->
-    <script src="js/jquery.min.js"></script>
 
-    <!-- Bootstrap library -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap-datepicker.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/bootstrap-datepicker.css" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script>
+        $(function() {
+            $('.dates #usr1').datepicker({
+                'format': 'yyyy-mm-dd',
+                'autoclose': true
+            });
+        });
+    </script>
 
 </head>
 <body>

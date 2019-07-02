@@ -1,12 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{--    {!! Form::open(['url' => '/']) !!}--}}
-{{--    {!! Form::text('name', '', ['placeholder' => 'Name']) !!}--}}
-{{--    {!! Form::submit('Register') !!}--}}
-{{--    {!! Form::close() !!}--}}
-
-
     {{ Form::open(['action' => array('CandidateController@store', app()->getLocale()), 'method' => 'POST']) }}
 <div class="container">
     <div class="row">
@@ -17,7 +11,7 @@
 
             <div class="form-group">
                 <label>Example select</label>
-                <select class="form-control">
+                <select class="form-control" name="constituency_id">
                     @foreach($constituencies as $constituency)
                         <option value="{{$constituency->constituency_id}}">{{$constituency->name}}</option>
                     @endforeach
@@ -26,7 +20,7 @@
 
             <div class="form-group">
                 <label>Example select</label>
-                <select class="form-control">
+                <select class="form-control" name="party_id">
                     @foreach($parties as $party)
                         <option value="{{$party->id}}">{{$party->name}}</option>
                     @endforeach
@@ -45,20 +39,17 @@
 
 
             <div class="form-group">
-                <label>date</label>
-                <input type="text" id="datetime" readonly>
+                <label>Data nasterii</label>
+                <input name="date" type="text" class="form-control" placeholder="YYYY-MM-DD" autocomplete="off" >
             </div>
+
+
             {{Form::label('studies', 'Studies')}}
             {{Form::text('studies', '', ['class' => 'form-control', 'placeholder' => 'Studies'])}}
 
             <br><br>
             {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
         </div>
-        <script>
-            $("#datetime").datetimepicker({
-                format: 'yyyy-mm-dd hh:ii'
-            });
-        </script>
     </div>
 </div>
     {{ Form::close() }}
