@@ -5,19 +5,24 @@
 <div class="mx-auto" align='center'>
     <table class="w-50 table">
         <tr>
-            <th>{{Form::label('name', 'Numele :')}}</th>
+            <th>{{Form::label('constituency_name', 'Nr. circumscriptiei :')}}</th> 
             <th>
-                {{Form::text('name', '', ['placeholder' => 'Numele circumscriptiei'])}}
+                {{Form::text('constituency_name', '', ['placeholder' => 'Numarul'])}}
             </th>
         <tr>
-            <th>{{Form::label('slug', 'Slug-ul :')}}</th> 
+            <th>{{Form::label('name_ro', 'Numele :')}}</th>
             <th>
-                {{Form::text('slug', '', ['placeholder' => 'circumscriptie-52'])}}
+                {{Form::text('name_ro', '', ['placeholder' => 'ro'])}}
+            </th>
+        <tr>
+            <th>{{Form::label('name_ru', 'Numele ru :')}}</th> 
+            <th>
+                {{Form::text('name_ru', '', ['placeholder' => 'ru'])}}
             </th>
         <tr>
             <th>{{Form::label('voters', 'Nr. de alegatori :')}}</th>
             <th>
-                {{Form::text('voters', '', ['placeholder' => '99999'])}}
+                {{Form::text('voters', '', ['placeholder' => '12345'])}}
             </th>
     </table>
     {{Form::submit('Creeaza', ['class' => 'btn btn-success mx-3 mt-3 mb-2'])}}

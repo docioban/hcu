@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
                 if (!($constituency = Constituencies::where('constituency_name', $data[0])->first())) {
                     $constituency = new Constituencies;
                     $constituency->constituency_name = $data[0];
+                    $constituency->slug = 'circumscriptia-' . $data[0];
                     $constituency->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
                     $constituency->save();
                     $language_constituency = new LanguageConstituencies;

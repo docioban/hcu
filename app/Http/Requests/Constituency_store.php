@@ -24,9 +24,10 @@ class Constituency_store extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|string',
-            'slug' => 'required|string',
+            'constituency_name' => 'required|unique:constituencies,constituency_name',
             'voters' => 'required|numeric',
+            'name_ro' => 'required',
+            'name_ru' => 'required'
         ];
     }
 }

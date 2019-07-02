@@ -14,6 +14,6 @@ class LanguageConstituencies extends Model
     }
 
     public function constituencies() {
-        return $this->belongsTo('App\Constituencies', 'constituency_id', 'id');
+        return $this->belongsTo('App\Constituencies', 'constituency_id', 'constituency_name');
     }
 }
