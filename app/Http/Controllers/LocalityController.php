@@ -15,18 +15,19 @@ class LocalityController extends Controller
      */
     public function index()
     {
-        //
+        $locality = Locality::all();
+        return response()->json($locality);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+//    /**
+//     * Show the form for creating a new resource.
+//     *
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function create()
+//    {
+//        //
+//    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +37,12 @@ class LocalityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $locality = new Locality;
+        $locality->district_id = $request->district_id;
+        $locality->constituency_id = $request->constituency_id;
+        $locality->name = $request->name;
+        $locality->save();
+        return response()->json($locality);
     }
 
     /**
@@ -45,21 +51,21 @@ class LocalityController extends Controller
      * @param  \App\Locality  $locality
      * @return \Illuminate\Http\Response
      */
-    public function show(Locality $locality)
+    public function show($locale, Locality $locality)
     {
-        //
+        return response()->json($locality);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Locality  $locality
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Locality $locality)
-    {
-        //
-    }
+//    /**
+//     * Show the form for editing the specified resource.
+//     *
+//     * @param  \App\Locality  $locality
+//     * @return \Illuminate\Http\Response
+//     */
+//    public function edit(Locality $locality)
+//    {
+//        //
+//    }
 
     /**
      * Update the specified resource in storage.
@@ -68,9 +74,13 @@ class LocalityController extends Controller
      * @param  \App\Locality  $locality
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Locality $locality)
+    public function update($locale, Request $request, Locality $locality)
     {
-        //
+        $locality->district_id = $request->district_id;
+        $locality->constituency_id = $request->constituency_id;
+        $locality->name = $request->name;
+        $locality->save();
+        return response()->json($locality);
     }
 
     /**
@@ -79,8 +89,11 @@ class LocalityController extends Controller
      * @param  \App\Locality  $locality
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Locality $locality)
+    public function destroy($locale, Locality $locality)
     {
-        //
+        $locality->language_locality()->delete();
+        $locality->section()->delete();
+        $locality->delete();
+        return response()->json(['message' => 'deleted']);
     }
 }

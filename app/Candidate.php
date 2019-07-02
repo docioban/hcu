@@ -10,14 +10,14 @@ class Candidate extends Model
     public $primaryKey = 'id';
 
     public function constituencies() {
-        return $this->belongsTo('App\Constituencies');
+        return $this->belongsTo('App\Constituencies', 'constituency_id', 'id');
     }
 
     public function party() {
-        return $this->belongsTo('App\Party');
+        return $this->belongsTo('App\Party', 'party_id', 'id');
     }
 
     public function Posts() {
-        return $this->hasMany('App\Posts');
+        return $this->hasMany('App\Posts', 'candidate_id', 'id');
     }
 }

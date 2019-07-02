@@ -23,9 +23,9 @@ class LiveSearchController extends Controller
                 $constituencies = Constituencies::where('name', 'like', '%'.$query.'%')->get();
                 $candidate = Candidate::where('name', 'like', '%'.$query.'%')->get();
             } else {
-                $constituencies = Constituencies::all();
-                $candidate = Candidate::all();
+                $constituencies = Constituencies::paginate(10);
+                $candidate = Candidate::paginate(10);
             }
-            return response()->json(['constituencies' => $constituencies, 'candidate' => $candidate, 'query' => $query]);
+            return response()->json(['constituencies' => $constituencies, 'candidate' => $candidate]);
     }
 }
