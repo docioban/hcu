@@ -23,6 +23,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <!-- jQuery library -->
+    <script src="js/jquery.min.js"></script>
+
+    <!-- Bootstrap library -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <div id="app">
