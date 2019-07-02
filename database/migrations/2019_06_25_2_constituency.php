@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class LanguageConstituencies extends Migration
+class Constituency extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class LanguageConstituencies extends Migration
      */
     public function up()
     {
-        Schema::create('language_constituencies', function (Blueprint $table) {
+        Schema::create('constituencies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('constituency_id');
             $table->string('name');
-            $table->unsignedBigInteger('language_id');
-            $table->unsignedBigInteger('constituency_id');
+            $table->string('slug')->nullable()->index();
+            $table->bigInteger('number_of_voters')->nullable();
             $table->timestamps();
-
-            $table->foreign('language_id')->references('id')->on('language');
-            $table->foreign('constituency_id')->references('id')->on('constituencies');
         });
     }
 
@@ -32,6 +30,6 @@ class LanguageConstituencies extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('language_constituencies');
+        Schema::dropIfExists('constituencies');
     }
 }
