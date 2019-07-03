@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Constituency;
+use App\LanguageConstituencies;
+use App\Language;
 use App\Locality;
 use App\Candidate;
+use App\Constituency;
+use App\Http\Requests\Constituency_store;
+use App\Http\Requests\Constituency_update;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,13 +19,13 @@ class ConstituencyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($locale)
     {
-        $constituencies = Constituency::all();
+        $language = Language::where('name', $locale)->first();
+
+        $constituencies = LanguageConstituencies::where('language_id', $language->id)->get();
 
         return view('crud.constituency.constituency_list')->with(['constituencies' => $constituencies]);
-
-        //return response()->json($constituencies);
     }
     /**
      * Store a newly created resource in storage.
@@ -31,9 +35,26 @@ class ConstituencyController extends Controller
      */
     public function store(Constituency_store $request)
     {
-        $constituency = Constituency::create($request->all());
+        $constituency = new Constituency();
 
-        return response()->json($constituency, 201);
+        $constituency->constituency_name  = $request->input('constituency_name');
+        $constituency->slug = 'circumscriptie-' . $request->input('constituency_name');
+        $constituency->number_of_voters = $request->input('numbers_of_voters');
+        $constituency->save();
+
+        $language_constituencies = new LanguageConstituencies();
+        $language_constituencies->language_id = 1;
+        $language_constituencies->constituency_id = $request->input('constituency_name');
+        $language_constituencies->name = $request->input('name_ro');
+        $language_constituencies->save();
+
+        $language_constituencies = new LanguageConstituencies();
+        $language_constituencies->language_id = 2;
+        $language_constituencies->constituency_id = $request->input('constituency_name');
+        $language_constituencies->name = $request->input('name_ru');
+        $language_constituencies->save();
+
+        return  redirect(app()->getLocale() . '/constituency')->with(['success' => 'Circumscriptia a fost creata']);
     }
 
     public function create()
@@ -53,7 +74,9 @@ class ConstituencyController extends Controller
 
         $candidates = Candidate::where('constituency_id', $constituency->id)->get();
 
-        $constituency = Constituency::find($constituency->id);
+        $language = Language::where('name', $locale)->first();
+
+        $constituency = LanguageConstituencies::find($language->id);
 
         //return $localities;
 
@@ -81,9 +104,9 @@ class ConstituencyController extends Controller
      * @param \App\Constituencies $constituencies
      * @return \Illuminate\Http\Response
      */
-    public function edit(Constituencies $constituencies)
+    public function edit(Constituency_update $constituencies)
     {
-        //
+        return view('crud.constituency.constituency_edit');
     }
 
     /**
@@ -93,7 +116,7 @@ class ConstituencyController extends Controller
      * @param \App\Constituencies $constituencies
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Constituencies $constituencies)
+    public function update( Request $request, Constituencies $constituencies)
     {
         //
     }

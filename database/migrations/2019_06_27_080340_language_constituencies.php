@@ -21,7 +21,7 @@ class LanguageConstituencies extends Migration
             $table->timestamps();
 
             $table->foreign('language_id')->references('id')->on('language');
-            $table->foreign('constituency_id')->references('id')->on('constituencies');
+            //$table->foreign('constituency_id')->references('constituency_name')->on('constituencies');
         });
     }
 
