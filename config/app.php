@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ro',
 
     'available_locales' => [
         'en',
@@ -99,7 +99,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ro',
 
     /*
     |--------------------------------------------------------------------------
@@ -168,7 +168,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        \Torann\GeoIP\GeoIPServiceProvider::class,
+        //\Torann\GeoIP\GeoIPServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         /*
          * Package Service Providers...
