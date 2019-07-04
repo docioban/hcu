@@ -80,13 +80,7 @@ return [
     |
     */
 
-    'locale' => 'ro',
-
-    'available_locales' => [
-        'en',
-        'ru',
-        'ro'
-    ],
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -99,7 +93,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'ro',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -182,10 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        'Collective\Html\HtmlServiceProvider',
         TCG\Voyager\VoyagerServiceProvider::class,
-
         Collective\Html\HtmlServiceProvider::class,
+
     ],
 
     /*

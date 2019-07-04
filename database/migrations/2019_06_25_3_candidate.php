@@ -17,6 +17,7 @@ class Candidate extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('party_id')->nullable();
             $table->unsignedBigInteger('constituency_id');
+            $table->string('slug')->nullable()->index();
             $table->string('name');
             $table->string('location');
             $table->string('civil_status');

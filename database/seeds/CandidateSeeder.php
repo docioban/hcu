@@ -13,6 +13,7 @@ class CandidateSeeder extends Seeder
     {
         DB::table('candidate')->insert([
             [
+                'slug' => 'Ghenadie-Buza',
                 'name' => 'Ghenadie Buza',
                 'date' => '1964-06-07',
                 'location' => 's. Șipoteni, r.Ancesti, Republica Moldova',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests\Adress;
 use App\Language;
+use App\Post;
 use App\Candidate;
 use App\Constituency;
 use App\LanguageConstituencies;
@@ -74,9 +75,12 @@ class HomeController extends Controller
 
     public function candidate($locale, Candidate $candidate)
     {
-        $candidate = Candidate::find($candidate->id);
+        $language = Language::where('name', $locale)->first();
 
-        return response()->json($candidate);
+        $posts = Post::where('candidate_id', $candidate->id)->where('language_id', $language->id)->get();
+
+
+        return response()->json([$candidate, $posts]);
     }
 
     public function constituency_all($locale)
