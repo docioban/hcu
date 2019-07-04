@@ -18,6 +18,6 @@ class Candidate extends Model
     }
 
     public function Posts() {
-        return $this->hasMany('App\Posts', 'candidate_id', 'id');
+        return $this->hasMany('App\Post', 'candidate_id', 'id');
     }
 }

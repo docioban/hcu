@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $search_replace_ro = array('Raionul ', 'Municipiul');
+        $search_replace_ru = array('Район ', 'Муниципий ');
+
         $this->call([
             LanguageSeeder::class,
             PartySeeder::class,
@@ -36,22 +39,22 @@ class DatabaseSeeder extends Seeder
                     $constituency->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
                     $constituency->save();
                     $language_constituency = new LanguageConstituencies;
-                    $language_constituency->name = $data[2];
+                    $language_constituency->name = str_replace($search_replace_ro, '', Str::title($data[2]));
                     $language_constituency->language_id = 1;
                     $language_constituency->constituency_id = $constituency->id;
                     $language_constituency->save();
                     $language_constituency = new LanguageConstituencies;
-                    $language_constituency->name = $data[3];
+                    $language_constituency->name = str_replace($search_replace_ru, '', Str::title($data[3]));
                     $language_constituency->language_id = 2;
                     $language_constituency->constituency_id = $constituency->id;
                     $language_constituency->save();
                 } else {
                     $language_constituency = LanguageConstituencies::where('constituency_id', $constituency->id)->where('language_id', '1')->first();
-                    if (strpos($language_constituency->name, $data[2]) === false) {
-                        $language_constituency->name .= ", " . $data[2];
+                    if (strpos($language_constituency->name, str_replace($search_replace_ro, '', Str::title($data[2]))) === false) {
+                        $language_constituency->name .= ", " . str_replace($search_replace_ro, '', Str::title($data[2]));
                         $language_constituency->save();
                         $language_constituency = LanguageConstituencies::where('constituency_id', $constituency->id)->where('language_id', '2')->first();
-                        $language_constituency->name .= ", " . $data[3];
+                        $language_constituency->name .= ", " . str_replace($search_replace_ru, '', Str::title($data[3]));
                         $language_constituency->save();
                     }
                 }
@@ -71,29 +74,31 @@ class DatabaseSeeder extends Seeder
                         $language_district->district_id = $district->id;
                         $language_district->save();
                     }
-                    $locality = new Locality;
-                    $locality->district_id = $language_district->district_id;
-                    $locality->constituency_id = $constituency->id;
-                    $locality->name = $data[4];
-                    $locality->district_id = $district->id;
-                    $locality->constituency_id = $constituency->id;
-                    $locality->save();
-                    $language_locality = new LanguageLocality;
-                    $language_locality->name = $data[4];
-                    $language_locality->language_id = 1;
-                    $language_locality->locality_id = $locality->id;
-                    $language_locality->save();
-                    $language_locality = new LanguageLocality;
-                    $language_locality->name = $data[5];
-                    $language_locality->language_id = 2;
-                    $language_locality->locality_id = $locality->id;
-                    $language_locality->save();
-                    if (isset($data[6]) and isset($data[7]) and $data[6] and $data[7]) {
-                        $section = new Section;
-                        $section->number = $data[6];
-                        $section->address = $data[7];
-                        $section->locality_id = $locality->id;
-                        $section->save();
+                    if (!Locality::where('name', $data[4])->exists()) {
+                        $locality = new Locality;
+                        $locality->district_id = $language_district->district_id;
+                        $locality->constituency_id = $constituency->id;
+                        $locality->name = $data[4];
+                        $locality->district_id = $district->id;
+                        $locality->constituency_id = $constituency->id;
+                        $locality->save();
+                        $language_locality = new LanguageLocality;
+                        $language_locality->name = $data[4];
+                        $language_locality->language_id = 1;
+                        $language_locality->locality_id = $locality->id;
+                        $language_locality->save();
+                        $language_locality = new LanguageLocality;
+                        $language_locality->name = $data[5];
+                        $language_locality->language_id = 2;
+                        $language_locality->locality_id = $locality->id;
+                        $language_locality->save();
+                        if (isset($data[6]) and isset($data[7]) and $data[6] and $data[7]) {
+                            $section = new Section;
+                            $section->number = $data[6];
+                            $section->address = $data[7];
+                            $section->locality_id = $locality->id;
+                            $section->save();
+                        }
                     }
                 }
             }
@@ -102,8 +107,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CandidateSeeder::class,
-            PostsSeeder::class,
-            PostContentSeeder::class,
+            PostSeeder::class,
         ]);
     }
 }

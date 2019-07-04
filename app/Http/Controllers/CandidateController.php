@@ -7,7 +7,7 @@ use App\Constituencies;
 use App\Language;
 use App\LanguageConstituencies;
 use App\Party;
-use App\Posts;
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -116,7 +116,7 @@ class CandidateController extends Controller
      */
     public function destroy($locale, Candidate $candidate)
     {
-        $posts = Posts::where('candidate_id', $candidate->id)->get();
+        $posts = Post::where('candidate_id', $candidate->id)->get();
         foreach ($posts as $post) {
             $post->post_content()->delete();
         }

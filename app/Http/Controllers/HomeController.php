@@ -34,21 +34,5 @@ class HomeController extends Controller
             })->first();
 
         return response()->json($constituence);
-
-    }
-
-    public function get_district()
-    {
-
-    }
-
-    public function welcome($locale)
-    {
-        return view('dashboard');
-    }
-
-    public function search(Adress $request)
-    {
-
     }
 }
