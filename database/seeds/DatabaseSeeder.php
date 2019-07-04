@@ -107,7 +107,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             CandidateSeeder::class,
-            PostSeeder::class,
         ]);
     }
 }

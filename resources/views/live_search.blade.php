@@ -8,7 +8,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     <input type="text" name="search" id="search" class="form-control"
-                           placeholder="Search Customer Data"/>
+                           placeholder="Searcsh Customer Data"/>
                 </div>
                 <div class="table-responsive">
                     <h3 align="center">Total Data : <span id="total_records"></span></h3>
@@ -33,7 +33,7 @@
 
             function fetch_customer_data(query = '') {
                 $.ajax({
-                    url: "{{ route('live_search.action') }}",
+                    url: "{{ app()->getLocale().'/live_search/action' }}",
                     method: 'GET',
                     data: {query: query},
                     dataType: 'json',

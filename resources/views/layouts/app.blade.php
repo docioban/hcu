@@ -29,15 +29,6 @@
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap-datepicker.css" >
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <script>
-        $(function() {
-            $('.dates #usr1').datepicker({
-                'format': 'yyyy-mm-dd',
-                'autoclose': true
-            });
-        });
-    </script>
-
 </head>
 <body>
     <div id="app">
@@ -58,13 +49,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                            <a class="nav-link" href="{{Route::getCurrentRoute()->getPath()}}"> {{ 'RO' }} </a>
-                            </li>
+{{--                            <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="{{Route::getCurrentRoute()->getPath()}}"> {{ 'RO' }} </a>--}}
+{{--                            </li>--}}
                             <li class="nav-item">
                                <a class="nav-link" href=""> {{ 'RU' }} </a>
                             </li>
-                        <!-- Authentication Links -->   
+                        <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login', app()->getLocale()) }}">{{ __('Login') }}</a>
