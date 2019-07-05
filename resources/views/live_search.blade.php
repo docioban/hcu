@@ -38,8 +38,6 @@
                     dataType: 'json',
                     success: function ($output) {
                         $('tbody').html($output);
-                    //     $('#total_records').text(data.total_data);
-
                     }
                 })
             }
