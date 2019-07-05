@@ -10,6 +10,7 @@ use App\Candidate;
 use App\Constituency;
 use App\LanguageConstituencies;
 use App\LanguageLocality;
+use TCG\Voyager\Models\Translation;
 
 class HcuController extends Controller
 {
