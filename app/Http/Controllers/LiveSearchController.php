@@ -34,27 +34,29 @@ class LiveSearchController extends Controller
             $candidates = Candidate::paginate(10);
             $sections = Section::paginate(10);
         }
-        foreach ($candidates as $candidate) {
-            $output .= '
-                <tr>
-                    <td>'.$candidate->name.'</td>
-                </tr>
-            ';
-        }
-        foreach ($constituencies as $constituency) {
-            $output .= '
-                <tr>
-                    <td>'.$constituency->name.'</td>
-                </tr>
-            ';
-        }
-        foreach ($sections as $section) {
-            $output .= '
-                <tr>
-                    <td>'.$section->address.'</td>
-                </tr>
-            ';
-        }
-        echo json_encode($output);
+        // print response in view
+//        foreach ($candidates as $candidate) {
+//            $output .= '
+//                <tr>
+//                    <td>'.$candidate->name.'</td>
+//                </tr>
+//            ';
+//        }
+//        foreach ($constituencies as $constituency) {
+//            $output .= '
+//                <tr>
+//                    <td>'.$constituency->name.'</td>
+//                </tr>
+//            ';
+//        }
+//        foreach ($sections as $section) {
+//            $output .= '
+//                <tr>
+//                    <td>'.$section->address.'</td>
+//                </tr>
+//            ';
+//        }
+//        echo json_encode($output);
+        return response()->json(['candidates' => $candidates, 'constituencies' => $constituencies, 'sections' => $sections]);
     }
 }
