@@ -15,7 +15,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-
 Route::group([
     'prefix' => '{locale}',
     'where' => ['locale' => '[a-zA-Z]{2}'],
@@ -31,5 +30,5 @@ Route::group([
 
     Route::get('/live_search', 'LiveSearchController@index');
     Route::post('/live_search/action', 'LiveSearchController@action');
-    }
-    );
+
+    });

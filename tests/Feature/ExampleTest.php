@@ -14,8 +14,9 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/ru/candidate/Ghenadie-Buza');
+        $response = $this->json('POST', '/ru/main', ['route' => '', 'locality' => 'Chisinau']);
 
-        $response->assertSuccessful();
+        $response
+            ->assertStatus(200);
     }
 }
