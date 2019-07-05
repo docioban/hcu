@@ -32,13 +32,14 @@
 
             function fetch_customer_data(query = '') {
                 $.ajax({
-                    url: "{{ app()->getLocale().'/live_search/action' }}",
+                    url: "{{ url(app()->getLocale().'/live_search/action') }}",
                     method: 'GET',
                     data: {query: query},
                     dataType: 'json',
-                    success: function (data) {
-                        $('tbody').html(data.table_data);
-                        $('#total_records').text(data.total_data);
+                    success: function ($output) {
+                        $('tbody').html($output);
+                    //     $('#total_records').text(data.total_data);
+
                     }
                 })
             }
