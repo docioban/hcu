@@ -350,6 +350,342 @@ class DataRowsTableSeeder extends Seeder
                 'order'        => 9,
             ])->save();
         }
+
+        $dataRow = $this->dataRow($userDataType, 'party_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'number',
+                'display_name' => 'Party_id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 1,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'constituency_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'number',
+                'display_name' => 'Constituency_id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 2,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'text',
+                'display_name' => 'Name',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'location');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'text',
+                'display_name' => 'Location',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 4,
+            ])->save();
+        }
+
+       $dataRow = $this->dataRow($userDataType, 'civil_status');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'text',
+                'display_name' => 'Civil_status',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 5,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'function');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'text',
+                'display_name' => 'Function',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 6,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'studies');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'text',
+                'display_name' => 'Studies',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 7,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'date');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'date',
+                'display_name' => 'Date',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 8,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'constituency_name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '5',
+                'type'         => 'number',
+                'display_name' => 'Id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 1,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'slug');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '5',
+                'type'         => 'text',
+                'display_name' => 'Slug',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 2,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'number_of_voters');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '5',
+                'type'         => 'number',
+                'display_name' => 'Number_of_voters',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'constituency_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '6',
+                'type'         => 'number',
+                'display_name' => 'Constituency_id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '6',
+                'type'         => 'text',
+                'display_name' => 'Name',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 4,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'language_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '7',
+                'type'         => 'number',
+                'display_name' => 'Language_id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 1,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'candidate_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '7',
+                'type'         => 'number',
+                'display_name' => 'Candidate_id',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 2,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'type');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '7',
+                'type'         => 'number',
+                'display_name' => 'Type',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'title');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '7',
+                'type'         => 'text',
+                'display_name' => 'Title',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 4,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'subtitle');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '7',
+                'type'         => 'text',
+                'display_name' => 'Subtitle',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 5,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'body');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '7',
+                'type'         => 'number',
+                'display_name' => 'Body',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 6,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '8',
+                'type'         => 'text',
+                'display_name' => 'Name',   
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 2,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($userDataType, 'photo');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '8',
+                'type'         => 'text',
+                'display_name' => 'Photo',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
+            ])->save();
+        }
     }
 
     /**

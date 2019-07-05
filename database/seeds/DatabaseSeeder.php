@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 use App\District;
 use App\Locality;
-use App\Constituencies;
+use App\Constituency;
 use App\LanguageConstituencies;
 use App\Section;
 use App\LanguageLocality;
@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
         $data = fgetcsv($file, 500, ",");
         while (($data = fgetcsv($file, 500, ",")) !== FALSE) {
             if (isset($data[0]) and isset($data[1]) and isset($data[2])) {
-                if (!($constituency = Constituencies::where('constituency_name', $data[0])->first())) {
-                    $constituency = new Constituencies;
+                if (!($constituency = Constituency::where('constituency_name', $data[0])->first())) {
+                    $constituency = new Constituency;
                     $constituency->constituency_name = $data[0];
                     $constituency->slug = 'circumscriptia-' . $data[0];
                     $constituency->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
