@@ -173,5 +173,100 @@ class MenuItemsTableSeeder extends Seeder
                 'order'      => 14,
             ])->save();
         }
+
+        $toolsMenuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Crud',
+            'url'     => '',
+        ]);
+        if (!$toolsMenuItem->exists) {
+            $toolsMenuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-params',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 7,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Candidates',
+            'url'     => '',
+            'route'   => 'voyager.candidate.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-sun',
+                'color'      => '#ffff00',
+                'parent_id'  => 11,
+                'order'      => 1,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Constituencies',
+            'url'     => '',
+            'route'   => 'voyager.constituencies.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-sun',
+                'color'      => '#ffff00',
+                'parent_id'  => 11,
+                'order'      => 2,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Localities',
+            'url'     => '',
+            'route'   => 'voyager.locality.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-sun',
+                'color'      => '#ffff00',
+                'parent_id'  => 11,
+                'order'      => 3,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Posts',
+            'url'     => '',
+            'route'   => 'voyager.post.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-sun',
+                'color'      => '#ffff00',
+                'parent_id'  => 11,
+                'order'      => 4,
+            ])->save();
+        }
+
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Parties',
+            'url'     => '',
+            'route'   => 'voyager.party.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-sun',
+                'color'      => '#ffff00',
+                'parent_id'  => 11,
+                'order'      => 5,
+            ])->save();
+        }
     }
 }
