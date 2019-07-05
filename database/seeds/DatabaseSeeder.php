@@ -23,8 +23,7 @@ class DatabaseSeeder extends Seeder
         $search_replace_ru = array('Район ', 'Муниципий ');
 
         $this->call([
-            LanguageSeeder::class,
-            PartySeeder::class,
+            LanguageSeeder::class
         ]);
 
         $file_n = storage_path('database/districts.csv');
@@ -104,9 +103,5 @@ class DatabaseSeeder extends Seeder
             }
         }
         fclose($file);
-
-        $this->call([
-            CandidateSeeder::class,
-        ]);
     }
 }

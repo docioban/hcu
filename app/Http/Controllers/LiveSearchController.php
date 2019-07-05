@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class LiveSearchController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
         return view('live_search');
     }
