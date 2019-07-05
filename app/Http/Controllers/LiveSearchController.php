@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Candidate;
 use App\Constituencies;
+use App\Http\Requests\Adress;
 use App\Language;
 use App\LanguageConstituencies;
 use App\Locality;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 
 class LiveSearchController extends Controller
 {
-    function index(Request $request)
+    function index()
     {
         return view('live_search');
     }

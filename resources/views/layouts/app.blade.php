@@ -49,9 +49,6 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-{{--                            <li class="nav-item">--}}
-{{--                            <a class="nav-link" href="{{Route::getCurrentRoute()->getPath()}}"> {{ 'RO' }} </a>--}}
-{{--                            </li>--}}
                             <li class="nav-item">
                                <a class="nav-link" href=""> {{ 'RU' }} </a>
                             </li>
@@ -71,17 +68,6 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout', app()->getLocale()) }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout', app()->getLocale()) }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
                         </li>
                     @endguest
                     </ul>

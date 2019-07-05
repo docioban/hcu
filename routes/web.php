@@ -15,11 +15,11 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-
 Route::group([
     'prefix' => '{locale}',
     'where' => ['locale' => '[a-zA-Z]{2}'],
-    'middleware' => 'setlocale'], function() {
+    'middleware' => 'setlocale'],
+    function () {
 
         Route::post('/main', 'HcuController@index');
 
@@ -29,7 +29,7 @@ Route::group([
 
         Route::get('/candidate/{slug}', 'HcuController@candidate');
 
-    Route::get('/live_search', 'LiveSearchController@index');
-    Route::post('/live_search/action', 'LiveSearchController@action');
+        Route::get('/live_search', 'LiveSearchController@index');
+        Route::get('/live_search/action', 'LiveSearchController@action');
     }
-    );
+);
