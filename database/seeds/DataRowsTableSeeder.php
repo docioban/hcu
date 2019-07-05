@@ -14,6 +14,11 @@ class DataRowsTableSeeder extends Seeder
         $userDataType = DataType::where('slug', 'users')->firstOrFail();
         $menuDataType = DataType::where('slug', 'menus')->firstOrFail();
         $roleDataType = DataType::where('slug', 'roles')->firstOrFail();
+        $candidateDataType = DataType::where('slug', 'candidate')->firstOrFail();
+        $constituenciesDataType = DataType::where('slug', 'constituencies')->firstOrFail();
+        $postDataType = DataType::where('slug', 'post')->firstOrFail();
+        $partyDataType = DataType::where('slug', 'party')->firstOrFail();
+        $localityDataType = DataType::where('slug', 'locality')->firstOrFail();
 
         $dataRow = $this->dataRow($userDataType, 'id');
         if (!$dataRow->exists) {
@@ -351,7 +356,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'party_id');
+        $dataRow = $this->dataRow($candidateDataType, 'party_id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '4',
@@ -367,7 +372,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'constituency_id');
+        $dataRow = $this->dataRow($candidateDataType, 'constituency_id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '4',
@@ -383,7 +388,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'name');
+        $dataRow = $this->dataRow($candidateDataType, 'name');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '4',
@@ -399,7 +404,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'location');
+        $dataRow = $this->dataRow($candidateDataType, 'location');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '4',
@@ -415,7 +420,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-       $dataRow = $this->dataRow($userDataType, 'civil_status');
+       $dataRow = $this->dataRow($candidateDataType, 'civil_status');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '4',
@@ -431,7 +436,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'function');
+        $dataRow = $this->dataRow($candidateDataType, 'function');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '4',
@@ -447,7 +452,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'studies');
+        $dataRow = $this->dataRow($candidateDataType, 'studies');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '4',
@@ -463,7 +468,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'date');
+        $dataRow = $this->dataRow($candidateDataType, 'date');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '4',
@@ -479,7 +484,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'constituency_name');
+        $dataRow = $this->dataRow($constituenciesDataType, 'constituency_name');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '5',
@@ -495,7 +500,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'slug');
+        $dataRow = $this->dataRow($constituenciesDataType, 'slug');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '5',
@@ -511,7 +516,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'number_of_voters');
+        $dataRow = $this->dataRow($constituenciesDataType, 'number_of_voters');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '5',
@@ -527,7 +532,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'constituency_id');
+        $dataRow = $this->dataRow($localityDataType, 'constituency_id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '6',
@@ -539,11 +544,11 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 3,
+                'order'        => 2,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'name');
+        $dataRow = $this->dataRow($localityDataType, 'name');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '6',
@@ -555,11 +560,11 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 4,
+                'order'        => 1,
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'language_id');
+        $dataRow = $this->dataRow($postDataType, 'language_id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '7',
@@ -575,7 +580,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'candidate_id');
+        $dataRow = $this->dataRow($postDataType, 'candidate_id');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '7',
@@ -591,7 +596,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'type');
+        $dataRow = $this->dataRow($postDataType, 'type');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '7',
@@ -607,7 +612,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'title');
+        $dataRow = $this->dataRow($postDataType, 'title');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '7',
@@ -623,7 +628,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'subtitle');
+        $dataRow = $this->dataRow($postDataType, 'subtitle');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '7',
@@ -639,7 +644,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'body');
+        $dataRow = $this->dataRow($postDataType, 'body');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '7',
@@ -655,7 +660,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'name');
+        $dataRow = $this->dataRow($partyDataType, 'name');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '8',
@@ -671,7 +676,7 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($userDataType, 'photo');
+        $dataRow = $this->dataRow($partyDataType, 'photo');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '8',
