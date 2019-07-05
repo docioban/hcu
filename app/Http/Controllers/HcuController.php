@@ -10,9 +10,8 @@ use App\Candidate;
 use App\Constituency;
 use App\LanguageConstituencies;
 use App\LanguageLocality;
-use Symfony\Component\HttpFoundation\Request;
 
-class HomeController extends Controller
+class HcuController extends Controller
 {
     /**
      * Show the application dashboard.
@@ -46,12 +45,12 @@ class HomeController extends Controller
 
     public function constituency($locale, $slug)
     {
-        if (is_numeric($slug)) {
+    //     if (is_numeric($slug)) {
 
-            $constituency = Constituency::findOrFail($slug);
+    //         $constituency = Constituency::findOrFail($slug);
 
-            return redirect($locale . '/constituency/' . $constituency->slug);
-        }
+    //         return redirect($locale . '/constituency/' . $constituency->slug);
+    //     }
 
         $constituency = Constituency::whereSlug($slug)->firstOrFail();
 
@@ -73,8 +72,17 @@ class HomeController extends Controller
         ]);
     }
 
-    public function candidate($locale, Candidate $candidate)
+    public function candidate($locale, $slug)
     {
+        // if (is_numeric($slug)) {
+
+        //     $constituency = Candidate::findOrFail($slug);
+
+        //     return redirect($locale . '/candidate/' . $constituency->slug);
+        // }
+
+        $candidate = Candidate::whereSlug($slug)->firstOrFail();
+
         $language = Language::where('name', $locale)->first();
 
         $posts = Post::where('candidate_id', $candidate->id)->where('language_id', $language->id)->get();
