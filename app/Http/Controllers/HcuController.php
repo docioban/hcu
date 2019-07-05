@@ -45,12 +45,12 @@ class HcuController extends Controller
 
     public function constituency($locale, $slug)
     {
-        if (is_numeric($slug)) {
+    //     if (is_numeric($slug)) {
 
-            $constituency = Constituency::findOrFail($slug);
+    //         $constituency = Constituency::findOrFail($slug);
 
-            return redirect($locale . '/constituency/' . $constituency->slug);
-        }
+    //         return redirect($locale . '/constituency/' . $constituency->slug);
+    //     }
 
         $constituency = Constituency::whereSlug($slug)->firstOrFail();
 
@@ -74,12 +74,12 @@ class HcuController extends Controller
 
     public function candidate($locale, $slug)
     {
-        if (is_numeric($slug)) {
+        // if (is_numeric($slug)) {
 
-            $constituency = Candidate::findOrFail($slug);
+        //     $constituency = Candidate::findOrFail($slug);
 
-            return redirect($locale . '/candidate/' . $constituency->slug);
-        }
+        //     return redirect($locale . '/candidate/' . $constituency->slug);
+        // }
 
         $candidate = Candidate::whereSlug($slug)->firstOrFail();
 
