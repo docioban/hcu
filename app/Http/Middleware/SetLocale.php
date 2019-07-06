@@ -15,7 +15,7 @@ class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        app()->setLocale($request->segment(1));
+        app()->setLocale($request->segment(1));//todo mai bine sa luati din headers limba, in url este rescul de buguri, mai ales dupa segment(1)
         return $next($request);
     }
 }

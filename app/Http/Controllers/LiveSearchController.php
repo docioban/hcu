@@ -22,18 +22,20 @@ class LiveSearchController extends Controller
 
     function action($locale, Request $request)
     {
-        $output = '';
-        $language = Language::where('name', $locale)->first();
+        $output = '';//todo nu lasati variabile care nu se folosesc, asta denota lipsa de profesionalism
+        $language = Language::where('name', $locale)->first();//todo despre limba am mai zis.
         $query = $request->get('query');
         if ($query) {
-            $constituencies = LanguageConstituencies::where('name', 'like', '%'.$query.'%')->get();
+            $constituencies = LanguageConstituencies::where('name', 'like', '%'.$query.'%')->get();//todo fiti atenti la spatii si mai multe cuvinte cand faceti search. despre like in baza am mai zis.
             $candidates = Candidate::where('name', 'like', '%'.$query.'%')->get();
             $sections = Section::where('address', 'like', '%'.$query.'%')->get();
         } else {
             $constituencies = LanguageConstituencies::where('language_id', $language->id)->paginate(10);
             $candidates = Candidate::paginate(10);
-            $sections = Section::paginate(10);
+            $sections = Section::paginate(10);//todo get si paginate returneaza raspunsuri diferite. studiati cum lucreaza paginarea.
         }
+
+        //todo nu lasati comentarii care nu trebuiesc, daca aveti nevoie de asta pe viitor, strieti un todo cu indicatii si explicatii.
         // print response in view
 //        foreach ($candidates as $candidate) {
 //            $output .= '
