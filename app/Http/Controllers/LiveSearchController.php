@@ -22,41 +22,16 @@ class LiveSearchController extends Controller
 
     function action($locale, Request $request)
     {
-        $output = '';
-        $language = Language::where('name', $locale)->first();
         $query = $request->get('query');
         if ($query) {
-            $constituencies = LanguageConstituencies::where('name', 'like', '%'.$query.'%')->get();
-            $candidates = Candidate::where('name', 'like', '%'.$query.'%')->get();
-            $sections = Section::where('address', 'like', '%'.$query.'%')->get();
+            $constituencies = LanguageConstituencies::where('name', 'like', '%'.Str::lower($query).'%')->get();
+            $candidates = Candidate::where('name', 'like', '%'.Str::lower($query).'%')->get();
+            $sections = Section::where('address', 'like', '%'.Str::lower($query).'%')->get();
         } else {
-            $constituencies = LanguageConstituencies::where('language_id', $language->id)->paginate(10);
-            $candidates = Candidate::paginate(10);
-            $sections = Section::paginate(10);
+            $constituencies = LanguageConstituencies::where('language', $locale)->take(10)->get();
+            $candidates = Candidate::take(10)->get();
+            $sections = Section::take(10)->get();
         }
-        // print response in view
-//        foreach ($candidates as $candidate) {
-//            $output .= '
-//                <tr>
-//                    <td>'.$candidate->name.'</td>
-//                </tr>
-//            ';
-//        }
-//        foreach ($constituencies as $constituency) {
-//            $output .= '
-//                <tr>
-//                    <td>'.$constituency->name.'</td>
-//                </tr>
-//            ';
-//        }
-//        foreach ($sections as $section) {
-//            $output .= '
-//                <tr>
-//                    <td>'.$section->address.'</td>
-//                </tr>
-//            ';
-//        }
-//        echo json_encode($output);
         return response()->json(['candidates' => $candidates, 'constituencies' => $constituencies, 'sections' => $sections]);
     }
 }

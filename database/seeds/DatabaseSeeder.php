@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             if (isset($data[0]) and isset($data[1]) and isset($data[2])) {
                 if (!($constituency = Constituency::where('constituency_name', $data[0])->first())) {
                     $constituency = new Constituency;
-                    $constituency->constituency_name = $data[0];
+                    $constituency->constituency_name = Str::lower($data[0]);
                     $constituency->slug = 'circumscriptia-' . $data[0];
                     $constituency->number_of_voters = ($data[1] == "" ? '0' : $data[1]);
                     $constituency->save();
@@ -59,12 +59,12 @@ class DatabaseSeeder extends Seeder
                         $district = new District;
                         $district->save();
                         $language_district = new LanguageDistrict;
-                        $language_district->name = $data[3];
+                        $language_district->name = Str::lower($data[3]);
                         $language_district->language = 'ru';
                         $language_district->district_id = $district->id;
                         $language_district->save();
                         $language_district = new LanguageDistrict;
-                        $language_district->name = $data[2];
+                        $language_district->name = Str::lower($data[2]);
                         $language_district->language = 'ro';
                         $language_district->district_id = $district->id;
                         $language_district->save();
@@ -74,25 +74,28 @@ class DatabaseSeeder extends Seeder
 //                        if (Str::lower($data[2]) )
                         $locality->district_id = $language_district->district_id;
                         $locality->constituency_id = $constituency->id;
-                        $locality->name = $data[4];
+                        $locality->name = Str::lower($data[4]);
                         $locality->district_id = $language_district->district_id;
-//                        if (Str::lower($data[4]) == 'chisinau' || Str::lower($data[4]) == 'chișinău' || Str::lower($data[4]) == 'chisinău' || Str::lower($data[4]) == 'chișinau')
+                        if (Str::contains(Str::lower($data[2]), ['chișinău', 'chisinau']))
+                            $locality->isCity = 1;
+                        else
+                            $locality->isCity = 0;
                         $locality->constituency_id = $constituency->id;
                         $locality->save();
                         $language_locality = new LanguageLocality;
-                        $language_locality->name = $data[4];
+                        $language_locality->name = Str::lower($data[4]);
                         $language_locality->language = 'ro';
                         $language_locality->locality_id = $locality->id;
                         $language_locality->save();
                         $language_locality = new LanguageLocality;
-                        $language_locality->name = $data[5];
+                        $language_locality->name = Str::lower($data[5]);
                         $language_locality->language = 'ru';
                         $language_locality->locality_id = $locality->id;
                         $language_locality->save();
                         if (isset($data[6]) and isset($data[7]) and $data[6] and $data[7]) {
                             $section = new Section;
                             $section->number = $data[6];
-                            $section->address = $data[7];
+                            $section->address = Str::lower($data[7]);
                             $section->locality_id = $locality->id;
                             $section->save();
                         }

@@ -15,8 +15,8 @@ class LanguageLocality extends Migration
     {
         Schema::create('language_locality', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('language');
             $table->unsignedBigInteger('locality_id');
+            $table->string('language');
             $table->string('name');
             $table->timestamps();
 
