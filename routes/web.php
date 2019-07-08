@@ -21,13 +21,13 @@ Route::group([
     'middleware' => 'setlocale'],
     function () {
 
-        Route::post('/main', 'HcuController@index');
+        Route::post('/main', 'Geo_locationController@index');
 
-        Route::get('/constituencies', 'HcuController@constituency_all');
+        Route::get('/constituencies', 'ConstituencyController@constituency_all');
 
-        Route::get('/constituency/{slug}', 'HcuController@constituency');
+        Route::get('/constituency/{slug}', 'ConstituencyController@constituency');
 
-        Route::get('/candidate/{slug}', 'HcuController@candidate');
+        Route::get('/candidate/{slug}', 'CandidateController@candidate');
 
         Route::get('/live_search', 'LiveSearchController@index');
         Route::get('/live_search/action', 'LiveSearchController@action');

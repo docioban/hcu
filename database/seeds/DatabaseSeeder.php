@@ -71,6 +71,7 @@ class DatabaseSeeder extends Seeder
                     }
                     if (!Locality::where('name', $data[4])->exists()) {
                         $locality = new Locality;
+//                        if (Str::lower($data[2]) )
                         $locality->district_id = $language_district->district_id;
                         $locality->constituency_id = $constituency->id;
                         $locality->name = Str::lower($data[4]);
@@ -103,5 +104,9 @@ class DatabaseSeeder extends Seeder
             }
         }
         fclose($file);
+        $this->call([
+            VoyagerDatabaseSeeder::class,
+            myseed::class
+        ]);
     }
 }
