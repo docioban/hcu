@@ -13,7 +13,7 @@ class Geo_locationController extends Controller
 {
     public function index($locale, AddressRequest $request)
     {
-        if ($request->get('locality') == 'Chișinău')
+        if ($request->get('locality') == 'Chișinău') // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
             $constituency = Constituency::whereHas('locality', function ($q) use ($request) {
                 $q->where('name', 'like', '%'. $request->get('route') .'%');
             })->first();
