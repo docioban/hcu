@@ -388,6 +388,22 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($candidateDataType, 'slug');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '4',
+                'type'         => 'text',
+                'display_name' => 'Slug',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 3,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($candidateDataType, 'name');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -400,7 +416,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 3,
+                'order'        => 4,
             ])->save();
         }
 
@@ -416,7 +432,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 4,
+                'order'        => 5,
             ])->save();
         }
 
@@ -432,7 +448,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 5,
+                'order'        => 6,
             ])->save();
         }
 
@@ -448,7 +464,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 6,
+                'order'        => 7,
             ])->save();
         }
 
@@ -464,7 +480,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 7,
+                'order'        => 8,
             ])->save();
         }
 
@@ -480,7 +496,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 8,
+                'order'        => 9,
             ])->save();
         }
 
@@ -564,12 +580,12 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
-        $dataRow = $this->dataRow($postDataType, 'language_id');
+        $dataRow = $this->dataRow($postDataType, 'language');
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '7',
-                'type'         => 'number',
-                'display_name' => 'Language_id',
+                'type'         => 'text',
+                'display_name' => 'Language',
                 'required'     => 1,
                 'browse'       => 1,
                 'read'         => 1,
@@ -648,7 +664,7 @@ class DataRowsTableSeeder extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'data_type_id' => '7',
-                'type'         => 'number',
+                'type'         => 'text',
                 'display_name' => 'Body',
                 'required'     => 1,
                 'browse'       => 1,

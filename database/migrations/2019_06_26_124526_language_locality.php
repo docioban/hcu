@@ -15,12 +15,11 @@ class LanguageLocality extends Migration
     {
         Schema::create('language_locality', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('language_id');
+            $table->string('language');
             $table->unsignedBigInteger('locality_id');
             $table->string('name');
             $table->timestamps();
 
-            $table->foreign('language_id')->references('id')->on('language');
             $table->foreign('locality_id')->references('id')->on('locality');
         });
     }
