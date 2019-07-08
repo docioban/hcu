@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 use App\LanguageConstituencies;
 use Illuminate\Support\Str;
 use Victorybiz\GeoIPLocation\GeoIPLocation;
+use App\Http\Requests\AddressRequest;
 
 class Geo_locationController extends Controller
 {
-    public function index($locale, Request $request)
+    public function index($locale, AddressRequest $request)
     {
         if ($request->get('locality') == 'Chișinău') // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
             $locality = Locality::where('name', 'like', '%'. $request->get('route') .'%')->first();

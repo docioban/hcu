@@ -20,4 +20,8 @@ class Constituency extends Model
     public function locality() {
         return $this->hasMany('App\Locality');
     }
+
+    public function language_constituencies() {
+        return $this->hasMany('App\LanguageConstituencies');
+    }
 }
