@@ -9,8 +9,8 @@ class Locality extends Model
     protected $table = 'locality';
     public $primaryKey = 'id';
 
-    public function constituencies() {
-        return $this->belongsTo('App\Constituencies', 'constituency_id', 'id');
+    public function constituency() {
+        return $this->belongsTo('App\Constituency', 'constituency_id', 'id');
     }
 
     public function section() {
