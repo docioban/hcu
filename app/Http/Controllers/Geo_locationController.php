@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Locality;
-use App\Constituency;
+use Illuminate\Http\Request;
 use App\LanguageConstituencies;
 use Illuminate\Support\Str;
 use Victorybiz\GeoIPLocation\GeoIPLocation;
@@ -14,13 +14,10 @@ class Geo_locationController extends Controller
     public function index($locale, AddressRequest $request)
     {
         if ($request->get('locality') == 'Chișinău') // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
-            $constituency = Constituency::whereHas('locality', function ($q) use ($request) {
-                $q->where('name', 'like', '%'. $request->get('route') .'%');
-            })->first();
+            $locality = Locality::where('name', 'like', '%'. $request->get('route') .'%')->first();
         else
-            $constituency = Constituency::whereHas('locality', function ($q) use ($request) {
-                $q->where('name', 'like', '%'. $request->get('locality') .'%');
-            })->first();
+            $locality = Locality::where('name', 'like', '%'. $request->get('locality') .'%')->first();
+        $constituency = $locality->constituency;
         if ($constituency == NULL) {
             $geoip = new GeoIPLocation();
             print_r($geoip->getCity());
