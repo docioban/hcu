@@ -24,4 +24,8 @@ class Constituency extends Model
     public function language_constituencies() {
         return $this->hasMany('App\LanguageConstituencies');
     }
+
+    public function get_language($language_id) {
+        return $this->language_constituencies()->where('language_id', $language_id);
+    }
 }
