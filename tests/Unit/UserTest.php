@@ -16,7 +16,7 @@ class UserTest extends TestCase
     public function testExample()
     {
 
-        $response = $this->post('/en/constituencies');
+        $response = $this->get('/ro/constituencies');
 
         $response->assertStatus(200);
     }

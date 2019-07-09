@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Locality;
-use Illuminate\Http\Request;
 use App\LanguageConstituencies;
 use Illuminate\Support\Str;
 use Victorybiz\GeoIPLocation\GeoIPLocation;
@@ -13,23 +12,22 @@ class Geo_locationController extends Controller
 {
     public function index($locale, AddressRequest $request)
     {
-        if ($request->get('locality') == 'Chișinău') // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
+        if ((Locality::where('isCity', 1)->exists()) && ($request->get('route') != '')) // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
             $locality = Locality::where('name', Str::lower($request->get('route')))->first();
         else
             $locality = Locality::where('name', Str::lower($request->get('locality')))->first();
-        if ($locality)
-            $constituency = $locality->constituency;
-        else {
+
+        if (!$locality) {
             $geoip = new GeoIPLocation();
-            print_r($geoip->getCity());
             if (($locality = Locality::where('name', 'like', '%'.Str::lower($geoip->getCity()).'%')->first()) != NULL)
                 return response()->json($locality->constituency);
             else
-                return response()->json(NULL);
+                return response()->json(null);
         }
-        $languageConstituency = LanguageConstituencies::where('constituency_id', $constituency->constituency_name)
+        $constituency = $locality->constituency;
+        $constituency->langiage_constituencies = LanguageConstituencies::where('constituency_id', $constituency->constituency_name)
         ->where('language', $locale)
         ->first();
-        return response()->json(['constituency' => [$constituency, $languageConstituency]]);
+        return response()->json($constituency);
     }
 }
