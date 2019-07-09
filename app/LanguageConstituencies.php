@@ -9,7 +9,7 @@ class LanguageConstituencies extends Model
     protected $table = 'language_constituencies';
     public $primaryKey = 'id';
 
-    public function constituencies() {
-        return $this->belongsTo('App\Constituencies', 'constituency_id', 'constituency_name');
+    public function constituency() {
+        return $this->belongsTo('App\Constituency', 'constituency_id', 'constituency_name');
     }
 }
