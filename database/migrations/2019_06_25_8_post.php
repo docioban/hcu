@@ -15,8 +15,8 @@ class Post extends Migration
     {
         Schema::create('post', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('candidate_id');
+            $table->string('language');
             $table->integer('type'); // 1 - text, 2 - link, 3 - enum
             $table->string('title');
             $table->string('subtitle');
@@ -24,7 +24,6 @@ class Post extends Migration
             $table->timestamps();
 
             $table->foreign('candidate_id')->references('id')->on('candidate');
-            $table->foreign('language_id')->references('id')->on('language');
         });
     }
 

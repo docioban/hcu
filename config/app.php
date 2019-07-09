@@ -168,7 +168,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        //\Torann\GeoIP\GeoIPServiceProvider::class,
+        \Torann\GeoIP\GeoIPServiceProvider::class,
         GoogleMaps\ServiceProvider\GoogleMapsServiceProvider::class,
         /*
          * Package Service Providers...
@@ -186,6 +186,7 @@ return [
         TCG\Voyager\VoyagerServiceProvider::class,
 
         Collective\Html\HtmlServiceProvider::class,
+        Victorybiz\GeoIPLocation\GeoIPLocationServiceProvider::class,
     ],
 
     /*

@@ -4,8 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-//todo corect e AddressRequest, asta permite sa fie clar ce extinde clasa si ce scop are.
-class Adress extends FormRequest
+
+class AddressRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
