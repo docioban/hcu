@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Candidate;
 use App\Constituency;
-use App\LanguageConstituencies;
-use App\LanguageLocality;
-use App\Http\Resources\ConstituenciesResource;
 
 class ConstituencyController extends Controller
 {
