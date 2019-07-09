@@ -12,22 +12,16 @@ class Geo_locationController extends Controller
 {
     public function index($locale, AddressRequest $request)
     {
-        if ((Locality::where('isCity', 1)->exists()) && ($request->get('route') != '')) // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
-            $locality = Locality::where('name', Str::lower($request->get('route')))->first();
-        else
-            $locality = Locality::where('name', Str::lower($request->get('locality')))->first();
+        if (($request->get('route') == '') || ($locality = Locality::where('isCity', 1)->where('name', Str::lower($request->get('route')))->with('constituency')->first()) == NULL) // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
+            $locality = Locality::where('name', Str::lower($request->get('locality')))->with('constituency')->first();
 
         if (!$locality) {
             $geoip = new GeoIPLocation();
-            if (($locality = Locality::where('name', 'like', '%'.Str::lower($geoip->getCity()).'%')->first()) != NULL)
+            if (($locality = Locality::where('name', Str::lower($geoip->getCity()))->with('constituency')->first()) != NULL) {
                 return response()->json($locality->constituency);
-            else
+            } else
                 return response()->json(null);
         }
-        $constituency = $locality->constituency;
-        $constituency->langiage_constituencies = LanguageConstituencies::where('constituency_id', $constituency->constituency_name)
-        ->where('language', $locale)
-        ->first();
-        return response()->json($constituency);
+        return response()->json($locality->constituency);
     }
 }
