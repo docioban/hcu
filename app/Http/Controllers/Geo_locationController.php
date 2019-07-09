@@ -14,9 +14,9 @@ class Geo_locationController extends Controller
     public function index($locale, AddressRequest $request)
     {
         if ($request->get('locality') == 'Chișinău') // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
-            $locality = Locality::where('name', 'like', '%'. $request->get('route') .'%')->first();
+            $locality = Locality::where('name', $request->get('route'))->first();
         else
-            $locality = Locality::where('name', 'like', '%'. $request->get('locality') .'%')->first();
+            $locality = Locality::where('name', $request->get('locality'))->first();
         $constituency = $locality->constituency;
         if ($constituency == NULL) {
             $geoip = new GeoIPLocation();
