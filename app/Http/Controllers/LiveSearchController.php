@@ -20,9 +20,9 @@ class LiveSearchController extends Controller
     {
         $query = $request->get('query');
         if ($query) {
-            $constituencies = LanguageConstituencies::where('name', 'like', '%'.$query.'%')->get();
-            $candidates = Candidate::where('name', 'like', '%'.$query.'%')->get();
-            $sections = Section::where('address', 'like', '%'.$query.'%')->get();
+            $constituencies = LanguageConstituencies::where('name', 'like', '%'.$query.'%')->with('constituency')->take(10)->get();
+            $candidates = Candidate::where('name', 'like', '%'.$query.'%')->take(10)->get();
+            $sections = Section::where('address', 'like', '%'.$query.'%')->take(10)->get();
         } else {
             $constituencies = LanguageConstituencies::where('language', $locale)->with('constituency')->take(10)->get();
             $candidates = Candidate::take(10)->get();
