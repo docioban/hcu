@@ -24,11 +24,11 @@ class LiveSearchController extends Controller
     {
         $query = $request->get('query');
         if ($query) {
-            $constituencies = LanguageConstituencies::where('name', 'like', '%'.Str::lower($query).'%')->get();
+            $constituencies = LanguageConstituencies::where('name', 'like', '%'.Str::lower($query).'%')->get();//todo corect, string-ul care vine de pe front e lower, dar care sunt sansele ca in baza sting-ul asta e mereu lower?
             $candidates = Candidate::where('name', 'like', '%'.Str::lower($query).'%')->get();
             $sections = Section::where('address', 'like', '%'.Str::lower($query).'%')->get();
         } else {
-            $constituencies = LanguageConstituencies::where('language', $locale)->take(10)->get();
+            $constituencies = LanguageConstituencies::where('language', $locale)->take(10)->get();//todo returnati doar translate, trebuie tot obiectul, care contine obiectul de translate
             $candidates = Candidate::take(10)->get();
             $sections = Section::take(10)->get();
         }

@@ -13,7 +13,7 @@ class Geo_locationController extends Controller
 {
     public function index($locale, AddressRequest $request)
     {
-        if ($request->get('locality') == 'Chișinău') // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
+        if ($request->get('locality') == 'Chișinău') // todo, baieti asa nui corect, nu mai faceti nici odata asa. o mai trebuit sa puneti == cu un id din baza.
             $locality = Locality::where('name', Str::lower($request->get('route')))->first();
         else
             $locality = Locality::where('name', Str::lower($request->get('locality')))->first();
@@ -23,7 +23,7 @@ class Geo_locationController extends Controller
             $geoip = new GeoIPLocation();
             print_r($geoip->getCity());
             if (($locality = Locality::where('name', 'like', '%'.Str::lower($geoip->getCity()).'%')->first()) != NULL)
-                return response()->json($locality->constituency);
+                return response()->json($locality->constituency);//todo de ce aici este return?  raspunsurile la endpointul ista nu trebuie sa fie diferit
             else
                 return response()->json(NULL);
         }
