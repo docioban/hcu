@@ -6,6 +6,7 @@ use App\Candidate;
 use App\Constituency;
 use App\LanguageConstituencies;
 use App\LanguageLocality;
+use App\Http\Resources\ConstituenciesResource;
 
 class ConstituencyController extends Controller
 {
@@ -25,10 +26,20 @@ class ConstituencyController extends Controller
 
         // $constituency->candidate = Candidate::where('constituency_id', $constituency->constituency_name)->get();
 
+// =====================================================================
+
+        // $constituency = Constituency::whereSlug($slug)
+        // ->with('locality')
+        // ->with('candidate')
+        // ->with('language_constituencies')
+        // ->firstOrFail();
+
+// =====================================================================
+
         $constituency = Constituency::whereSlug($slug)
-        ->with('locality')
-        ->with('candidate')
         ->with('language_constituencies')
+        ->with('locality.language_locality')
+        ->with('candidate')
         ->firstOrFail();
 
         return response()->json($constituency);
@@ -36,8 +47,9 @@ class ConstituencyController extends Controller
 
     public function constituency_all($locale)
     {
-        $constituencies = LanguageConstituencies::where('language', $locale)->get();
+       // return ConstituenciesResource::collection(Constituency::all());
 
-        return response()->json(Constituency::with('language_constituencies')->get());
+       return response()->json(Constituency::with('language_constituencies')->get());
+
     }
 }

@@ -17,7 +17,6 @@ class Locality extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('district_id');
             $table->unsignedBigInteger('constituency_id');
-            $table->string('name');
             $table->integer('isCity');
             $table->timestamps();
 
