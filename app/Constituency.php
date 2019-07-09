@@ -25,7 +25,26 @@ class Constituency extends Model
         return $this->hasMany('App\LanguageConstituencies');
     }
 
-    public function get_language($language_id) {
-        return $this->language_constituencies()->where('language_id', $language_id);
+    public function get_constituency_lang($locale) {
+        return $this->language_constituencies()->where('language', $locale)->first();
+    }
+
+    public function through_locality()
+    {
+        return $this->hasManyThrough('App\LanguageLocality', 'App\Locality');
+    }
+
+    public function get_locality_lang($locale) {
+        return $this->through_locality()->where('language', $locale)->get();
+    }
+
+    public function description($locale) {
+        return [
+            'slug' => $this->slug,
+            'number_of_voters' => $this->number_of_voters,
+            'translate' => $this->get_constituency_lang($locale),
+            'localities' => $this->get_locality_lang($locale),
+            'candidates' => $this->candidate,
+        ];
     }
 }

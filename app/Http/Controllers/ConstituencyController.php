@@ -8,20 +8,15 @@ class ConstituencyController extends Controller
 {
     public function constituency($locale, $slug)
     {
-        $constituency = Constituency::whereSlug($slug)
-        ->with('language_constituencies')
-        ->with('locality.language_locality')
-        ->with('candidate')
-        ->firstOrFail();
+        $constituency = Constituency::whereSlug($slug)->firstOrFail();
 
-        return response()->json($constituency);
+        return response()->json($constituency->description($locale));
     }
 
     public function constituency_all($locale)
     {
-       // return ConstituenciesResource::collection(Constituency::all());
+        $constituencies = Constituency::with(get_constituency_lang($locale))->get(); //todo in proces de dezvoltare
 
-       return response()->json(Constituency::with('language_constituencies')->get());
-
+        return response()->json($constituencies);
     }
 }

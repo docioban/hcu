@@ -8,8 +8,8 @@ class CandidateController extends Controller
 {
     public function candidate($locale, $slug)
     {
-        $candidate = Candidate::whereSlug($slug)->with('posts')->first();
+        $candidate = Candidate::whereSlug($slug)->firstOrFail();
 
-        return response()->json($candidate);
+        return response()->json($candidate->description($locale));
     }
 }
