@@ -34,13 +34,33 @@
                 $.ajax({
                     url: "{{ url(app()->getLocale().'/live_search/action') }}",
                     method: 'GET',
-                    data: {query: query},
+                    data: JSON.parse('{"hello": "world", "data": [ 1, 2, 3 ] }'),
                     dataType: 'json',
-                    success: function ($output) {
-                        $('tbody').html($output);
+                    success: function (output) {
+
                     }
                 })
             }
+
+
+            dbParam = JSON.stringify(obj);
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                myObj = JSON.parse(this.responseText);
+                txt += "<tbody border='1'>"
+                for (x in myObj) {
+                    txt += "<tr><td>" + myObj[x].name + "</td></tr>";
+                }
+                txt += "</tbody>"
+                document.getElementById("demo").innerHTML = txt;
+            }
+            xmlhttp.open("POST", "json_demo_db_post.php", true);
+            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xmlhttp.send("x=" + dbParam);
+
+
+
+
 
             $(document).on('keyup', '#search', function () {
                 var query = $(this).val();
