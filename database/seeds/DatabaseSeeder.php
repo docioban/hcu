@@ -103,6 +103,7 @@ class DatabaseSeeder extends Seeder
         fclose($file);
         $this->call([
             VoyagerDatabaseSeeder::class,
+            myseed::class,
         ]);
     }
 }
