@@ -71,15 +71,11 @@ class DatabaseSeeder extends Seeder
                     }
                     if (!Locality::where('name', $data[4])->exists()) {
                         $locality = new Locality;
-//                        if (Str::lower($data[2]) )
                         $locality->district_id = $language_district->district_id;
                         $locality->constituency_id = $constituency->id;
                         $locality->name = Str::lower($data[4]);
                         $locality->district_id = $language_district->district_id;
-                        if (Str::contains(Str::lower($data[2]), ['chișinău', 'chisinau']))
-                            $locality->isCity = 1;
-                        else
-                            $locality->isCity = 0;
+                        $locality->isCity = 0;
                         $locality->constituency_id = $constituency->id;
                         $locality->save();
                         $language_locality = new LanguageLocality;
@@ -98,6 +94,7 @@ class DatabaseSeeder extends Seeder
                             $section->address = Str::lower($data[7]);
                             $section->locality_id = $locality->id;
                             $section->save();
+                            $locality->isCity = 1;
                         }
                     }
                 }
