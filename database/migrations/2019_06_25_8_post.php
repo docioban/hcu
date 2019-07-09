@@ -14,7 +14,7 @@ class Post extends Migration
     public function up()
     {
         Schema::create('post', function (Blueprint $table) {
-            $table->bigIncrements('id')
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('candidate_id');
             $table->string('language');
             $table->integer('type'); // 1 - text, 2 - link, 3 - enum

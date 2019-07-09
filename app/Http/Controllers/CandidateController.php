@@ -2,26 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Candidate;
+use App\Post;
 
 class CandidateController extends Controller
 {
     public function candidate($locale, $slug)
     {
-        $candidate = Candidate::whereHas('posts', function ($q) use ($locale) {
-            $q->where('language', $locale);
-        })->with('posts')->first();
+        $candidate = Candidate::whereSlug($slug)->first();
 
-        if ($candidate == null) 
-            $candidate = Candidate::()
+        $posts = Post::where('language', $locale)->get();
 
-        // $candidate = Candidate::whereSlug($slug)
-        // ->with('posts')
-        // ->where('language', )
-        // ->firstOrFail();
+        $candidate->posts = $posts;
 
-        // $language = Language::where('name', $locale)->first();
-
-        return response()->json($candidate);    
+        return response()->json($candidate);
     }
 }
