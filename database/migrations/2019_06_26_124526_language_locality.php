@@ -20,7 +20,7 @@ class LanguageLocality extends Migration
             $table->string('name');
             $table->timestamps();
 
-            $table->foreign('locality_id')->references('id')->on('locality');
+            $table->foreign('locality_id')->references('id')->on('localities');
         });
     }
 
