@@ -10,13 +10,11 @@ class ConstituencyController extends Controller
     {
         $constituency = Constituency::whereSlug($slug)->firstOrFail();
 
-        return response()->json($constituency->description($locale));
+        return response()->json($constituency->description());
     }
 
     public function constituency_all($locale)
     {
-        $constituencies = Constituency::with(get_constituency_lang($locale))->get(); //todo in proces de dezvoltare
-
-        return response()->json($constituencies);
+        return response()->json(Constituency::with('get_constituency_lang()')->get()); //todo in process de dezvoltare
     }
 }
