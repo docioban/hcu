@@ -15,6 +15,6 @@ class ConstituencyController extends Controller
 
     public function constituency_all($locale)
     {
-        return response()->json(Constituency::with('get_constituency_lang()')->get());
+        return response()->json(Constituency::with('get_constituency_lang()')->get()); //todo in process de dezvoltare
     }
 }
