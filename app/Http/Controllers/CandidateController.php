@@ -10,6 +10,6 @@ class CandidateController extends Controller
     {
         $candidate = Candidate::whereSlug($slug)->firstOrFail();
 
-        return response()->json($candidate->description($locale));
+        return response()->json($candidate->description());
     }
 }

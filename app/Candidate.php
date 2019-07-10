@@ -21,11 +21,11 @@ class Candidate extends Model
         return $this->hasMany('App\Post', 'candidate_id', 'id');
     }
 
-    public function get_posts_lang($locale) {
-        return $this->Posts()->where('language', $locale)->get();
+    public function get_posts_lang() {
+        return $this->Posts()->where('language', app()->getLocale())->get();
     }
 
-    public function description($locale) {
+    public function description() {
         return [
             'slug' => $this->slug,
             'name' => $this->name,
@@ -36,7 +36,7 @@ class Candidate extends Model
             'date' => $this->date,
             'constituency' => $this->constituencies,
             'party' => $this->party,
-            'posts' => $this->get_posts_lang($locale),
+            'posts' => $this->get_posts_lang(),
         ];
     }
 }
