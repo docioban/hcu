@@ -12,6 +12,8 @@ class Geo_locationController extends Controller
 {
     public function index($locale, AddressRequest $request)
     {
+        //todo aici nu sunt ultimele modificari, asteptam push de la Dorin
+
         if ((Locality::where('isCity', 1)->exists()) && ($request->get('route') != '')) // TODO se foloseste pentru geolocatie si nu avem nevoie de isCity
             $locality = Locality::where('name', Str::lower($request->get('route')))->first();
         else
