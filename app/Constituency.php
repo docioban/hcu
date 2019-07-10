@@ -13,6 +13,17 @@ class Constituency extends Model
         'name', 'slug', 'number_of_voters',
     ];
 
+    public function toArray()
+    {
+        return [
+
+            'number' => $this->constituency_name,
+            'slug' => $this->slug,
+            'number_of_voters' => $this->number_of_voters,
+            'translate' => $this->get_constituency_lang(),
+        ];
+    }
+
     public function candidate() {
         return $this->hasMany('App\Candidate');
     }
