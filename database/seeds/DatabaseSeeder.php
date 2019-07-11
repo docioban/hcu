@@ -94,6 +94,7 @@ class DatabaseSeeder extends Seeder
                             $section->locality_id = $locality->id;
                             $section->save();
                             $locality->isCity = 1;
+                            $locality->save();
                         }
                     }
                 }

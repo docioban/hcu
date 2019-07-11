@@ -8,7 +8,7 @@ class Locality extends Migration
 {
     /**
      * Run the migrations.
-     *
+
      * @return void
      */
     public function up()
@@ -17,7 +17,7 @@ class Locality extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('district_id');
             $table->unsignedBigInteger('constituency_id');
-            $table->integer('isCity');
+            $table->integer('isCity')->default(0);
             $table->timestamps();
 
             $table->foreign('district_id')->references('id')->on('district');
