@@ -39,7 +39,6 @@
                     dataType: 'json',
                     success: function (output) {
                         var printHtml = "";
-                        // console.log(output.constituencies);
                         output.candidates.forEach(function( key ) {
                             printHtml += '<tr><td>'+key.name+'</td></tr>';
                         });
