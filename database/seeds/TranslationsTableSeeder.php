@@ -155,7 +155,7 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Media');
         }
 
-        $_item = $this->findMenuItem(__('voyager::seeders.menu_items.posts'));
+        $_item = $this->findMenuItem(__('voyager::seeders.menu_items.post'));
         if ($_item->exists) {
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Publicações');
         }
