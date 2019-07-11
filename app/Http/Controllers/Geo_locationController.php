@@ -9,6 +9,11 @@ use App\LanguageLocality;
 
 class Geo_locationController extends Controller
 {
+    /**
+     * @param $locale
+     * @param AddressRequest $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index($locale, AddressRequest $request)
     {
         $lanuage_locality = LanguageLocality::where('name', Str::lower($request->get('route')))->first();
