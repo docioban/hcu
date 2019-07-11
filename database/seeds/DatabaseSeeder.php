@@ -120,8 +120,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            VoyagerDatabaseSeeder::class,
-            myseed::class,
+            VoyagerDatabaseSeeder::class
         ]);
     }
 }
