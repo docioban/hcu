@@ -500,6 +500,54 @@ class DataRowsTableSeeder extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($candidateDataType, 'name');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '8',
+                'type'         => 'text',
+                'display_name' => 'Name',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 10,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($candidateDataType, 'photo');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '8',
+                'type'         => 'text',
+                'display_name' => 'Photo',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 11,
+            ])->save();
+        }
+
+        $dataRow = $this->dataRow($candidateDataType, 'date');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'data_type_id' => '7',
+                'type'         => 'date',
+                'display_name' => 'Date',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 1,
+                'order'        => 9,
+            ])->save();
+        }
+
         $dataRow = $this->dataRow($constituenciesDataType, 'constituency_name');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -688,7 +736,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 1,
             ])->save();
         }
 
@@ -704,7 +752,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 3,
+                'order'        => 2,
             ])->save();
         }
     }
