@@ -17,7 +17,8 @@
                         <th>Name</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="dorin">
+
 
                     </tbody>
                 </table>
@@ -34,34 +35,25 @@
                 $.ajax({
                     url: "{{ url(app()->getLocale().'/live_search/action') }}",
                     method: 'GET',
-                    data: JSON.parse('{"hello": "world", "data": [ 1, 2, 3 ] }'),
+                    data:{query:query},
                     dataType: 'json',
                     success: function (output) {
+                        var printHtml = "";
+                        // console.log(output.constituencies);
+                        output.candidates.forEach(function( key ) {
+                            printHtml += '<tr><td>'+key.name+'</td></tr>';
+                        });
+                        output.constituencies.forEach(function( key ) {
+                            printHtml += '<tr><td>'+key.name+'</td></tr>';
+                        });
+                        output.sections.forEach(function( key ) {
+                            printHtml += '<tr><td>'+key.address+'</td></tr>';
+                        });
 
+                        $('#dorin').html(printHtml);
                     }
                 })
             }
-
-
-            dbParam = JSON.stringify(obj);
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                myObj = JSON.parse(this.responseText);
-                txt += "<tbody border='1'>"
-                for (x in myObj) {
-                    txt += "<tr><td>" + myObj[x].name + "</td></tr>";
-                }
-                txt += "</tbody>"
-                document.getElementById("demo").innerHTML = txt;
-            }
-            xmlhttp.open("POST", "json_demo_db_post.php", true);
-            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xmlhttp.send("x=" + dbParam);
-
-
-
-
-
             $(document).on('keyup', '#search', function () {
                 var query = $(this).val();
                 fetch_customer_data(query);
