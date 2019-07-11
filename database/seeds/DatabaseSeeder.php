@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             VoyagerDatabaseSeeder::class,
-            myseed::class,
+            UsersTableSeeder::class,
         ]);
     }
 }
