@@ -16,7 +16,7 @@
         <i class="{{ $dataType->icon }}"></i>
         {{ __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->display_name_singular }}
     </h1>
-    <a href="/admin/post/">
+    <a href="{{ route('voyager.post.index', ['idCandidate' => $dataTypeContent->getKey()]) }}">
         <h1 class="page-title">
             <i class="{{ $dataType->icon }}"></i>
             {{ __('voyager::generic.'.($edit ? 'edit' : 'add')).' Posts' }}
@@ -55,7 +55,6 @@
                                     </ul>
                                 </div>
                             @endif
-
                         <!-- Adding / Editing -->
                             @php
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};

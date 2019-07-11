@@ -239,22 +239,6 @@ class MenuItemsTableSeeder extends Seeder
 
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => 'Posts',
-            'url'     => '',
-            'route'   => 'voyager.post.index',
-        ]);
-        if (!$menuItem->exists) {
-            $menuItem->fill([
-                'target'     => '_self',
-                'icon_class' => 'voyager-sun',
-                'color'      => '#ffff00',
-                'parent_id'  => 11,
-                'order'      => 4,
-            ])->save();
-        }
-
-        $menuItem = MenuItem::firstOrNew([
-            'menu_id' => $menu->id,
             'title'   => 'Parties',
             'url'     => '',
             'route'   => 'voyager.party.index',
