@@ -74,7 +74,6 @@ class DatabaseSeeder extends Seeder
                         $locality->district_id = $language_district->district_id;
                         $locality->constituency_id = $constituency->id;
                         $locality->district_id = $language_district->district_id;
-                        $locality->isCity = 0;
                         $locality->constituency_id = $constituency->id;
                         $locality->save();
                         $language_locality = new LanguageLocality;
@@ -94,6 +93,7 @@ class DatabaseSeeder extends Seeder
                             $section->locality_id = $locality->id;
                             $section->save();
                             $locality->isCity = 1;
+                            $locality->save();
                         }
                     }
                 }
@@ -119,8 +119,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            VoyagerDatabaseSeeder::class,
-            myseed::class,
+            VoyagerDatabaseSeeder::class
         ]);
     }
 }
