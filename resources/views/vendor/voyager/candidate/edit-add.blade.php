@@ -16,7 +16,7 @@
         <i class="{{ $dataType->icon }}"></i>
         {{ __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->display_name_singular }}
     </h1>
-    <a href="/admin/post">
+    <a href="/admin/post/">
         <h1 class="page-title">
             <i class="{{ $dataType->icon }}"></i>
             {{ __('voyager::generic.'.($edit ? 'edit' : 'add')).' Posts' }}
