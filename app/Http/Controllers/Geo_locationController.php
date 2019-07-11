@@ -20,7 +20,7 @@ class Geo_locationController extends Controller
             ->whereHas('locality', function ($q) {
                 $q->where('isCity', 1);
             })->first();
-
+      
         if (!($language_locality)) {
             $language_locality = LanguageLocality::where('name', Str::lower($request->get('locality')))->first();
         }
@@ -30,7 +30,6 @@ class Geo_locationController extends Controller
             $geoip = new GeoIPLocation();
             $language_locality = LanguageLocality::where('name', Str::lower($geoip->getCity()))->first();
         }
-
-        return response()->json($language_locality ? $language_locality->locality : null);
+        return response()->json($language_locality ? $language_locality->locality->constituency : null);
     }
 }
