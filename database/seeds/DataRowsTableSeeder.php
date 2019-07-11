@@ -736,7 +736,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 2,
+                'order'        => 1,
             ])->save();
         }
 
@@ -752,7 +752,7 @@ class DataRowsTableSeeder extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'order'        => 3,
+                'order'        => 2,
             ])->save();
         }
     }
