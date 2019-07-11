@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use function foo\func;
 use Illuminate\Support\Str;
 use Victorybiz\GeoIPLocation\GeoIPLocation;
 use App\Http\Requests\AddressRequest;
