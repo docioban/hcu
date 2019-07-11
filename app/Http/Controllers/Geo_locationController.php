@@ -25,7 +25,8 @@ class Geo_locationController extends Controller
             $language_locality = LanguageLocality::where('name', Str::lower($request->get('locality')))->first();
         }
 
-        if ($language_locality == NULL) {
+        if ((!$language_locality)) {
+
             $geoip = new GeoIPLocation();
             $language_locality = LanguageLocality::where('name', Str::lower($geoip->getCity()))->first();
         }

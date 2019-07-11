@@ -21,7 +21,7 @@ Route::group([
     'middleware' => 'setlocale'],
     function () {
 
-        Route::post('/main', 'Geo_locationController@index');
+        Route::get('/main', 'Geo_locationController@index');
 
         Route::get('/constituencies', 'ConstituencyController@constituency_all');
 
