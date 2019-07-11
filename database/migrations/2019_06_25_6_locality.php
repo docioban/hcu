@@ -13,11 +13,10 @@ class Locality extends Migration
      */
     public function up()
     {
-        Schema::create('locality', function (Blueprint $table) {
+        Schema::create('localities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('district_id');
             $table->unsignedBigInteger('constituency_id');
-            $table->string('name');
             $table->integer('isCity');
             $table->timestamps();
 
@@ -33,6 +32,6 @@ class Locality extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('locality');
+        Schema::dropIfExists('localities');
     }
 }

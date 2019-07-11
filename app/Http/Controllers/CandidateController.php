@@ -3,18 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Candidate;
-use App\Post;
 
 class CandidateController extends Controller
 {
     public function candidate($locale, $slug)
     {
-        $candidate = Candidate::whereSlug($slug)->first();
+        $candidate = Candidate::whereSlug($slug)->firstOrFail();
 
-        $posts = Post::where('language', $locale)->get();
-
-        $candidate->posts = $posts;
-
-        return response()->json($candidate);
+        return response()->json($candidate->description());
     }
 }

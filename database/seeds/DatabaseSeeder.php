@@ -69,11 +69,10 @@ class DatabaseSeeder extends Seeder
                         $language_district->district_id = $district->id;
                         $language_district->save();
                     }
-                    if (!Locality::where('name', $data[4])->exists()) {
+                    if (!LanguageLocality::where('name', $data[4])->exists()) {
                         $locality = new Locality;
                         $locality->district_id = $language_district->district_id;
                         $locality->constituency_id = $constituency->id;
-                        $locality->name = Str::lower($data[4]);
                         $locality->district_id = $language_district->district_id;
                         $locality->isCity = 0;
                         $locality->constituency_id = $constituency->id;

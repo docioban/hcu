@@ -20,7 +20,7 @@ class Section extends Migration
             $table->string('address');
             $table->timestamps();
 
-            $table->foreign('locality_id')->references('id')->on('locality');
+            $table->foreign('locality_id')->references('id')->on('localities');
         });
     }
 
