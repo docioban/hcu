@@ -111,11 +111,13 @@ class DatabaseSeeder extends Seeder
             'party_id' => '1',
             'constituency_id' => '1',
             'slug' => 'Ghenadie-Buza',
-            'name' => 'Ghenadie Buza',
+            'name' => 'Buza',
+            'surname' => 'Ghenadie',
             'location' => 'Chisinau',
             'civil_status' => 'insurat',
             'function' => 'deputat',
             'studies' => 'clasa 9-a',
+            'photo' => 'GhenadieBuza.jpg',
             'date' => '1999-03-14'
         ]);
 
