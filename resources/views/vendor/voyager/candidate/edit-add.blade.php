@@ -62,125 +62,121 @@
                 {!! Form::open(['action' => ['CandidateController@update', $dataTypeContent->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
 
                     <!-- CSRF TOKEN -->
-                    {{ csrf_field() }}
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    <!-- Adding / Editing -->
-                    @php
-                        $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
-                        $posts = \App\Post::where('candidate_id', $dataTypeContent->id)->get();
-                    @endphp
-                    {{-- @dd($dataType) --}}
-                    <div class="float-letf bd-success col-md-3">
-                        <img src="/storage/candidates/{{$dataTypeContent->photo}}" class="rounded-circle" width="300" height="250" alt="sdfas"/><br><br>
-                        <label class="control-label" for="name">Incarca CV</label>
-                        <input id="file-5" name="cv" class="file" type="file" multiple>
-                        <label class="control-label" for="name">Incarca o poza</label>
-                        <input id="file-5" name="photo" class="file" type="file" multiple>
-                    </div>
-                    <div class="floar-right bd-primary col-md-9">
-                        <div class="form-group @if($dataTypeContent->type == 'hidden') hidden @endif {{ $errors->has($dataTypeContent->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                            <div class="">
-                                <div class="col-md-4">
-                                    <label class="control-label" for="name">Slug</label>
-                                    <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->slug}}">
+                        {{ csrf_field() }}
+                            @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
-                                <div class="col-md-4">
-                                    <label class="control-label" for="name">Name</label>
-                                    <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}">
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="control-label" for="name">Location</label>
-                                    <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->location}}">
-                                </div>
-                            </div><br><br><br><br>
-                            <div>
-                                <div class="col-md-4">
-                                    <label class="control-label" for="name">Starea civila</label>
-                                    <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->civil_status}}">
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="control-label" for="name">Functia</label>
-                                    <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->function}}">
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="control-label" for="name">Studii</label>
-                                    <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->studies}}">
-                                </div>
-                            </div><br><br><br><br>
-                            <div class="col-md-4"><br><br><br><br>
+                            @endif
+                            <!-- Adding / Editing -->
+                            @php
+                                $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
+                                $posts = \App\Post::where('candidate_id', $dataTypeContent->id)->get()
+                            @endphp
+                            {{-- @dd($dataType) --}}
+                            <div class="float-letf bd-success col-md-3">
+                                <img src="/storage/candidates/{{$dataTypeContent->photo}}" class="rounded-circle" width="300" height="250" alt="sdfas"/><br><br>
+                                <label class="control-label" for="name">Incarca CV</label>
+                                <input id="file-5" name="cv" class="file" type="file" multiple>
+                                <label class="control-label" for="name">Incarca o poza</label>
+                                <input id="file-5" name="photo" class="file" type="file" multiple>
                             </div>
-                            <div class="col-md-4">
-                                <label class="control-label" for="name">Data Nasterii</label>
-                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}">
-                            </div>
-                            <div class="col-md-4"><br><br><br><br>
-                            </div>
-                        </div>
-                        <div>
-                            <h3 align='center'>Posturi</h3>
-                            @foreach($posts as $post)
-                            <div class="form-group @if($post->type == 'hidden') hidden @endif col-md-12 {{ $errors->has($post->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                <div class="border border-success">
-                                        <hr>
+                            <div class="floar-right bd-primary col-md-9">
+                                <div class="form-group @if($dataTypeContent->type == 'hidden') hidden @endif {{ $errors->has($dataTypeContent->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                    <div class="">
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="name">Slug</label>
+                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->slug}}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="name">Name</label>
+                                            <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="name">Location</label>
+                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->location}}">
+                                        </div>
+                                    </div><br><br><br><br>
                                     <div>
-                                        <div class="col-md-11" style="padding:0px">
-                                            <input type="text" class="form-control" size="4" id="name" placeholder="{{$post->title}}">
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="name">Starea civila</label>
+                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->civil_status}}">
                                         </div>
-                                        <div class="col-md-1" align='right'>
-                                            <img src="/storage/delete.png" width="30">
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="name">Functia</label>
+                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->function}}">
                                         </div>
-                                    </div>
-                                    <div class="col text-decoration-none col-md-3" style="padding:0px">
-                                        <label class="control-label" for="name"><b>Limba </b></label>
-                                        <input type="text" class="form-control" id="name" placeholder="{{$post->language}}">
-                                    </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="name">Studii</label>
+                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->studies}}">
+                                        </div>
+                                    </div><br><br><br><br>
+                                    <div class="col-md-4"><br><br><br><br></div>
                                     <div class="col-md-4">
-                                        <label class="control-label" for="name"><b>Tipul </b></label>
-                                        <input type="text" class="form-control" id="name" placeholder="{{$post->type}}">
+                                        <label class="control-label" for="name">Data Nasterii</label>
+                                        <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}">
                                     </div>
-                                    <br><br><br><br><br>
-                                    <label class="control-label" for="name"><b>Subtitlul</b></label>
-                                    <input type="text" class="form-control" id="name" placeholder="{{$post->subtitle}}">
-                                    <label class="control-label" for="name"><b>Corpul</b></label>
-                                    {!! Form::textarea('mytextarea', '', ['placeholder' => $post->body, 'class' => 'form-control']) !!}
+                                    <div class="col-md-4"><br><br><br><br></div>
                                 </div>
-                            </div>@endforeach
-                        </div>
-                    </div>
-                    <div>
-                        <hr>
-                        <h3 align='center'>Adauga un post</h3>
-                        <div class="form-group @if($post->type == 'hidden') hidden @endif col-md-12 {{ $errors->has($post->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                            <div class="border border-success">
-                                <div class="col-md-12" style="padding:0px">
-                                    <label class="control-label" for="name"><b>Titlu </b></label>
-                                    <input type="text" class="form-control" size="4" id="name">
+                                <div>
+                                    <h3 align='center'>Posturi</h3>
+                                    @foreach($posts as $post)
+                                    <div class="form-group @if($post->type == 'hidden') hidden @endif col-md-12 {{ $errors->has($post->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                        <div class="border border-success">
+                                                <hr>
+                                            <div>
+                                                <div class="col-md-11" style="padding:0px">
+                                                    <input type="text" class="form-control" size="4" id="name" placeholder="{{$post->title}}">
+                                                </div>
+                                                <div class="col-md-1" align='right'>
+                                                    <img src="/storage/delete.png" width="30">
+                                                </div>
+                                            </div>
+                                            <div class="col text-decoration-none col-md-3" style="padding:0px">
+                                                <label class="control-label" for="name"><b>Limba </b></label>
+                                                <input type="text" class="form-control" id="name" placeholder="{{$post->language}}">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label class="control-label" for="name"><b>Tipul </b></label>
+                                                <input type="text" class="form-control" id="name" placeholder="{{$post->type}}">
+                                            </div><br><br><br><br><br>
+                                            <label class="control-label" for="name"><b>Subtitlul</b></label>
+                                            <input type="text" class="form-control" id="name" placeholder="{{$post->subtitle}}">
+                                            <label class="control-label" for="name"><b>Corpul</b></label>
+                                            {!! Form::textarea('mytextarea', '', ['placeholder' => $post->body, 'class' => 'form-control']) !!}
+                                        </div>
+                                    </div>@endforeach
                                 </div>
-                                <div class="col text-decoration-none col-md-3" style="padding:0px">
-                                    <label class="control-label" for="name"><b>Limba </b></label>
-                                    <input type="text" class="form-control" id="name">
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="control-label" for="name"><b>Tipul </b></label>
-                                    <input type="text" class="form-control" id="name">
-                                </div>
-                                <br><br><br><br><br><br>
-                                <label class="control-label" for="name"><b>Subtitlul</b></label>
-                                <input type="text" class="form-control" id="name">
-                                <label class="control-label" for="name"><b>Corpul</b></label>
-                                {!! Form::textarea('mytextarea', '', ['class' => 'form-control']) !!}
                             </div>
-                        </div>
-                    </div>
-                    {{-- </div> --}}
+                            <div>
+                                <hr>
+                                <h3 align='center'>Adauga un post</h3>
+                                <div class="form-group @if($post->type == 'hidden') hidden @endif col-md-12 {{ $errors->has($post->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                    <div class="border border-success">
+                                        <div class="col-md-12" style="padding:0px">
+                                            <label class="control-label" for="name"><b>Titlu </b></label>
+                                            <input type="text" class="form-control" size="4" id="name">
+                                        </div>
+                                        <div class="col text-decoration-none col-md-3" style="padding:0px">
+                                            <label class="control-label" for="name"><b>Limba </b></label>
+                                            <input type="text" class="form-control" id="name">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="name"><b>Tipul </b></label>
+                                            <input type="text" class="form-control" id="name">
+                                        </div><br><br><br><br><br><br>
+                                        <label class="control-label" for="name"><b>Subtitlul</b></label>
+                                        <input type="text" class="form-control" id="name">
+                                        <label class="control-label" for="name"><b>Corpul</b></label>
+                                        {!! Form::textarea('mytextarea', '', ['class' => 'form-control']) !!}
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- </div> --}}
                     {{-- </div><!-- panel-body --> --}}
                     <div align='right'>
                         {{Form::hidden('_method','PUT')}}
@@ -199,7 +195,8 @@
                 <div class="col-md-12">
                     <div class="panel panel-bordered">
                             <!-- form start -->
-                    {!! Form::open(['action' => ['CandidateController@update', $dataTypeContent->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+                            {!! Form::open(['action' => ['CandidateController@update', $dataTypeContent->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+
                                 <!-- PUT Method if we are editing -->
                             @if($edit)
                                 {{ method_field("PUT") }}
@@ -220,10 +217,6 @@
                                     </div>
                                 @endif
                                 <!-- Adding / Editing -->
-                                @php
-                                    $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
-                                    $posts = \App\Post::where('candidate_id', $dataTypeContent->id)->get()
-                                @endphp
                                 {{-- @dd($dataType) --}}
                                 <div class="float-letf bd-success col-md-3">
                                     <img src="/storage/candidates/{{$dataTypeContent->photo}}" class="rounded-circle" width="300" height="250" alt="sdfas"/><br><br>
@@ -329,7 +322,6 @@
                                 {{Form::hidden('_method','PUT')}}
                                 {{Form::submit('Сохранить', ['class'=>'btn btn-primary'])}}
                                 {!! Form::close() !!}
-                            </div>
                             </div>
                         </form>
                     </div>
