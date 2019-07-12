@@ -163,14 +163,14 @@
                                         </div>
                                         <div class="col text-decoration-none col-md-3" style="padding:0px">
                                             <label class="control-label" for="name"><b>Limba </b></label>
-                                            <input type="text" class="form-control" id="name"">
+                                            <input type="text" class="form-control" id="name">
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label" for="name"><b>Tipul </b></label>
-                                            <input type="text" class="form-control" id="name"">
+                                            <input type="text" class="form-control" id="name">
                                         </div><br><br><br><br><br><br>
                                         <label class="control-label" for="name"><b>Subtitlul</b></label>
-                                        <input type="text" class="form-control" id="name"">
+                                        <input type="text" class="form-control" id="name">
                                         <label class="control-label" for="name"><b>Corpul</b></label>
                                         {!! Form::textarea('mytextarea', '', ['class' => 'form-control']) !!}
                                     </div>
@@ -195,10 +195,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-bordered">
                             <!-- form start -->
-                        <form role="form"
-                            class="form-edit-add"
-                            action="{{ $edit ? route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) : route('voyager.'.$dataType->slug.'.store') }}"
-                            method="POST" enctype="multipart/form-data" id="myform">
+                            {!! Form::open(['action' => ['CandidateController@update', $dataTypeContent->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                                     
                                 <!-- PUT Method if we are editing -->
                             @if($edit)
@@ -219,11 +216,7 @@
                                         </ul>
                                     </div>
                                 @endif
-                                <!-- Adding / Editing -->   
-                                @php
-                                    $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
-                                    $posts = \App\Post::where('candidate_id', $dataTypeContent->id)->get()
-                                @endphp
+                                <!-- Adding / Editing -->
                                 {{-- @dd($dataType) --}}
                                 <div class="float-letf bd-success col-md-3">
                                     <img src="/storage/candidates/{{$dataTypeContent->photo}}" class="rounded-circle" width="300" height="250" alt="sdfas"/><br><br>
@@ -309,14 +302,14 @@
                                                 </div>
                                                 <div class="col text-decoration-none col-md-3" style="padding:0px">
                                                     <label class="control-label" for="name"><b>Язык </b></label>
-                                                    <input type="text" class="form-control" id="name"">
+                                                    <input type="text" class="form-control" id="name">
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label class="control-label" for="name"><b>Тип </b></label>
-                                                    <input type="text" class="form-control" id="name"">
+                                                    <input type="text" class="form-control" id="name">
                                                 </div><br><br><br><br><br><br>
                                                 <label class="control-label" for="name"><b>Подназвание</b></label>
-                                                <input type="text" class="form-control" id="name"">
+                                                <input type="text" class="form-control" id="name">
                                                 <label class="control-label" for="name"><b>Корпус</b></label>
                                                 {!! Form::textarea('mytextarea', '', ['class' => 'form-control']) !!}
                                             </div>
