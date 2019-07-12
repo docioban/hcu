@@ -117,8 +117,9 @@ class DatabaseSeeder extends Seeder
             'civil_status' => 'insurat',
             'function' => 'deputat',
             'studies' => 'clasa 9-a',
-            'photo' => 'GhenadieBuza.jpg',
-            'date' => '1999-03-14'
+            'date' => '1999-03-14',
+            'photo' => 'GhenadieBuza.jpeg',
+            'cv' => 'cv.doc'
         ]);
 
         $this->call([

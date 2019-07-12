@@ -30,18 +30,7 @@
     <div class="page-content edit-add container-fluid">
         <div class="row">
             <div class="col-md-12">
-
-{{--                <form class="panel panel-bordered">--}}
-                    <!-- form start -->
-{{--                    <form role="form"--}}
-{{--                          class="form-edit-add"--}}
-{{--                          action="{{route('candidate.update', $dataTypeContent->id)}}"--}}
-{{--                          method="POST" enctype="multipart/form-data">--}}
-                        <!-- PUT Method if we are editing -->
                 {!! Form::open(['action' => ['CandidateController@update', $dataTypeContent->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-{{--                    @if($edit)--}}
-{{--                        {{ method_field("PUT") }}--}}
-{{--                    @endif--}}
 
                     <!-- CSRF TOKEN -->
                         {{ csrf_field() }}
@@ -96,7 +85,8 @@
                                     @endif
                                 </div>
                             @endforeach
-
+                                <input id="file-5" name="cv" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+                                <input id="file-5" name="photo" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
                         </div><!-- panel-body -->
                     {{Form::hidden('_method','PUT')}}
                     {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
