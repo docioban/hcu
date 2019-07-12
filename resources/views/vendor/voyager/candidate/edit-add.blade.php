@@ -7,72 +7,46 @@
 
 @section('css')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <style>
-        /* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-}
+@stop
 
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
+@section('page_title', __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->display_name_singular)
 
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-    </style>
+@section('page_header')
+    <h1 class="page-title">
+        <i class="{{ $dataType->icon }}"></i>
+        {{ __('voyager::generic.'.($edit ? 'edit' : 'add')).' '.$dataType->display_name_singular }}
+    </h1>
+    <a href="{{ route('voyager.post.index', ['idCandidate' => $dataTypeContent->getKey()]) }}">
+        <h1 class="page-title">
+            <i class="{{ $dataType->icon }}"></i>
+            {{ __('voyager::generic.'.($edit ? 'edit' : 'add')).' Posts' }}
+        </h1>
+    </a>
+    @include('voyager::multilingual.language-selector')
 @stop
 
 @section('content')
-<div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Romana')">Româna</button>
-    <button class="tablinks" onclick="openCity(event, 'Rusa')">Rusă</button>
-</div>
-  
-<!-- Tab content -->
-<div id="Romana" class="tabcontent">
+    <img src="/storage/candidates/{{$dataTypeContent->photo}}" width="500" height="333" alt="sdfas"/>
     <div class="page-content edit-add container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="panel panel-bordered">
-                        <!-- form start -->
-                    <form role="form"
-                        class="form-edit-add"
-                        action="{{ $edit ? route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) : route('voyager.'.$dataType->slug.'.store') }}"
-                        method="POST" enctype="multipart/form-data" id="myform">
-                                
-                            <!-- PUT Method if we are editing -->
-                        @if($edit)
-                            {{ method_field("PUT") }}
-                        @endif
-    
-                        <!-- CSRF TOKEN -->
-                            {{ csrf_field() }}
-    
-                        <div class="panel-body ">
+
+{{--                <form class="panel panel-bordered">--}}
+                    <!-- form start -->
+{{--                    <form role="form"--}}
+{{--                          class="form-edit-add"--}}
+{{--                          action="{{route('candidate.update', $dataTypeContent->id)}}"--}}
+{{--                          method="POST" enctype="multipart/form-data">--}}
+                        <!-- PUT Method if we are editing -->
+                {!! Form::open(['action' => ['CandidateController@update', $dataTypeContent->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+{{--                    @if($edit)--}}
+{{--                        {{ method_field("PUT") }}--}}
+{{--                    @endif--}}
+
+                    <!-- CSRF TOKEN -->
+                        {{ csrf_field() }}
+
+                        <div class="panel-body">
 
                             @if (count($errors) > 0)
                                 <div class="alert alert-danger">
@@ -83,299 +57,162 @@
                                     </ul>
                                 </div>
                             @endif
-                            <!-- Adding / Editing -->   
+                        <!-- Adding / Editing -->
                             @php
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
-                                $posts = \App\Post::where('candidate_id', $dataTypeContent->id)->get()
                             @endphp
-                            {{-- @dd($dataType) --}}
-                            <div class="float-letf bd-success col-md-3">
-                                <img src="/storage/candidates/{{$dataTypeContent->photo}}" class="rounded-circle" width="300" height="250" alt="sdfas"/><br><br>
-                                <label class="control-label" for="name">Incarca CV</label>
-                                <input id="file-5" name="cv" class="file" type="file" multiple>
-                                <label class="control-label" for="name">Incarca o poza</label>
-                                <input id="file-5" name="photo" class="file" type="file" multiple>
-                            </div>
-                            <div class="floar-right bd-primary col-md-9">
-                                <div class="form-group @if($dataTypeContent->type == 'hidden') hidden @endif {{ $errors->has($dataTypeContent->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                    <div class="">
-                                        <div class="col-md-4">
-                                            <label class="control-label" for="name">Slug</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->slug}}">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="control-label" for="name">Name</label>
-                                            <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}"> 
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="control-label" for="name">Location</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->location}}">
-                                        </div>
-                                    </div><br><br><br><br>
-                                    <div>
-                                        <div class="col-md-4">
-                                            <label class="control-label" for="name">Starea civila</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->civil_status}}">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="control-label" for="name">Functia</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->function}}">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="control-label" for="name">Studii</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->studies}}">
-                                        </div>
-                                    </div><br><br><br><br>
-                                    <div class="col-md-4"><br><br><br><br></div>
-                                    <div class="col-md-4">
-                                        <label class="control-label" for="name">Data Nasterii</label>
-                                        <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}"> 
-                                    </div>     
-                                    <div class="col-md-4"><br><br><br><br></div>
+
+                            @foreach($dataTypeRows as $row)
+                            <!-- GET THE DISPLAY OPTIONS -->
+                                @php
+                                    $display_options = $row->details->display ?? NULL;
+                                    if ($dataTypeContent->{$row->field.'_'.($edit ? 'edit' : 'add')}) {
+                                        $dataTypeContent->{$row->field} = $dataTypeContent->{$row->field.'_'.($edit ? 'edit' : 'add')};
+                                    }
+                                @endphp
+                                @if (isset($row->details->legend) && isset($row->details->legend->text))
+                                    <legend class="text-{{ $row->details->legend->align ?? 'center' }}" style="background-color: {{ $row->details->legend->bgcolor ?? '#f0f0f0' }};padding: 5px;">{{ $row->details->legend->text }}</legend>
+                                @endif
+
+                                <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ $display_options->width ?? 12 }} {{ $errors->has($row->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
+                                    {{ $row->slugify }}
+                                    <label class="control-label" for="name">{{ $row->display_name }}</label>
+                                    @include('voyager::multilingual.input-hidden-bread-edit-add')
+                                    @if (isset($row->details->view))
+                                        @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => ($edit ? 'edit' : 'add')])
+                                    @elseif ($row->type == 'relationship')
+                                        @include('voyager::formfields.relationship', ['options' => $row->details])
+                                    @else
+                                        {!! app('voyager')->formField($row, $dataType, $dataTypeContent) !!}
+                                    @endif
+
+                                    @foreach (app('voyager')->afterFormFields($row, $dataType, $dataTypeContent) as $after)
+                                        {!! $after->handle($row, $dataType, $dataTypeContent) !!}
+                                    @endforeach
+                                    @if ($errors->has($row->field))
+                                        @foreach ($errors->get($row->field) as $error)
+                                            <span class="help-block">{{ $error }}</span>
+                                        @endforeach
+                                    @endif
                                 </div>
-                                <div>
-                                    <h3 align='center'>Posturi</h3>
-                                    @foreach($posts as $post)
-                                    <div class="form-group @if($post->type == 'hidden') hidden @endif col-md-12 {{ $errors->has($post->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                        <div class="border border-success">
-                                                <hr>
-                                            <div>
-                                                <div class="col-md-11" style="padding:0px">
-                                                    <input type="text" class="form-control" size="4" id="name" placeholder="{{$post->title}}">
-                                                </div>
-                                                <div class="col-md-1" align='right'>
-                                                    <img src="/storage/delete.png" width="30">
-                                                </div>
-                                            </div>
-                                            <div class="col text-decoration-none col-md-3" style="padding:0px">
-                                                <label class="control-label" for="name"><b>Limba </b></label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$post->language}}">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="control-label" for="name"><b>Tipul </b></label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$post->type}}">
-                                            </div><br><br><br><br><br>
-                                            <label class="control-label" for="name"><b>Subtitlul</b></label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$post->subtitle}}">
-                                            <label class="control-label" for="name"><b>Corpul</b></label>
-                                            {!! Form::textarea('mytextarea', '', ['placeholder' => $post->body, 'class' => 'form-control']) !!}
-                                        </div>
-                                    </div>@endforeach
-                                </div>
-                            </div>
-                                <div><hr>
-                                    <h3 align='center'>Adauga un post</h3>
-                                    <div class="form-group @if($post->type == 'hidden') hidden @endif col-md-12 {{ $errors->has($post->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                        <div class="border border-success">
-                                            <div class="col-md-12" style="padding:0px">
-                                                <label class="control-label" for="name"><b>Titlu </b></label>
-                                                <input type="text" class="form-control" size="4" id="name">
-                                            </div>
-                                            <div class="col text-decoration-none col-md-3" style="padding:0px">
-                                                <label class="control-label" for="name"><b>Limba </b></label>
-                                                <input type="text" class="form-control" id="name"">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="control-label" for="name"><b>Tipul </b></label>
-                                                <input type="text" class="form-control" id="name"">
-                                            </div><br><br><br><br><br><br>
-                                            <label class="control-label" for="name"><b>Subtitlul</b></label>
-                                            <input type="text" class="form-control" id="name"">
-                                            <label class="control-label" for="name"><b>Corpul</b></label>
-                                            {!! Form::textarea('mytextarea', '', ['class' => 'form-control']) !!}
-                                        </div>
-                                    </div>
-                                </div>
-                            {{-- </div> --}}
+                            @endforeach
+
                         </div><!-- panel-body -->
-                            
-                        <div class="panel-footer" align='right'>
-                            @section('submit-buttons')
-                                <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
-                            @stop
-                            @yield('submit-buttons')
-                        </div>
-                    </form>
+                    {{Form::hidden('_method','PUT')}}
+                    {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+
+{{--                        <div class="panel-footer">--}}
+{{--                            @section('submit-buttons')--}}
+{{--                                <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>--}}
+{{--                            @stop--}}
+{{--                            @yield('submit-buttons')--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
+                    {!! Form::close() !!}
+
+{{--                    <iframe id="form_target" name="form_target" style="display:none"></iframe>--}}
+{{--                    <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"--}}
+{{--                          enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">--}}
+{{--                        <input name="image" id="upload_file" type="file"--}}
+{{--                               onchange="$('#my_form').submit();this.value='';">--}}
+{{--                        <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">--}}
+{{--                        {{ csrf_field() }}--}}
+{{--                    </form>--}}
+
                 </div>
             </div>
         </div>
-    </div>  
-</div>
-<!-- Tab content -->
-<div id="Rusa" class="tabcontent">
-        <div class="page-content edit-add container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="panel panel-bordered">
-                            <!-- form start -->
-                        <form role="form"
-                            class="form-edit-add"
-                            action="{{ $edit ? route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) : route('voyager.'.$dataType->slug.'.store') }}"
-                            method="POST" enctype="multipart/form-data" id="myform">
-                                    
-                                <!-- PUT Method if we are editing -->
-                            @if($edit)
-                                {{ method_field("PUT") }}
-                            @endif
-        
-                            <!-- CSRF TOKEN -->
-                                {{ csrf_field() }}
-        
-                            <div class="panel-body ">
-    
-                                @if (count($errors) > 0)
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                <!-- Adding / Editing -->   
-                                @php
-                                    $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
-                                    $posts = \App\Post::where('candidate_id', $dataTypeContent->id)->get()
-                                @endphp
-                                {{-- @dd($dataType) --}}
-                                <div class="float-letf bd-success col-md-3">
-                                    <img src="/storage/candidates/{{$dataTypeContent->photo}}" class="rounded-circle" width="300" height="250" alt="sdfas"/><br><br>
-                                    <label class="control-label" for="name">Загрузить CV</label>
-                                    <input id="file-5" name="cv" class="file" type="file" multiple>
-                                    <label class="control-label" for="name">Загрузить фото</label>
-                                    <input id="file-5" name="photo" class="file" type="file" multiple>
-                                </div>
-                                <div class="floar-right bd-primary col-md-9">
-                                    <div class="form-group @if($dataTypeContent->type == 'hidden') hidden @endif {{ $errors->has($dataTypeContent->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                        <div class="">
-                                            <div class="col-md-4">
-                                                <label class="control-label" for="name">Слаг</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->slug}}">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="control-label" for="name">Имя</label>
-                                                <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}"> 
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="control-label" for="name">Место рождения</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->location}}">
-                                            </div>
-                                        </div><br><br><br><br>
-                                        <div>
-                                            <div class="col-md-4">
-                                                <label class="control-label" for="name">Гражданский статус</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->civil_status}}">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="control-label" for="name">Функция</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->function}}">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="control-label" for="name">Учёба</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->studies}}">
-                                            </div>
-                                        </div><br><br><br><br>
-                                        <div class="col-md-4"><br><br><br><br></div>
-                                        <div class="col-md-4">
-                                            <label class="control-label" for="name">Дата рождения</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}"> 
-                                        </div>     
-                                        <div class="col-md-4"><br><br><br><br></div>
-                                    </div>
-                                    <div>
-                                        <h3 align='center'>Посты</h3>
-                                        @foreach($posts as $post)
-                                        <div class="form-group @if($post->type == 'hidden') hidden @endif col-md-12 {{ $errors->has($post->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                            <div class="border border-success">
-                                                    <hr>
-                                                <div>
-                                                    <div class="col-md-11" style="padding:0px">
-                                                        <input type="text" class="form-control" size="4" id="name" placeholder="{{$post->title}}">
-                                                    </div>
-                                                    <div class="col-md-1" align='right'>
-                                                        <img src="/storage/delete.png" width="30">
-                                                    </div>
-                                                </div>
-                                                <div class="col text-decoration-none col-md-3" style="padding:0px">
-                                                    <label class="control-label" for="name"><b>Язык </b></label>
-                                                    <input type="text" class="form-control" id="name" placeholder="{{$post->language}}">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="control-label" for="name"><b>Тип </b></label>
-                                                    <input type="text" class="form-control" id="name" placeholder="{{$post->type}}">
-                                                </div><br><br><br><br><br>
-                                                <label class="control-label" for="name"><b>Подназвание</b></label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$post->subtitle}}">
-                                                <label class="control-label" for="name"><b>Корпус</b></label>
-                                                {!! Form::textarea('mytextarea', '', ['placeholder' => $post->body, 'class' => 'form-control']) !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                    <div><hr>
-                                        <h3 align='center'>Создай новый пост</h3>
-                                        <div class="form-group @if($post->type == 'hidden') hidden @endif col-md-12 {{ $errors->has($post->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                            <div class="border border-success">
-                                                <div class="col-md-12" style="padding:0px">
-                                                    <label class="control-label" for="name"><b>Название </b></label>
-                                                    <input type="text" class="form-control" size="4" id="name">
-                                                </div>
-                                                <div class="col text-decoration-none col-md-3" style="padding:0px">
-                                                    <label class="control-label" for="name"><b>Язык </b></label>
-                                                    <input type="text" class="form-control" id="name"">
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label class="control-label" for="name"><b>Тип </b></label>
-                                                    <input type="text" class="form-control" id="name"">
-                                                </div><br><br><br><br><br><br>
-                                                <label class="control-label" for="name"><b>Подназвание</b></label>
-                                                <input type="text" class="form-control" id="name"">
-                                                <label class="control-label" for="name"><b>Корпус</b></label>
-                                                {!! Form::textarea('mytextarea', '', ['class' => 'form-control']) !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- panel-body -->
-                                
-                            <div class="panel-footer" align='right'>
-                                @section('submit-buttons')
-                                    <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
-                                @stop
-                                @yield('submit-buttons')
-                            </div>
-                        </form>
-                    </div>
+    </div>
+
+    <div class="modal fade modal-danger" id="confirm_delete_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="voyager-warning"></i> {{ __('voyager::generic.are_you_sure') }}</h4>
+                </div>
+
+                <div class="modal-body">
+                    <h4>{{ __('voyager::generic.are_you_sure_delete') }} '<span class="confirm_delete_name"></span>'</h4>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('voyager::generic.cancel') }}</button>
+                    <button type="button" class="btn btn-danger" id="confirm_delete">{{ __('voyager::generic.delete_confirm') }}</button>
                 </div>
             </div>
-        </div>  
+        </div>
     </div>
-    </div></div></div>
-@endsection
+    <!-- End Delete File Modal -->
+@stop
 
 @section('javascript')
     <script>
-openCity(event, 'Rusa');
+        var params = {};
+        var $file;
 
-function openCity(evt, cityName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+        function deleteHandler(tag, isMulti) {
+            return function() {
+                $file = $(this).siblings(tag);
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+                params = {
+                    slug:   '{{ $dataType->slug }}',
+                    filename:  $file.data('file-name'),
+                    id:     $file.data('id'),
+                    field:  $file.parent().data('field-name'),
+                    multi: isMulti,
+                    _token: '{{ csrf_token() }}'
+                }
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+                $('.confirm_delete_name').text(params.filename);
+                $('#confirm_delete_modal').modal('show');
+            };
+        }
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " active";
-}
+        $('document').ready(function () {
+            $('.toggleswitch').bootstrapToggle();
+
+            //Init datepicker for date fields if data-datepicker attribute defined
+            //or if browser does not handle date inputs
+            $('.form-group input[type=date]').each(function (idx, elt) {
+                if (elt.type != 'date' || elt.hasAttribute('data-datepicker')) {
+                    elt.type = 'text';
+                    $(elt).datetimepicker($(elt).data('datepicker'));
+                }
+            });
+
+            @if ($isModelTranslatable)
+            $('.side-body').multilingual({"editing": true});
+            @endif
+
+            $('.side-body input[data-slug-origin]').each(function(i, el) {
+                $(el).slugify();
+            });
+
+            $('.form-group').on('click', '.remove-multi-image', deleteHandler('img', true));
+            $('.form-group').on('click', '.remove-single-image', deleteHandler('img', false));
+            $('.form-group').on('click', '.remove-multi-file', deleteHandler('a', true));
+            $('.form-group').on('click', '.remove-single-file', deleteHandler('a', false));
+
+            $('#confirm_delete').on('click', function(){
+                $.post('{{ route('voyager.media.remove') }}', params, function (response) {
+                    if ( response
+                        && response.data
+                        && response.data.status
+                        && response.data.status == 200 ) {
+
+                        toastr.success(response.data.message);
+                        $file.parent().fadeOut(300, function() { $(this).remove(); })
+                    } else {
+                        toastr.error("Error removing file.");
+                    }
+                });
+
+                $('#confirm_delete_modal').modal('hide');
+            });
+            $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 @stop
