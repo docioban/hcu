@@ -85,8 +85,7 @@
                                     @endif
                                 </div>
                             @endforeach
-                                <input id="file-5" name="cv" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
-                                <input id="file-5" name="photo" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+
                         </div><!-- panel-body -->
                     {{Form::hidden('_method','PUT')}}
                     {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
