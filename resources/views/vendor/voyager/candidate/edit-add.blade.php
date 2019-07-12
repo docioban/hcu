@@ -31,16 +31,17 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class="panel panel-bordered">
+{{--                <form class="panel panel-bordered">--}}
                     <!-- form start -->
-                    <form role="form"
-                          class="form-edit-add"
-                          action="{{ $edit ? route('voyager.'.$dataType->slug.'.update', $dataTypeContent->getKey()) : route('voyager.'.$dataType->slug.'.store') }}"
-                          method="POST" enctype="multipart/form-data">
+{{--                    <form role="form"--}}
+{{--                          class="form-edit-add"--}}
+{{--                          action="{{route('candidate.update', $dataTypeContent->id)}}"--}}
+{{--                          method="POST" enctype="multipart/form-data">--}}
                         <!-- PUT Method if we are editing -->
-                    @if($edit)
-                        {{ method_field("PUT") }}
-                    @endif
+                {!! Form::open(['action' => ['CandidateController@update', $dataTypeContent->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
+{{--                    @if($edit)--}}
+{{--                        {{ method_field("PUT") }}--}}
+{{--                    @endif--}}
 
                     <!-- CSRF TOKEN -->
                         {{ csrf_field() }}
@@ -97,23 +98,26 @@
                             @endforeach
 
                         </div><!-- panel-body -->
+                    {{Form::hidden('_method','PUT')}}
+                    {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 
-                        <div class="panel-footer">
-                            @section('submit-buttons')
-                                <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>
-                            @stop
-                            @yield('submit-buttons')
-                        </div>
-                    </form>
+{{--                        <div class="panel-footer">--}}
+{{--                            @section('submit-buttons')--}}
+{{--                                <button type="submit" class="btn btn-primary save">{{ __('voyager::generic.save') }}</button>--}}
+{{--                            @stop--}}
+{{--                            @yield('submit-buttons')--}}
+{{--                        </div>--}}
+{{--                    </form>--}}
+                    {!! Form::close() !!}
 
-                    <iframe id="form_target" name="form_target" style="display:none"></iframe>
-                    <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"
-                          enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">
-                        <input name="image" id="upload_file" type="file"
-                               onchange="$('#my_form').submit();this.value='';">
-                        <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">
-                        {{ csrf_field() }}
-                    </form>
+{{--                    <iframe id="form_target" name="form_target" style="display:none"></iframe>--}}
+{{--                    <form id="my_form" action="{{ route('voyager.upload') }}" target="form_target" method="post"--}}
+{{--                          enctype="multipart/form-data" style="width:0;height:0;overflow:hidden">--}}
+{{--                        <input name="image" id="upload_file" type="file"--}}
+{{--                               onchange="$('#my_form').submit();this.value='';">--}}
+{{--                        <input type="hidden" name="type_slug" id="type_slug" value="{{ $dataType->slug }}">--}}
+{{--                        {{ csrf_field() }}--}}
+{{--                    </form>--}}
 
                 </div>
             </div>
