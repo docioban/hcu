@@ -19,10 +19,12 @@ class Candidate extends Migration
             $table->unsignedBigInteger('constituency_id');
             $table->string('slug');
             $table->string('name');
+            $table->string('surname');
             $table->string('location');
             $table->string('civil_status');
             $table->string('function');
             $table->string('studies');
+            $table->string('photo');
             $table->date('date');
             $table->timestamps();
 

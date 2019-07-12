@@ -26,6 +26,7 @@
 @stop
 
 @section('content')
+    <img src="/storage/candidates/{{$dataTypeContent->photo}}" width="500" height="333" alt="sdfas"/>
     <div class="page-content edit-add container-fluid">
         <div class="row">
             <div class="col-md-12">
