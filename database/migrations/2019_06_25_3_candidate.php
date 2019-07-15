@@ -24,8 +24,9 @@ class Candidate extends Migration
             $table->string('civil_status');
             $table->string('function');
             $table->string('studies');
-            $table->string('photo');
             $table->date('date');
+            $table->string('photo');
+            $table->string('cv');
             $table->timestamps();
 
             $table->foreign('party_id')->references('id')->on('party');

@@ -13,11 +13,10 @@
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::resource('candidate', 'CandidateController')->only([
+        'update'
+    ]);
 });
-
-Route::resource('candidate', 'CandidateController')->only([
-    'update'
-]);
 
 Route::group([
     'prefix' => '{locale}',
