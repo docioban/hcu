@@ -205,7 +205,7 @@
                             <!-- CSRF TOKEN -->
                                 {{ csrf_field() }}
         
-                            <div class="panel-body ">
+                            {{-- <div class="panel-body "> --}}
     
                                 @if (count($errors) > 0)
                                     <div class="alert alert-danger">
@@ -315,7 +315,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                {{-- </div> --}}
                             {{-- </div><!-- panel-body --> --}}
                                 
                             <div align='right'>
@@ -329,7 +329,6 @@
             </div>
         </div>  
     </div>
-    </div></div></div>
 @endsection
 
 @section('javascript')
