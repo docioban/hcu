@@ -79,6 +79,7 @@
                             @endphp
                             {{-- @dd($dataType) --}}
                             <div class="float-letf bd-success col-md-3">
+{{--                                @dd($dataTypeContent->photo)--}}
                                 <img src="/storage/candidates/{{$dataTypeContent->photo}}" class="rounded-circle" width="300" height="250" alt="sdfas"/><br><br>
                                 <label class="control-label" for="name">Incarca CV</label>
                                 <input id="file-5" name="cv" class="file" type="file" multiple>
