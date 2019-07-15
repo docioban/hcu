@@ -81,47 +81,61 @@
                             <div class="float-letf bd-success col-md-3">
 {{--                                @dd($dataTypeContent->photo)--}}
                                 <img src="/storage/candidates/{{$dataTypeContent->photo}}" class="rounded-circle" width="300" height="250" alt="sdfas"/><br><br>
-                                <label class="control-label" for="name">Incarca CV</label>
+                                <label class="control-label">Incarca CV</label>
                                 <input id="file-5" name="cv" class="file" type="file" multiple>
-                                <label class="control-label" for="name">Incarca o poza</label>
+                                <label class="control-label">Incarca o poza</label>
                                 <input id="file-5" name="photo" class="file" type="file" multiple>
                             </div>
                             <div class="floar-right bd-primary col-md-9">
                                 <div class="form-group @if($dataTypeContent->type == 'hidden') hidden @endif {{ $errors->has($dataTypeContent->field) ? 'has-error' : '' }}" @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif>
-                                    <div class="">
+                                    <div>
                                         <div class="col-md-4">
-                                            <label class="control-label" for="name">Slug</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->slug}}">
+                                            <label class="control-label" for="name">Nume</label>
+                                            <input type="textarea" class="form-control" name="name" value="{{$dataTypeContent->name}}"> 
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="control-label" for="name">Name</label>
-                                            <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}"> 
+                                            <label class="control-label" for="surname">Prenume</label>
+                                            <input type="textarea" class="form-control" name="surname" value="{{$dataTypeContent->surname}}"> 
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="control-label" for="name">Location</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->location}}">
+                                            <label class="control-label" for="constituency_id">Circumscriptia</label>
+                                            <input type="text" class="form-control" name="constituency_id" value="{{$dataTypeContent->constituency_id}}"> 
                                         </div>
                                     </div><br><br><br><br>
                                     <div>
                                         <div class="col-md-4">
-                                            <label class="control-label" for="name">Starea civila</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->civil_status}}">
+                                            <label class="control-label" for="civil_status">Starea civila</label>
+                                            <input type="text" class="form-control" name="civil_status" value="{{$dataTypeContent->civil_status}}">
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="control-label" for="name">Functia</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->function}}">
+                                            <label class="control-label" for="function">Functia</label>
+                                            <input type="text" class="form-control" name="function" value="{{$dataTypeContent->function}}">
                                         </div>
                                         <div class="col-md-4">
-                                            <label class="control-label" for="name">Studii</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->studies}}">
+                                            <label class="control-label" for="studies">Studii</label>
+                                            <input type="text" class="form-control" name="studies" value="{{$dataTypeContent->studies}}">
                                         </div>
                                     </div><br><br><br><br>
-                                    <div class="col-md-4"><br><br><br><br></div>
-                                    <div class="col-md-4">
-                                        <label class="control-label" for="name">Data Nasterii</label>
-                                        <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}"> 
+                                    <div>    
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="date">Data Nasterii</label>
+                                            <input type="text" class="form-control" name="date" value="{{$dataTypeContent->date}}"> 
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="location">Locul nasterii</label>
+                                            <input type="text" class="form-control" name="location" value="{{$dataTypeContent->location}}">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="control-label" for="party_id">Partidul</label>
+                                            <input type="text" class="form-control" name="party_id" value="{{$dataTypeContent->party_id}}"> 
+                                        </div>
+                                    </div>
+                                    <div>
+                                        
+                                        <div class="col-md-4"><br><br><br><br></div>
+                                        <div class="col-md-4"><br><br><br><br></div>
+                                        <div class="col-md-4"><br><br><br><br></div>
                                     </div>     
-                                    <div class="col-md-4"><br><br><br><br></div>
                                 </div>
                                 <div>
                                     <h3 align='center'>Posturi</h3>
@@ -131,7 +145,7 @@
                                                 <hr>
                                             <div>
                                                 <div class="col-md-11" style="padding:0px">
-                                                    <input type="text" class="form-control" size="4" id="name" placeholder="{{$post->title}}">
+                                                    <input type="text" class="form-control" size="4" id="name" value="{{$post->title}}">
                                                 </div>
                                                 <div class="col-md-1" align='right'>
                                                     <img src="/storage/delete.png" width="30">
@@ -139,16 +153,16 @@
                                             </div>
                                             <div class="col text-decoration-none col-md-3" style="padding:0px">
                                                 <label class="control-label" for="name"><b>Limba </b></label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$post->language}}">
+                                                <input type="text" class="form-control" id="name" value="{{$post->language}}">
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name"><b>Tipul </b></label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$post->type}}">
+                                                <input type="text" class="form-control" id="name" value="{{$post->type}}">
                                             </div><br><br><br><br><br>
                                             <label class="control-label" for="name"><b>Subtitlul</b></label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$post->subtitle}}">
+                                            <input type="text" class="form-control" id="name" value="{{$post->subtitle}}">
                                             <label class="control-label" for="name"><b>Corpul</b></label>
-                                            {!! Form::textarea('mytextarea', '', ['placeholder' => $post->body, 'class' => 'form-control']) !!}
+                                            {!! Form::textarea('mytextarea', '', ['value' => $post->body, 'class' => 'form-control']) !!}
                                         </div>
                                     </div>@endforeach
                                 </div>
@@ -231,35 +245,35 @@
                                         <div class="">
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name">Слаг</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->slug}}">
+                                                <input type="text" class="form-control" id="name" value="{{$dataTypeContent->slug}}">
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name">Имя</label>
-                                                <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}"> 
+                                                <input type="textarea" class="form-control" id="name" value="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}"> 
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name">Место рождения</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->location}}">
+                                                <input type="text" class="form-control" id="name" value="{{$dataTypeContent->location}}">
                                             </div>
                                         </div><br><br><br><br>
                                         <div>
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name">Гражданский статус</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->civil_status}}">
+                                                <input type="text" class="form-control" id="name" value="{{$dataTypeContent->civil_status}}">
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name">Функция</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->function}}">
+                                                <input type="text" class="form-control" id="name" value="{{$dataTypeContent->function}}">
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name">Учёба</label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->studies}}">
+                                                <input type="text" class="form-control" id="name" value="{{$dataTypeContent->studies}}">
                                             </div>
                                         </div><br><br><br><br>
                                         <div class="col-md-4"><br><br><br><br></div>
                                         <div class="col-md-4">
                                             <label class="control-label" for="name">Дата рождения</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}"> 
+                                            <input type="text" class="form-control" id="name" value="{{$dataTypeContent->date}}"> 
                                         </div>     
                                         <div class="col-md-4"><br><br><br><br></div>
                                     </div>
@@ -271,7 +285,7 @@
                                                     <hr>
                                                 <div>
                                                     <div class="col-md-11" style="padding:0px">
-                                                        <input type="text" class="form-control" size="4" id="name" placeholder="{{$post->title}}">
+                                                        <input type="text" class="form-control" size="4" id="name" value="{{$post->title}}">
                                                     </div>
                                                     <div class="col-md-1" align='right'>
                                                         <img src="/storage/delete.png" width="30">
@@ -279,16 +293,16 @@
                                                 </div>
                                                 <div class="col text-decoration-none col-md-3" style="padding:0px">
                                                     <label class="control-label" for="name"><b>Язык </b></label>
-                                                    <input type="text" class="form-control" id="name" placeholder="{{$post->language}}">
+                                                    <input type="text" class="form-control" id="name" value="{{$post->language}}">
                                                 </div>
                                                 <div class="col-md-4">
                                                     <label class="control-label" for="name"><b>Тип </b></label>
-                                                    <input type="text" class="form-control" id="name" placeholder="{{$post->type}}">
+                                                    <input type="text" class="form-control" id="name" value="{{$post->type}}">
                                                 </div><br><br><br><br><br>
                                                 <label class="control-label" for="name"><b>Подназвание</b></label>
-                                                <input type="text" class="form-control" id="name" placeholder="{{$post->subtitle}}">
+                                                <input type="text" class="form-control" id="name" value="{{$post->subtitle}}">
                                                 <label class="control-label" for="name"><b>Корпус</b></label>
-                                                {!! Form::textarea('mytextarea', '', ['placeholder' => $post->body, 'class' => 'form-control']) !!}
+                                                {!! Form::textarea('mytextarea', '', ['value' => $post->body, 'class' => 'form-control']) !!}
                                             </div>
                                         </div>
                                     </div>
@@ -334,7 +348,7 @@
 
 @section('javascript')
     <script>
-openCity(event, 'Rusa');
+openCity(event, 'Romana');
 
 function openCity(evt, cityName) {
   // Declare all variables
