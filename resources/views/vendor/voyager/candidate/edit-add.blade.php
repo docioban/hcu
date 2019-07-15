@@ -51,7 +51,7 @@
     <button class="tablinks" onclick="openCity(event, 'Romana')">Româna</button>
     <button class="tablinks" onclick="openCity(event, 'Rusa')">Rusă</button>
 </div>
-
+  
 <!-- Tab content -->
 <div id="Romana" class="tabcontent">
     <div class="page-content edit-add container-fluid">
@@ -72,7 +72,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <!-- Adding / Editing -->
+                            <!-- Adding / Editing -->   
                             @php
                                 $dataTypeRows = $dataType->{($edit ? 'editRows' : 'addRows' )};
                                 $posts = \App\Post::where('candidate_id', $dataTypeContent->id)->get()
@@ -94,7 +94,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label" for="name">Name</label>
-                                            <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}">
+                                            <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}"> 
                                         </div>
                                         <div class="col-md-4">
                                             <label class="control-label" for="name">Location</label>
@@ -118,8 +118,8 @@
                                     <div class="col-md-4"><br><br><br><br></div>
                                     <div class="col-md-4">
                                         <label class="control-label" for="name">Data Nasterii</label>
-                                        <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}">
-                                    </div>
+                                        <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}"> 
+                                    </div>     
                                     <div class="col-md-4"><br><br><br><br></div>
                                 </div>
                                 <div>
@@ -186,8 +186,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </div> 
+</div> 
 <!-- Tab content -->
 <div id="Rusa" class="tabcontent">
         <div class="page-content edit-add container-fluid">
@@ -196,17 +196,17 @@
                     <div class="panel panel-bordered">
                             <!-- form start -->
                             {!! Form::open(['action' => ['CandidateController@update', $dataTypeContent->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
-
+                                    
                                 <!-- PUT Method if we are editing -->
                             @if($edit)
                                 {{ method_field("PUT") }}
                             @endif
-
+        
                             <!-- CSRF TOKEN -->
                                 {{ csrf_field() }}
-
-                            <div class="panel-body ">
-
+        
+                            {{-- <div class="panel-body "> --}}
+    
                                 @if (count($errors) > 0)
                                     <div class="alert alert-danger">
                                         <ul>
@@ -234,7 +234,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name">Имя</label>
-                                                <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}">
+                                                <input type="textarea" class="form-control" id="name" placeholder="{{$dataTypeContent->surname . ' ' . $dataTypeContent->name}}"> 
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="control-label" for="name">Место рождения</label>
@@ -258,8 +258,8 @@
                                         <div class="col-md-4"><br><br><br><br></div>
                                         <div class="col-md-4">
                                             <label class="control-label" for="name">Дата рождения</label>
-                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}">
-                                        </div>
+                                            <input type="text" class="form-control" id="name" placeholder="{{$dataTypeContent->date}}"> 
+                                        </div>     
                                         <div class="col-md-4"><br><br><br><br></div>
                                     </div>
                                     <div>
@@ -315,9 +315,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                {{-- </div> --}}
                             {{-- </div><!-- panel-body --> --}}
-
+                                
                             <div align='right'>
                                 {{Form::hidden('_method','PUT')}}
                                 {{Form::submit('Сохранить', ['class'=>'btn btn-primary'])}}
@@ -327,9 +327,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
-    </div></div></div>
 @endsection
 
 @section('javascript')
